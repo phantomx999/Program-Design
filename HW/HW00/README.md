@@ -137,12 +137,13 @@ What we want to be able to do, as instructors, is to publish code and other mate
 
 What we'll do is add a second remote target to your local repository. This means that you can pull from two different repositories into your local repo (note: you can only push to your own remote repo; we'll prevent you from pushing to the shared-upstream).
 
-From your own repository's directory, apply the following commands.
+From your own repository's directory, apply the following commands. Again, replace <student-umnid> with your UMN id and <clone-ref> with the repository reference we copied earlier.
 
+    % cd csci3081-<student-umnid>
     % git remote add upstream git@github.umn.edu:umn-csci-3081-F18/csci3081-shared-upstream.git
     % git remote -v
 
-**_What just happened?_** You added a remote target to your local repository. This will allow you to pull _support-code_ from the shared-upstream repository. Then, to verify it worked, you listed the remote targets that are currently available. You should see two sets of two: a fetch and push for origin (your repo) and a fetch and push for the shared-upstream repo.
+**_What just happened?_** After entering your local repository, you added a remote target to the local repository. This will allow you to pull _support-code_ from the shared-upstream repository. Then, to verify it worked, you listed the remote targets that are currently available. You should see two sets of two: a fetch and push for origin (your repo) and a fetch and push for the shared-upstream repo.
 
 Now, let's add the _support-code_ branch to our local repository before getting what we need from shared-upstream.
 
@@ -157,11 +158,9 @@ Now, get the student support code for Homework 0 by _pulling_ from the _support-
 
 **_What just happened?_** You downloaded the contents of the shared-upstream branch into your local support-code branch. Listing the contents of the current directory now shows the existence of the HW/ directory. Within that directory is HW00/ and within that subdirectory are the files main.cpp, makefile, and README.md (which is the same file you're reading right now, just now there's a copy on your machine).
 
-[OPTIONAL]
-
 We're now in the support-code branch. Branches are useful for keeping _sets_ or _versions_ of your codebase separate. This is commonly used to separate good, clean working production code (_master_) from development versions (_develop_) and versions that individual developers are working on to fix a bug or add a feature (e.g., _bug_34_typos_everywhere). 
 
-If you like, you can see the different by switching between the different branches, using the git checkout <branch_name> command.
+You can see the different by switching between the different branches, using the git checkout <branch_name> command.
 
     % git checkout master
 	% ls
@@ -171,7 +170,19 @@ Now, the file system represents the contents of the master branch, which we have
     % git checkout support-code
 	% ls
 	
-See that HW/ again exists. We'll be using these branches to our advantage in later homework and the project.
+See that HW/ again exists. We'll be using these branches to our advantage in later homework and the project. Return once more to the _master_ branch before continuing.
+
+    % git checkout master
+
+### Merging support-code into your official work branch
+
+When submitting your work, you'll be using the _master_ branch. We'll get more sophisticated with how and where you're do work later, but for now, _master_ branch is where it's at.
+
+    % git merge support-code
+	% git status
+	
+**_What just happened?_** You merged the file contents and commit history from _support-code_ to _master_. You can see that you are now ahead of _origin/master_ (i.e., the _master_ branch on your remote repo on Github) by several commits. We'll make some more before following git's advice and pushing our local commits.
+	
 
 ### Executing Homework Code and Pushing Results
 
@@ -194,9 +205,9 @@ displayed with `ls`.
     % ls
 
 **_What just happened?_** You ran the executable with `./HW00.out`, which
-generated 2 files _private.pvt_ and _shared.md_. In the next part of this homework,
-you will setup the _.gitignore_ file so that the former file is not added to the
-repo, but the latter is.
+generated 2 files _private.pvt_ and _shared.md_. 
+
+In the next part of this homework, you will setup the _.gitignore_ file so that the former file is not added to the repo, but the latter is.
 
 Before telling git what not to track, look at what it has been tracking.
 
@@ -227,13 +238,7 @@ file with that extension will not be tracked.
 into your repo, changes to the _.gitignore_ to ignore that file have no effect;
 it only applies to FUTURE checkins to the repository.
 
-Navigate back to the HW00 directory in your individual repository, confirming you are
-in the right place.
-
-    % cd ../..
-    % pwd
-
-If you are in the right place, using your favorite text editor, create a
+If you are still in the HW00 directory, using your favorite text editor, create a
 .gitignore file, e.g. `xemacs .gitignore &`, which will open xemacs in a new
 window. Edit the .gitignore file to remove your executable.
 
