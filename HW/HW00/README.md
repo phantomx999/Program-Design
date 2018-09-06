@@ -78,7 +78,7 @@ Under repository name, you must follow the following convention for the grading 
 
 Next, ensure that you select _private_ as the privacy setting. If you leave it as public, any other student can also see your repository (and potentially push code, delete code, etc.).
 
-We would recommend **NOT** initializing with a readme nor adding any .gitignore details at this time.
+Select the checkbox to 'Initialize this repository with a README'. There's no need to add any .gitignore details.
 
 When you select 'Create repository', your personal repository will be created on the Github.umn.edu server. Next, we'll clone this remote repository into a local repository, where you can do your work. We strongly recommend that you do **NOT** follow the instructions listed in this new repo. What we'll be doing is slightly different than how the typical repository would be built.
 
