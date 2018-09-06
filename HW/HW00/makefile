@@ -1,4 +1,4 @@
-# CSCI3081 Lab01 makefile
+# CSCI3081 HW00 makefile
 
 CC = g++
 DEBUG = -g
@@ -6,10 +6,10 @@ CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
 all: main.o
-	$(CC) $(LFLAGS) main.o -o lab01.out
+	$(CC) $(LFLAGS) main.o -o HW00.out
 
 main.o : main.cpp
 	$(CC) $(CFLAGS) main.cpp
 
 clean:
-	\rm *.o *.*~ lab01.out
+	\rm *.o *.*~ HW00.out
