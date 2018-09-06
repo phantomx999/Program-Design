@@ -12,7 +12,7 @@
 5. How to initiate and read automated testing of course assignments.
 
 _For additional information about Linux, see
-http://www-users.cs.umn.edu/~larson/repo-website-resources/website/examples/csresources/linux.html_
+http://www-users.cs.umn.edu/~larson/csci3081-website-resources/website/examples/csresources/linux.html_
 
 ### Configuring GitHub
 
@@ -74,7 +74,7 @@ Navigate to the umn-csci-3081-F18 organization page. If you are still in the csc
 
 The green button on the right says 'New'. Click on it. Here you'll create a new repository with your name.
 
-Under repository name, you must follow the following convention for the grading scripts to properly identify and grade your work: csci3081-<student-umnid>. For example, if your UMN id is doexx123, then your repository should be named csci3081-doexx123.
+Under repository name, you must follow the following convention for the grading scripts to properly identify and grade your work: repo-<student-umnid>. For example, if your UMN id is doexx123, then your repository should be named repo-doexx123.
 
 Next, ensure that you select _private_ as the privacy setting. If you leave it as public, any other student can also see your repository (and potentially push code, delete code, etc.).
 
@@ -118,7 +118,7 @@ https://help.github.com/enterprise/2.12/user/articles/generating-an-ssh-key/
 Now that you have an SSH key set up, you need to change the repository's remote
 URL from HTTPS to SSH. Again, replace **_&lt;student-umnid&gt;_** with your UMN id and **_&lt;clone-ref&gt;_** with the repository reference we copied earlier.
 
-    % cd csci3081-<student-umnid>
+    % cd repo-<student-umnid>
     % git remote set-url origin <clone-ref>
     % cd ..
 
@@ -139,7 +139,7 @@ What we'll do is add a second remote target to your local repository. This means
 
 From your own repository's directory, apply the following commands. Again, replace <student-umnid> with your UMN id and <clone-ref> with the repository reference we copied earlier.
 
-    % cd csci3081-<student-umnid>
+    % cd repo-<student-umnid>
     % git remote add upstream git@github.umn.edu:umn-csci-3081-F18/csci3081-shared-upstream.git
     % git remote -v
 
