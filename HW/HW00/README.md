@@ -74,7 +74,7 @@ Navigate to the umn-csci-3081-F18 organization page. If you are still in the csc
 
 The green button on the right says 'New'. Click on it. Here you'll create a new repository with your name.
 
-Under repository name, you must follow the following convention for the grading scripts to properly identify and grade your work: repo-<student-umnid>. For example, if your UMN id is doexx123, then your repository should be named repo-doexx123.
+Under repository name, you must follow the following convention for the grading scripts to properly identify and grade your work: repo-&lt;student-umnid&gt;. For example, if your UMN id is doexx123, then your repository should be named repo-doexx123.
 
 Next, ensure that you select _private_ as the privacy setting. If you leave it as public, any other student can also see your repository (and potentially push code, delete code, etc.).
 
@@ -137,7 +137,7 @@ What we want to be able to do, as instructors, is to publish code and other mate
 
 What we'll do is add a second remote target to your local repository. This means that you can pull from two different repositories into your local repo (note: you can only push to your own remote repo; we'll prevent you from pushing to the shared-upstream).
 
-From your own repository's directory, apply the following commands. Again, replace <student-umnid> with your UMN id and <clone-ref> with the repository reference we copied earlier.
+From your own repository's directory, apply the following commands. Again, replace &lt;student-umnid&gt; with your UMN id and &lt;clone-ref&gt; with the repository reference we copied earlier.
 
     % cd repo-<student-umnid>
     % git remote add upstream git@github.umn.edu:umn-csci-3081-F18/csci3081-shared-upstream.git
@@ -160,7 +160,7 @@ Now, get the student support code for Homework 0 by _pulling_ from the _support-
 
 We're now in the support-code branch. Branches are useful for keeping _sets_ or _versions_ of your codebase separate. This is commonly used to separate good, clean working production code (_master_) from development versions (_develop_) and versions that individual developers are working on to fix a bug or add a feature (e.g., _bug_34_typos_everywhere). 
 
-You can see the different by switching between the different branches, using the git checkout <branch_name> command.
+You can see the different by switching between the different branches, using the git checkout &gt;branch_name&lt; command.
 
     % git checkout master
 	% ls
