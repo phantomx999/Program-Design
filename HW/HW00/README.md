@@ -134,9 +134,16 @@ linked to your account for that machine.
 
 ### Setting a second remote: Getting the support-code
 
+What we want to be able to do, as instructors, is to publish code and other materials to aid you in your work throughout the semester. To do that most efficiently, and give you some Git practice along the way, we will be publishing updates to the csci3081-shared-upstream repository. The next step then is getting those changes and materials into your own repository.
 
+What we'll do is add a second remote target to your local repository. This means that you can pull from two different repositories into your local repo (note: you can only push to your own remote repo; we'll prevent you from pushing to the shared-upstream).
 
+From your own repository's directory, apply the following commands.
 
+    % git remote add upstream git@github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream
+    % git remote -v
+
+**_What just happened?_** You a remote target to your local repository. This will allow you to pull _support-code_ from the shared-upstream repository. Then, to verify it worked, you listed the remote targets that are currently available. You should see two sets of two: a fetch and push for origin (your repo) and a fetch and push for the shared-upstream repo.
 
 
 
