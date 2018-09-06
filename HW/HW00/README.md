@@ -28,8 +28,7 @@ This will establish if it is installed.
     % git config --global user.name "Your Name"
     % git config --global user.email your_email@umn.edu
 
-Note that your name appears between double quotes since it has spaces in
-it. Your email address doesn't, so it doesn't need to be in quotes. 
+In order to use git, it has to know what to call you in its history. These commands set the configuration to know what identification to use. Note that your name appears between double quotes since it has spaces in it. Your email address doesn't, so it doesn't need to be in quotes. [Note: If you use git for other accounts than your UMN account, you can remove the global tag (_--global_) to set the name and email for only this repository.]
 
 #### [OPTIONAL]
 
@@ -140,12 +139,39 @@ What we'll do is add a second remote target to your local repository. This means
 
 From your own repository's directory, apply the following commands.
 
-    % git remote add upstream git@github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream
+    % git remote add upstream git@github.umn.edu:umn-csci-3081-F18/csci3081-shared-upstream.git
     % git remote -v
 
-**_What just happened?_** You a remote target to your local repository. This will allow you to pull _support-code_ from the shared-upstream repository. Then, to verify it worked, you listed the remote targets that are currently available. You should see two sets of two: a fetch and push for origin (your repo) and a fetch and push for the shared-upstream repo.
+**_What just happened?_** You added a remote target to your local repository. This will allow you to pull _support-code_ from the shared-upstream repository. Then, to verify it worked, you listed the remote targets that are currently available. You should see two sets of two: a fetch and push for origin (your repo) and a fetch and push for the shared-upstream repo.
 
+Now, let's add the _support-code_ branch to our local repository before getting what we need from shared-upstream.
 
+    % git checkout -b support-code
+	
+**_What just happened?_** You did two things at once. First, you created a new local branch, called support-code. Second, you switch the branch you are in to the support-code branch. We'll show the difference in a moment.
+
+Now, get the student support code for Homework 0 by _pulling_ from the _support-code_ branch of the shared-upstream repository.
+
+    % git pull upstream support-code 	
+	% ls
+
+**_What just happened?_** You downloaded the contents of the shared-upstream branch into your local support-code branch. Listing the contents of the current directory now shows the existence of the HW/ directory. Within that directory is HW00/ and within that subdirectory are the files main.cpp, makefile, and README.md (which is the same file you're reading right now, just now there's a copy on your machine).
+
+[OPTIONAL]
+
+We're now in the support-code branch. Branches are useful for keeping _sets_ or _versions_ of your codebase separate. This is commonly used to separate good, clean working production code (_master_) from development versions (_develop_) and versions that individual developers are working on to fix a bug or add a feature (e.g., _bug_34_typos_everywhere). 
+
+If you like, you can see the different by switching between the different branches, using the git checkout <branch_name> command.
+
+    % git checkout master
+	% ls
+	
+Now, the file system represents the contents of the master branch, which we have not modified yet. Note that HW/ does not exist.
+
+    % git checkout support-code
+	% ls
+	
+See that HW/ again exists. We'll be using these branches to our advantage in later homework and the project.
 
 ### Executing Homework Code and Pushing Results
 
@@ -201,7 +227,7 @@ file with that extension will not be tracked.
 into your repo, changes to the _.gitignore_ to ignore that file have no effect;
 it only applies to FUTURE checkins to the repository.
 
-Navigate back to the top level of your individual repository, confirming you are
+Navigate back to the HW00 directory in your individual repository, confirming you are
 in the right place.
 
     % cd ../..
@@ -209,7 +235,7 @@ in the right place.
 
 If you are in the right place, using your favorite text editor, create a
 .gitignore file, e.g. `xemacs .gitignore &`, which will open xemacs in a new
-window. Edit the .gitignore file to remove your executable and build folders.
+window. Edit the .gitignore file to remove your executable.
 
 Add these lines to the file:
 
@@ -243,12 +269,12 @@ changes, they will be copied to the repo on the server. The difference between
 _commit_ and _push_ is what separates git from centralized version control
 systems.
 
-    % git add *
-    % git commit -m "Adding HW00 results."
+    % git add -A
+    % git commit -m "add(HW00): Adding HW00 results."
     % git push
 
-**_What just happened?_** All of the tracked changes were stages with `git add
-*`. You could have only staged certain files by replacing _*_ with the
+**_What just happened?_** All of the tracked changes were staged with `git add
+-A`. You could have only staged certain files by replacing _-A_ with the
 filename. Note that `add` does not mean you are adding a new file or a new
 directory, it means you are adding a change (any change). Those staged changes
 were committed to your local repository and tagged with the message that follows
