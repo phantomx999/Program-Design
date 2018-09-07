@@ -70,7 +70,7 @@ Take some time and poke around in this repository, especially if you have never 
 
 This can be done in two ways. If you'd like to create the repository on your own in command line, you are free to do so. The TAs may be able to help. These instructions will show the steps for the other method: creating the repository through the Github interface.
 
-Navigate to the umn-csci-3081-F18 organization page. If you are still in the csci3081-shared-upstream repository, you can click on the organization name at the top of the page, just under the black header bar. Otherwise, you'll find it in your profile (click on the icon on the top right and select _Your Profile_).
+Navigate to the umn-csci-3081-F18 (https://github.umn.edu/orgs/umn-csci-3081-F18) organization page. If you are still in the csci3081-shared-upstream repository, you can click on the organization name at the top of the page, just under the black header bar. Otherwise, you'll find it in your profile (click on the icon on the top right and select _Your Profile_).
 
 The green button on the right says 'New'. Click on it. Here you'll create a new repository with your name.
 
