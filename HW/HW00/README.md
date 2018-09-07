@@ -153,7 +153,7 @@ Now, let's add the _support-code_ branch to our local repository before getting 
 
 Now, get the student support code for Homework 0 by _pulling_ from the _support-code_ branch of the shared-upstream repository.
 
-    % git pull upstream support-code 	
+    % git pull upstream support-code --allow-unrelated-histories
 	% ls
 
 **_What just happened?_** You downloaded the contents of the shared-upstream branch into your local support-code branch. Listing the contents of the current directory now shows the existence of the HW/ directory. Within that directory is HW00/ and within that subdirectory are the files main.cpp, makefile, and README.md (which is the same file you're reading right now, just now there's a copy on your machine).
