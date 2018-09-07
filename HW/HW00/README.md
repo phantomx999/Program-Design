@@ -140,7 +140,10 @@ What we'll do is add a second remote target to your local repository. This means
 From your own repository's directory, apply the following commands. Again, replace &lt;student-umnid&gt; with your UMN id and &lt;clone-ref&gt; with the repository reference we copied earlier.
 
     % cd repo-<student-umnid>
+    # If you completed the ssh key section above
     % git remote add upstream git@github.umn.edu:umn-csci-3081-F18/csci3081-shared-upstream.git
+    # If you did not complete the ssh key section above and are using username/password
+    % git remote add upstream https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream.git
     % git remote -v
 
 **_What just happened?_** After entering your local repository, you added a remote target to the local repository. This will allow you to pull _support-code_ from the shared-upstream repository. Then, to verify it worked, you listed the remote targets that are currently available. You should see two sets of two: a fetch and push for origin (your repo) and a fetch and push for the shared-upstream repo.
@@ -311,7 +314,7 @@ merge conflicts.
 
 > ALWAYS, ALWAYS, ALWAYS perform a _pull_ before making changes to a
 > repository. Each time you sit down to work on a homework or project iteration, it
-> would be an excellent habit to perform a _pull_ the support code.
+> would be an excellent habit to perform a _pull_ of the support code.
 
 THIS HOMEWORK IS COMPLETE.
 
