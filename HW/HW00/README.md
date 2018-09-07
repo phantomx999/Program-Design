@@ -82,7 +82,7 @@ Select the checkbox to 'Initialize this repository with a README'. There's no ne
 
 When you select 'Create repository', your personal repository will be created on the Github.umn.edu server. Next, we'll clone this remote repository into a local repository, where you can do your work. We strongly recommend that you do **NOT** follow the instructions listed in this new repo. What we'll be doing is slightly different than how the typical repository would be built.
 
-Under 'Quick setup', ensure that HTTPS is selected and click on the copy icon on the far right. This will copy the repository reference to the clipboard. Now, we can clone this repo from our remote Github instance to your local workspace (on the CSELabs machine).
+Under 'Clone or Downlaod', ensure that HTTPS is selected and click on the copy icon on the far right. This will copy the repository reference to the clipboard. Now, we can clone this repo from our remote Github instance to your local workspace (on the CSELabs machine).
 
 ### Cloning your personal repository
 
