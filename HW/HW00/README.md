@@ -156,7 +156,7 @@ If you did not complete the ssh key section above and are using username/passwor
 
 * Note: If you get an error saying that the remote already exists, you can remove it and add again with the following command:
 
-	% git remote rm upstream
+		% git remote rm upstream
 
 
 In either case, apply this command next.
