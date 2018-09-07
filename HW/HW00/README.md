@@ -218,7 +218,7 @@ the contents of the file right now.
 
 **_What just happened?_** You made _HW00_ your working directory with `cd`. You
 executed the makefile (named _makefile_) with `make`, which created object files
-with the extension _.o_, and the executable _lab01.out_. These files are
+with the extension _.o_, and the executable _HW00.out_. These files are
 displayed with `ls`.
 
     % ./HW00.out
