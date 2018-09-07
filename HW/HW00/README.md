@@ -114,6 +114,9 @@ remote repository is to set up an SSH key for your CSE labs account.
 
 This can be done by following the instructions listed on this page -
 https://help.github.com/enterprise/2.12/user/articles/generating-an-ssh-key/
+Unfortunately xclip is not installed on the lab machines, so you can copy the results from the command line after typing out the public key as follows:
+
+    % cat ~\.ssh\id_rsa.pub
 
 Now that you have an SSH key set up, you need to change the repository's remote
 URL from HTTPS to SSH. Again, replace **_&lt;student-umnid&gt;_** with your UMN id and **_&lt;clone-ref&gt;_** with the repository reference we copied earlier.
