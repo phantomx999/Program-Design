@@ -28,7 +28,7 @@ This will establish if it is installed.
     % git config --global user.name "Your Name"
     % git config --global user.email your_email@umn.edu
 
-In order to use git, it has to know what to call you in its history. These commands set the configuration to know what identification to use. Note that your name appears between double quotes since it has spaces in it. Your email address doesn't, so it doesn't need to be in quotes. [Note: If you use git for other accounts than your UMN account, you can remove the global tag (_--global_) to set the name and email for only this repository.]
+In order to use git, it has to know what to call you in its history. These commands set the configuration to know what identification to use. Note that your name appears between double quotes since it has spaces in it. Your email address doesn't, so it doesn't need to be in quotes. [Note: If you use git for other accounts than your UMN account, you can remove the global tag (_--global_) to set the name and email for only this repository, but you must be within a git repo to do so.]
 
 #### [OPTIONAL]
 
@@ -99,7 +99,7 @@ directory. Replace (i.e. paste, typically Shift+Insert in a terminal) **_&lt;clo
 
 **_What just happened?_** You made a new directory (i.e. folder) in your account
 with `mkdir`. You changed that to your working directory with `cd`. You copied
-the shared-upstream repo locally to your machine with `clone`. You listed the contents of
+the repo locally to your machine with `clone`. You listed the contents of
 the working directory with `ls`, which should list the newly created directory
 with the name of the repository which it contains. These directories function
 exactly like all other linux directories. There are hidden files that track
