@@ -154,6 +154,11 @@ If you did not complete the ssh key section above and are using username/passwor
 
     % git remote add upstream https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream.git
 
+* Note: If you get an error saying that the remote already exists, you can remove it and add again with the following command:
+
+	% git remote rm upstream
+
+
 In either case, apply this command next.
 
     % git remote -v
