@@ -114,7 +114,8 @@ remote repository is to set up an SSH key for your CSE labs account.
 
 This can be done by following the instructions listed on this page -
 https://help.github.com/enterprise/2.12/user/articles/generating-an-ssh-key/
-Unfortunately xclip is not installed on the lab machines, so you can copy the results from the command line after typing out the public key as follows:
+
+You will then need to add the key to your github profile from the documentation (https://help.github.com/enterprise/2.12/user/articles/adding-a-new-ssh-key-to-your-github-account/).  Unfortunately xclip is not installed on the lab machines, so you can copy the results from the command line after typing out the public key as follows:
 
     % cat ~\.ssh\id_rsa.pub
 
