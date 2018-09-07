@@ -117,7 +117,7 @@ https://help.github.com/enterprise/2.12/user/articles/generating-an-ssh-key/
 
 You will then need to add the key to your github profile from the documentation (https://help.github.com/enterprise/2.12/user/articles/adding-a-new-ssh-key-to-your-github-account/).  Unfortunately xclip is not installed on the lab machines, so you can copy the results from the command line after typing out the public key as follows:
 
-    % cat ~\.ssh\id_rsa.pub
+    % cat ~/.ssh/id_rsa.pub
 
 Now that you have an SSH key set up, you need to change the repository's remote
 URL from HTTPS to SSH. Again, replace **_&lt;student-umnid&gt;_** with your UMN id and **_&lt;clone-ref&gt;_** with the repository reference we copied earlier.
