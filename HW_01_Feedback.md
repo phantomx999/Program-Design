@@ -1,6 +1,6 @@
 ### Feedback for Homework 01
 
-Run on September 11, 13:14:55 PM.
+Run on September 11, 13:48:03 PM.
 
 
 #### System Files and HW Directory Structure
@@ -45,20 +45,20 @@ Run on September 11, 13:14:55 PM.
 
 #### .gitignore set up properly
 
-+ Pass: Check that no files with extension ".o" exist in directory "."
++ Fail: Check that no files with extension ".o" exist in directory "."
 
-+ Pass: Check that no files with extension ".out" exist in directory "."
+ "point2.o" found
+
++ Skip: Check that no files with extension ".out" exist in directory "."
+
+  This test was not run because of an earlier failing test.
 
 
 #### Test that code compiles and creates the exectuable
 
-+ Fail: Check that make compiles.
++ Skip: Check that make compiles.
 
-    Make compile fails with errors:.
-make: *** No rule to make target 'point2.cc', needed by 'point2.o'.  Stop.
-
-
-
+  This test was not run because of an earlier failing test.
 
 + Skip: Check that file "point2_unittest" exists.
 
