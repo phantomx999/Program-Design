@@ -75,7 +75,7 @@ The most vague part of this interface is the method _DistanceBetween()_. Notice 
 
 The nominal distance between two points is given by the formula
 
-![Alt][1]
+![](https://github.umn.edu/umn-csci-3081-F18/csci3081-instructors/blob/support-code/HW/HW01/distance_formula.png)
 
 The method should return the distance between the two points: the point with which the method is invoked and the point which is passed as an argument.
 	
