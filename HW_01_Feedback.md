@@ -1,6 +1,6 @@
 ### Feedback for Homework 01
 
-Run on September 11, 13:48:03 PM.
+Run on September 11, 13:52:57 PM.
 
 
 #### System Files and HW Directory Structure
@@ -45,30 +45,28 @@ Run on September 11, 13:48:03 PM.
 
 #### .gitignore set up properly
 
-+ Fail: Check that no files with extension ".o" exist in directory "."
++ Pass: Check that no files with extension ".o" exist in directory "."
 
- "point2.o" found
-
-+ Skip: Check that no files with extension ".out" exist in directory "."
-
-  This test was not run because of an earlier failing test.
++ Pass: Check that no files with extension ".out" exist in directory "."
 
 
 #### Test that code compiles and creates the exectuable
 
-+ Skip: Check that make compiles.
++ Pass: Check that make compiles.
 
-  This test was not run because of an earlier failing test.
+    Make compiles with no errors.
 
-+ Skip: Check that file "point2_unittest" exists.
 
-  This test was not run because of an earlier failing test.
 
-+ Skip: Check that a GoogleTest test passes.
++ Pass: Check that file "point2_unittest" exists.
 
-  This test was not run because of an earlier failing test.
++ Pass: Check that a GoogleTest test passes.
+    passes the test: Point2Test.DistBtwnBothPositive.
 
-+ Skip: Check that a GoogleTest test passes.
 
-  This test was not run because of an earlier failing test.
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: Point2Test.DistBtwnInverses.
+
+
 
