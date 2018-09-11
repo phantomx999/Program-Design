@@ -95,25 +95,25 @@ Build the executable using the makefile
 **_What just happened?_** You made _HW/HW01_ your working directory with `cd`. You
 executed the makefile (named _makefile_) with `make`, which created the executable _hw01.out_. 
 
-    % ./HW01.out
+    % ./hw01.out
 
-**_What just happened?_** You ran the executable with `./HW01.out`.
+**_What just happened?_** You ran the executable with `./hw01.out`.
 
 Did the output match your expected results? If so, you are ready to push your changes to your remote repository for automated feedback. If not, debug your program locally until it is working properly.
 
 ### [OPTIONAL] Use the Google Test framework to verify your programs correctness
 
-You may or may not have noticed another directory that was downloaded when you pulled the latest updates from the shared-upstream. The googletest directory includes a variety of files which enables you to build the google test framework and utilize it to execute unit tests against your codebase. These tests are helpful in ensuring that your code is working as expected. This directory, in conjunction with the makefile.grader and point2_unittest.cc file, can be used to evaluate your program locally, just as the grading script will do on the grading server.
+You may or may not have noticed another directory that was downloaded when you pulled the latest updates from the shared-upstream. The googletest directory includes a variety of files which enables you to build the google test framework and utilize it to execute unit tests against your codebase. These tests are helpful in ensuring that your code is working as expected. This directory, in conjunction with the Makefile.grader and point2_unittest.cc file, can be used to evaluate your program locally, just as the grading script will do on the grading server.
 
 If you wish, you can make use of the framework now. To do so, you need to merely replace the existing makefile with the grader version.
 
-    % mv makefile makefile.student
+    % mv Makefile Makefile.student
 	
-**_What just happened?_** renamed the makefile to makefile.student. This isn't strictly necessary, but it is nice to keep a copy of the original makefile in case you'd like to revert back to it.
+**_What just happened?_** renamed the Makefile as Makefile.student. This isn't strictly necessary, but it is nice to keep a copy of the original makefile in case you'd like to revert back to it.
 
-    % cp makefile.grader makefile
+    % cp Makefile.grader Makefile
 	
-**_What just happened?_** renamed makefile.grader to makefile to allow it to be used when _make_ is executed. Again, we could have moved/renamed the file, but let's keep a copy around.
+**_What just happened?_** renamed Makefile.grader to Makefile to allow it to be used when _make_ is executed. Again, we could have moved/renamed the file, but let's keep a copy around.
 
     % make
 
