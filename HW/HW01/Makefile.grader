@@ -17,10 +17,9 @@
 
 #  . = HW/HW01/
 #  .. = HW/
-#  ../.. = ?
-#  ../../googletest
+#  ../googletest
 
-GTEST_DIR = ../../googletest
+GTEST_DIR = ../googletest
 
 # Where to find user code.
 USER_DIR = .
