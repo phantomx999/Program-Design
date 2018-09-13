@@ -17,7 +17,6 @@ Point2::~Point2(){
 
 }
 
-//might have to put these above constructors?
 void Point2::setX(float x){
 	x_ = x;
 }
