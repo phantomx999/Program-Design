@@ -20,7 +20,7 @@ int main() {
   Point2 pPI45(sqrt(2)/2, sqrt(2)/2);
   
   Point2 p_a(3.0, 5.0), p_b(4.0, 4.0);
-  
+  std::cout << "p11 coordinates = (" << p11.getX() << " , " << p11.getY() << ")" << std::endl;
   std::cout << "(1,1) to (2,1) is " << p11.DistanceBetween(p21) << std::endl;
   std::cout << "(2,1) to (1,2) is " << p21.DistanceBetween(p12) << std::endl;
   std::cout << "(0,0) to (sqrt(2)/2, sqrt(2)/2) is " << p00.DistanceBetween(pPI45) << std::endl;

@@ -2,3 +2,7 @@
 *.out
 *.a
 point2_unittest
+*.md
+*.swp
+*.student
+
