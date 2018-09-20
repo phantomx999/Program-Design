@@ -127,7 +127,7 @@ Place this new target at the **_top_** of your Makefile, so that it is the defau
 
 ~~~~
 MyDuckApplication: Duck.o MallardDuck.o DecoyDuck.o RubberDuck.o QuackBehavior.o MuteQuack.o Quack.o Squeak.o main.o
-	g++ -c Duck.cpp
+	g++ $^ -o $@
 ~~~~
 
 Now, let's run make to build our application.
