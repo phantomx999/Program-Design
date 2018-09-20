@@ -12,7 +12,7 @@
 5. How to initiate and read automated testing of course assignments.
 
 _For additional information about Linux, see
-http://www-users.cs.umn.edu/~larson/csci3081-website-resources/website/examples/csresources/linux.html_
+https://www-users.cs.umn.edu/~larson/repo-website-resources/website/examples/csresources/linux.html
 
 ### Configuring GitHub
 
