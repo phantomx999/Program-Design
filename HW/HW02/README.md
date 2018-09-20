@@ -218,7 +218,7 @@ Making sure no additional files are being pushed.
 
     $ git status
 
-This should list all the files that have changed and/or are untracked. If other files are also listed as being ready to stage for commit, you may need to update your .gitignore to make sure we don't push files that we shouldn't be committing. Once you are ready to commit 'MyDuckApplication', 'Squeak.cpp', continue to the next section.
+This should list all the files that have changed and/or are untracked. If other files are also listed as being ready to stage for commit, you may need to update your .gitignore to make sure we don't push those files(*.o,MyDuckApplication).
 
 ### Add Changes to Repo both Locally and on the Server
 
