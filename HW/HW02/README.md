@@ -43,6 +43,23 @@ It is recommended that you use a merge tool to help you handle these conflicts. 
 
 ### What's in HW/HW02?
 
+This file:
+
+ - README.md
+
+Other files to be used and not modified:
+
+ - DecoyDuck.h/.cpp
+ - Duck.h/.cpp
+ - main.cpp
+ - MallardDuck.h/.cpp
+ - MuteQuack.h/.cpp
+ - Quack.h/.cpp
+ - QuackBehavior.h/.cpp
+ - RubberDuck.h/.cpp
+ - Squeak.h/.cpp
+
+Review these files, especially if you're looking for more examples of how the "has-a" relationship works, handling pointers and using delete, or just general C++ class syntax.
 
 ### Getting started with Makefile
 
