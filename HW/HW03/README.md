@@ -47,10 +47,10 @@ This file:
 
 Other files to be used and modified IF NECESSARY:
 
- - Date.h/.cpp
+ - Date.h/.cc
  - Debug.h
- - Exceptions.h/.cpp
- - main.cpp
+ - Exceptions.h/.cc
+ - main.cc
  - Makefile
 
 ### Debugging with GDB
@@ -96,7 +96,7 @@ _**NOTE**_ Wouldn't it have been nice if the original developer had used a macro
     ... A set of Dates ...
 
    Program received signal SIGSEGV, Segmentation fault.
-   0x0000000000401349 in doInterestingThing (yr=1998) at main.cpp:21
+   0x0000000000401349 in doInterestingThing (yr=1998) at main.cc:21
    21        *array_len = 4;
     ````
 
@@ -105,19 +105,19 @@ In this case, the line number causing the error is provided. If the location is 
     ````
     (gdb) bt
 
-    #0  0x0000000000401349 in doInterestingThing (yr=1998) at main.cpp:21
-    #1  0x00000000004018bc in main () at main.cpp:54
+    #0  0x0000000000401349 in doInterestingThing (yr=1998) at main.cc:21
+    #1  0x00000000004018bc in main () at main.cc:54
     ````
 
-The backtrace shows that execution stopped in the method _doInterestingThing()_. This method was called from _main()_ on line 54 of _main.cpp_.
+The backtrace shows that execution stopped in the method _doInterestingThing()_. This method was called from _main()_ on line 54 of _main.cc_.
 
-The above backtrace indicates that the error happened on line 21 of _main.cpp_. Edit the file, and look at line 21. Why is this causing an error?
+The above backtrace indicates that the error happened on line 21 of _main.cc_. Edit the file, and look at line 21. Why is this causing an error?
 
-Fix this error by modifying the code in _main.cpp_. Recompile _date_ with _make_, and run the program again.
+Fix this error by modifying the code in _main.cc_. Recompile _date_ with _make_, and run the program again.
 
 There are several causes of "Segmentation faults" in this program. Use _gdb_ to help to identify and fix each issue until it runs correctly (see step 7). You might find the commands _up_ and _print_ particularly useful.
 
-8. When your program is running correctly, running should output the following:
+8. When your program is running correctly, running the executable should output the following:
     ````
     ... A set of Dates ...
     default date is: January 1, 1900
@@ -149,7 +149,7 @@ Making sure no additional files are being pushed.
 
     $ git status
 
-This should list all the files that have changed and/or are untracked. If other files are also listed as being ready to stage for commit, you may need to update your .gitignore to make sure we don't push those files(*.o,MyDuckApplication).
+This should list all the files that have changed and/or are untracked. If other files are also listed as being ready to stage for commit, you may need to update your .gitignore to make sure we don't push those files(*.o,executables).
 
 ### Add Changes to Repo both Locally and on the Server
 
