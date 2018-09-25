@@ -83,6 +83,13 @@ And then replace the compile flags in the compile targets (_Date.o_, _Exceptions
 
 _**NOTE**_ Wouldn't it have been nice if the original developer had used a macro? You would have only needed to add -g to the CXXFLAGS Macro definition, instead of having to do these two things.
 
+Now, recreate the executable, with the debugging flags used this time.
+
+    ````
+	$ make clean
+	$ make
+	````
+
 4. Start a debugging session on an executable file by typing _gdb <executable>_
     ````
     $ gdb date
