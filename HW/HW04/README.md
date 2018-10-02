@@ -40,7 +40,7 @@ Notice that not all of the tests passed. This is good! It means you found errors
 
 A test might be independent of all other tests in which you instantiate the needed objects in the body of the test. But if you have a lot of tests that use the same objects, it will probably be more efficient to use a _Test Fixture_.
 
-Let's look a little closer at one of these _Test Fixtures_:
+Let's look a little closer at one of these test fixtures:
 
 ```
 TEST_F(DateTest, DaysBetweenTests) {
@@ -50,7 +50,7 @@ TEST_F(DateTest, DaysBetweenTests) {
 }
 ```
 
-Here we see the test we've named _DaysBetweenTests_ that is part of a set of tests for _DateTest_ (called a _Fixture_ in Google Test). Test fixtures imply using a class built for these tests. In this case, that is the _DateTest_ class at the top of the unit test file. 
+Here we see the test named _DaysBetweenTests_ that is part of a set of tests for _DateTest_ (called a _Fixture_ in Google Test). Test fixtures imply using a class built for these tests. In this case, that is the _DateTest_ class at the top of the unit test file. 
 
 Notice the syntax of _DateTest_:
 - The name _DateTest_ is the first parameter of all the _TEST_F_ tests.
@@ -63,9 +63,9 @@ For any given test statement, the _EXPECT_EQ_ compares the 2 passed-in parameter
 
 >HINT: When you write tests for the project in iteration 2, you will find it convenient to overload operators (e.g. ==, <, >, ...) to compare class objects. For example, rather than having sevearl EXPECT_EQ statements to test individual data member values in a class, we could define `operator==` and compare the objects directly!
 
-Notice that this test consists of multiple statements to test a variety of input to the method. Within the test, we aren't seeing the instantiation of first_day or last_day, as this is in the _SetUp()_ of _DateTest_, as mentioned above. 
+Notice that this test consists of multiple statements to test a variety of input to the method. Within the test, we aren't seeing the instantiation of _first_day_ or _last_day_, as this is in the _SetUp()_ of _DateTest_, as mentioned above. 
 
-One thing to note is `<< "Some message"`, which can be beneficial to add when executing multiple statements within a test. This will tell the user of your tests exactly which of the lines has failed.
+One thing to note is `<< "Some message"` to the right of the _EXPECT_XX_ calls. These messages can be beneficial to add when executing multiple statements within a test. This will tell the tester exactly which of the lines has failed.
 
 
 #### Things to Think About
@@ -76,7 +76,7 @@ One thing to note is `<< "Some message"`, which can be beneficial to add when ex
 
 - **Naming**: Use informative names for your tests. These appear in the test report and will help the user to identify which test/method is failing.
 
-- **Comments**: If you have multiple assertions in a single test, then add comments to the assertions/expect fail using `<<` after the comparison.
+- **Messages**: If you have multiple assertions in a single test, then add messages to the assertions/expect fail using `<<` after the comparison.
 
 - **Scope**:  Each test should only test a single method/function. Furthermore, if there is a lot of functionality within that function, it might be appropriate to separate into different tests.
 
@@ -89,24 +89,24 @@ One thing to note is `<< "Some message"`, which can be beneficial to add when ex
 
 Write thorough tests for the Date class. This includes tests which will catch each of the errors injected into the _date.wrong.cc_ file you have been given, but also more comprehensive testing that will catch other errors within the class.
 
-Remember that there are errors in the code and that is okay! Your task today is not to fix the errors, only to find them.
+Remember that there are errors in the code and that is okay! Your task today is _not to fix the errors_, only to find them.
 
-You have been given the implementation for date.cc, however you do not NEED this file. You should be able to develop your tests from the header alone (and possibly looking at main.cc for some usage examples). What the class can do should be defined in the header, as that is what other teams are relying upon for their own work. We should be (as Google recommends) testing our public API, as represented in our header. 
+You have been given the implementation for _date.cc_, however you do not NEED this file. You should be able to develop your tests from the header alone (and possibly looking at _main.cc_ for some usage examples). What the class can do should be defined in the header, as that is what other teams are relying upon for their own work. We should be (as Google recommends) testing our _public API_, as represented in our header. 
 
 
 ### How will you be graded
 
 How good are the tests? To answer this question, we will use [mutation analysis](https://en.wikipedia.org/wiki/Mutation_testing).
 
-First, your tests will be run against the correct implementation of the _date.cc_ file (given to you as _date.correct.cc_). Your tests should all PASS. This is worth 50% of the homework grade.
+First, your tests will be run against the correct implementation of the _date.cc_ file (given to you as _date.correct.cc_). Your tests should all PASS. This is worth 50% of the homework grade. Your tests shouldn't fail if there's nothing wrong!
 
 Then, your tests will be run against a set of mutants. Each mutant has one small defect included. For example, one of the documented errors in date.wrong.cc is "Line 71: uses + instead of -". Rather than running your tests on _date.wrong.cc_, we will create a version of _date.cc_ which is correct EXCEPT for this one error. If your tests run and **ANY** test fails, your tests were adequate to find this defect. If your tests pass, they were not sufficient.
 
-We will generate many such mutants. Some of them will be included in the feedback mechanism. Some will not. Your final score will be based on the number of mutants your tests identify, with 50% based on the proporition of mutants your tests identify.
+We will generate many such mutants. Some of them will be included in the feedback mechanism. Some will not. Your final score will be based on the number of mutants your tests identify, with 50% based on the proportion of mutants your tests identify.
 
 ### Help ensuring tests pass on correct version
 
-We've included the correct implementation for you to be able to test against, when you believe your tests are working properly.  To run against the correct implementation:
+We've included the correct implementation for you to be able to test against, when you believe your tests are working properly.  To run against the correct implementation, switch _date.cc_ over to the correct version and run the tests:
 
 ```
 cp date.correct.cc date.cc
