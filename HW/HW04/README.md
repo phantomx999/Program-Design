@@ -82,7 +82,7 @@ One thing to note is `<< "Some message"`, which can be beneficial to add when ex
 
 - **Coverage**: Think carefully about what input to use for testing. Make sure you are considering _boundary_ cases, in which input is on the boundary of where output changes (for example, 0 is often on the boundary because positive and negative numbers produce different results). Include _error_ cases too to ensure your method is robust to bad input.
 
-7. **Errors**: Make a careful inspection of your tests to ensure you will not be getting false-positives or false-negatives.
+- **Errors**: Make a careful inspection of your tests to ensure you will not be getting false-positives or false-negatives.
 
 
 ## Your Assignment:
