@@ -7,7 +7,7 @@
 
 ### Materials
 
-In the HW/HW04 folder, the class Date has been defined within the files _date.h_ and _date.cc_. A _main.cc_ has also been provided. In this homework, none of these files need to be modified. The header and main are provided to you to help determine how to test the class Date. This is one of the major benefits of using a testing framework -- the tests are developed outside of the code.
+In the HW/HW04 folder, the class Date has been defined within the files _date.h_ and _date.cc_. A _main.cc_ has also been provided. In this homework, **none of these files need to be modified**. The header and main are provided to you to help determine how to test the class Date. This is one of the major benefits of using a testing framework -- the tests are developed outside of the code.
 
 We have also provided you with sample unit tests in the file _date_unittest.cc_. This is a typical structure in that each class has a designated file that is a collection of unit tests for that class. There might also be a file for _integrated_ tests that involve testing functionality of shared data across classes. There is only one class for this homework, thus we will be using one file.
 
@@ -26,7 +26,7 @@ To work on your personal machine, please see the google test website for setup: 
 
 ### Running the tests
 
-We have provided tests for about a couple of the methods in the class _Date_. These tests are not sufficient, for the class nor for the methods being tested. As part of the homework, you will be writing tests for the other half. To see how tests work, navigate to the tests folder, compile the tests, then run the executable.
+We have provided tests for a couple of the methods in the class _Date_. These tests are not sufficient, for the class nor for the methods being tested. As part of the homework, you will be writing more tests. To see how tests work, navigate to the tests folder, compile the tests, then run the executable.
 
 ```
 cd HW/HW04
@@ -40,7 +40,7 @@ Notice that not all of the tests passed. This is good! It means you found errors
 
 A test might be independent of all other tests in which you instantiate the needed objects in the body of the test. But if you have a lot of tests that use the same objects, it will probably be more efficient to use a _Test Fixture_.
 
-Let's look a little closer at one of the tests:
+Let's look a little closer at one of these _Test Fixtures_:
 
 ```
 TEST_F(DateTest, DaysBetweenTests) {
@@ -50,20 +50,20 @@ TEST_F(DateTest, DaysBetweenTests) {
 }
 ```
 
-Here we see the test _DaysBetweenTests_ that is part of a set of tests for _DateTest_ (called a _Fixture_ in Google Test). Test fixtures imply using a class built for these tests. In this case, that is the _DateTest_ class at the top of the unit test file. 
+Here we see the test we've named _DaysBetweenTests_ that is part of a set of tests for _DateTest_ (called a _Fixture_ in Google Test). Test fixtures imply using a class built for these tests. In this case, that is the _DateTest_ class at the top of the unit test file. 
 
 Notice the syntax of _DateTest_:
 - The name _DateTest_ is the first parameter of all the _TEST_F_ tests.
 - _DateTest_ inherits from ::testing::Test.
 - _SetUp()_ and member variables are _protected_.
 - Use the _SetUp()_ method to initialize all of your objects.
-- To define a test that uses this setup, define with `TEST_F(DateTest,InformativeTestName)`.
+- To define a test that uses this setup, define with `TEST_F(DateTest,<InformativeTestName>)`.
 
-For any given test statement, the _EXPECT_EQ_ compares the 2 passed parameter and records the test as _pass_ if they are equal, _fail_ if not. There are several conditions that you can test, for example _EXPECT_LT_ will pass if parameter 1 < parameter 2, and _EXPECT_STREQ_ to explicitly test C string equality. When you use _EXPECT_XX_, the tests will continue even if they fail. If you use _ASSERT_XX_, the tests will stop executing if the statement fails (i.e. returns False).
+For any given test statement, the _EXPECT_EQ_ compares the 2 passed-in parameters and records the test as _pass_ if they are equal, _fail_ if not. There are several conditions that you can test, for example _EXPECT_LT_ will pass if parameter 1 < parameter 2 and _EXPECT_STREQ_ will pass if the given C strings are equal. When you use _EXPECT_XX_, the tests will continue even if they fail. If you use _ASSERT_XX_, the tests will stop executing if the statement fails (i.e. returns False).
 
 >HINT: When you write tests for the project in iteration 2, you will find it convenient to overload operators (e.g. ==, <, >, ...) to compare class objects. For example, rather than having sevearl EXPECT_EQ statements to test individual data member values in a class, we could define `operator==` and compare the objects directly!
 
-Notice that this test consists of multiple statements to test a variety of input to the method. Within the test, we aren't seeing the instantiation of first_day or last_day, as this is in the setup above. 
+Notice that this test consists of multiple statements to test a variety of input to the method. Within the test, we aren't seeing the instantiation of first_day or last_day, as this is in the _SetUp()_ of _DateTest_, as mentioned above. 
 
 One thing to note is `<< "Some message"`, which can be beneficial to add when executing multiple statements within a test. This will tell the user of your tests exactly which of the lines has failed.
 
