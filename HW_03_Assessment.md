@@ -2,7 +2,7 @@
 
 #### Total score: _100_ / _100_
 
-Run on October 03, 13:05:26 PM.
+Run on October 03, 13:27:01 PM.
 
 
 #### System Files and HW Directory Structure
@@ -55,13 +55,13 @@ Run on October 03, 13:05:26 PM.
 
 
 
-+  _40_ / _40_ : Pass: Most of the program works.
++  _50_ / _50_ : Pass: Most of the program works.
 
     Complete.
 
 
 
-+  _25_ / _25_ : Pass: Check for correct output.
++  _15_ / _15_ : Pass: Check for correct output.
 
     Complete.
 
