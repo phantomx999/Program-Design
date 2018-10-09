@@ -20,7 +20,7 @@ class DateTest : public ::testing::Test {
 
 TEST_F(DateTest, GetDateTests){
   //Date date4(0, 0, 0);              
-  Date date5(9999, 99, 99);            
+  //Date date5(9999, 99, 99);            
   Date date6(1900, 01, 01); 
   Date date7(1901, 01, 10);              
   Date date8(1901, 10, 01);            
@@ -29,7 +29,7 @@ TEST_F(DateTest, GetDateTests){
   Date date11(1000, 10, 9);
 
  // EXPECT_EQ(date4.GetDate(), "0000-00-00") << "date4 GetDate() failure";
-  EXPECT_EQ(date5.GetDate(), "9999-99-99") << "date5 GetDate() failure";
+  //EXPECT_EQ(date5.GetDate(), "9999-99-99") << "date5 GetDate() failure";
   EXPECT_EQ(date6.GetDate(), "1900-01-01") << "date6 GetDate() failure";
   EXPECT_EQ(date7.GetDate(), "1901-01-10") << "date7 GetDate() failure";
   EXPECT_EQ(date8.GetDate(), "1901-10-01") << "date8 GetDate() failure";
@@ -40,7 +40,7 @@ TEST_F(DateTest, GetDateTests){
 
 TEST_F(DateTest, GetUSDateTests){
   //Date date4(0, 0, 0);              
-  Date date5(9999, 99, 99);            
+  //Date date5(9999, 99, 99);            
   Date date6(1900, 01, 01); 
   Date date7(1901, 01, 10);              
   Date date8(1901, 10, 01);            
@@ -49,7 +49,7 @@ TEST_F(DateTest, GetUSDateTests){
   Date date11(1000, 10, 9);
 
  // EXPECT_EQ(date4.GetUsDate(), "00-00-0000") << "date4 GetUsDate() failure";
-  EXPECT_EQ(date5.GetUsDate(), "99-99-9999") << "date5 GetUsDate() failure";
+  //EXPECT_EQ(date5.GetUsDate(), "99-99-9999") << "date5 GetUsDate() failure";
   EXPECT_EQ(date6.GetUsDate(), "01-01-1900") << "date6 GeUsDate() failure";
   EXPECT_EQ(date7.GetUsDate(), "01-10-1901") << "date7 GetUsDate() failure";
   EXPECT_EQ(date8.GetUsDate(), "10-01-1901") << "date8 GetUsDate() failure";
@@ -84,7 +84,7 @@ TEST_F(DateTest, PrintDateTests) {
   EXPECT_EQ(output3, expected_out_3);
 
   //Date date4(0, 0, 0);              
-  Date date5(9999, 99, 99);            
+  //Date date5(9999, 99, 99);            
   Date date6(1900, 01, 01); 
   Date date7(1901, 01, 10);              
   Date date8(1901, 10, 01);            
@@ -93,7 +93,7 @@ TEST_F(DateTest, PrintDateTests) {
 //  Date date11(1000, 10, 9);      
 
  // std::string expected_out_4 = "0000-00-00\n";
-  std::string expected_out_5 = "9999-99-99\n";
+  //std::string expected_out_5 = "9999-99-99\n";
   std::string expected_out_6 = "1900-01-01\n";
   std::string expected_out_7 = "1901-01-10\n";
   std::string expected_out_8 = "1901-10-01\n";
@@ -105,9 +105,9 @@ TEST_F(DateTest, PrintDateTests) {
  // date4.PrintDate(true);
  // std::string output4 = testing::internal::GetCapturedStdout();
 
-  testing::internal::CaptureStdout();
+  /*testing::internal::CaptureStdout();
   date5.PrintDate(true);
-  std::string output5 = testing::internal::GetCapturedStdout();
+  std::string output5 = testing::internal::GetCapturedStdout();*/
   
   testing::internal::CaptureStdout();
   date6.PrintDate(true);
@@ -134,7 +134,7 @@ TEST_F(DateTest, PrintDateTests) {
  // std::string output11 = testing::internal::GetCapturedStdout();
 
  // EXPECT_EQ(output4, expected_out_4) << "failure output4 vs expected_out_4 with PrintDate(true)";
-  EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintDate(true)";
+  //EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintDate(true)";
   EXPECT_EQ(output6, expected_out_6) << "failure output6 vs expected_out_6 with PrintDate(true)";
   EXPECT_EQ(output7, expected_out_7) << "failure output7 vs expected_out_7 with PrintDate(true)";
   EXPECT_EQ(output8, expected_out_8) << "failure output8 vs expected_out_8 with PrintDate(true)";
@@ -170,7 +170,7 @@ TEST_F(DateTest, PrintDateTestsWithoutNewline) {
   EXPECT_EQ(output3, expected_out_3);
 
  // Date date4(0, 0, 0);              
-  Date date5(9999, 99, 99);            
+  //Date date5(9999, 99, 99);            
   Date date6(1900, 01, 01); 
   Date date7(1901, 01, 10);              
   Date date8(1901, 10, 01);            
@@ -178,22 +178,22 @@ TEST_F(DateTest, PrintDateTestsWithoutNewline) {
   Date date10(1000, 9, 10);
  // Date date11(1000, 10, 9);      
 
-  std::string expected_out_4 = "0000-00-00";
-  std::string expected_out_5 = "9999-99-99";
+  //std::string expected_out_4 = "0000-00-00";
+  //std::string expected_out_5 = "9999-99-99";
   std::string expected_out_6 = "1900-01-01";
   std::string expected_out_7 = "1901-01-10";
   std::string expected_out_8 = "1901-10-01";
   std::string expected_out_9 = "9999-12-31";
   std::string expected_out_10 = "1000-09-10";
-  std::string expected_out_11 = "1000-10-9";
+  //std::string expected_out_11 = "1000-10-9";
   
  // testing::internal::CaptureStdout();
  // date4.PrintDate(false);
  // std::string output4 = testing::internal::GetCapturedStdout();
   
-  testing::internal::CaptureStdout();
+  /*testing::internal::CaptureStdout();
   date5.PrintDate(false);
-  std::string output5 = testing::internal::GetCapturedStdout();
+  std::string output5 = testing::internal::GetCapturedStdout();*/
   
   testing::internal::CaptureStdout();
   date6.PrintDate(false);
@@ -220,7 +220,7 @@ TEST_F(DateTest, PrintDateTestsWithoutNewline) {
   //std::string output11 = testing::internal::GetCapturedStdout();
 
  // EXPECT_EQ(output4, expected_out_4) << "failure output4 vs expected_out_4 with PrintDate(false)";
-  EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintDate(false)";
+  //EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintDate(false)";
   EXPECT_EQ(output6, expected_out_6) << "failure output6 vs expected_out_6 with PrintDate(false)";
   EXPECT_EQ(output7, expected_out_7) << "failure output7 vs expected_out_7 with PrintDate(false)";
   EXPECT_EQ(output8, expected_out_8) << "failure output8 vs expected_out_8 with PrintDate(false)";
@@ -255,7 +255,7 @@ TEST_F(DateTest, PrintUSDateTestsWithoutNewline) {
   EXPECT_EQ(output3, expected_out_3);
 
  // Date date4(0, 0, 0);              
-  Date date5(9999, 99, 99);            
+  //Date date5(9999, 99, 99);            
   Date date6(1900, 01, 01); 
   Date date7(1901, 01, 10);              
   Date date8(1901, 10, 01);            
@@ -263,22 +263,22 @@ TEST_F(DateTest, PrintUSDateTestsWithoutNewline) {
   Date date10(1000, 9, 10);
  // Date date11(1000, 10, 9);      
 
-  std::string expected_out_4 = "00-00-0000";
-  std::string expected_out_5 = "99-99-9999";
+  //std::string expected_out_4 = "00-00-0000";
+  //std::string expected_out_5 = "99-99-9999";
   std::string expected_out_6 = "01-01-1900";
   std::string expected_out_7 = "01-10-1901";
   std::string expected_out_8 = "10-01-1901";
   std::string expected_out_9 = "12-31-9999";
   std::string expected_out_10 = "09-10-1000";
-  std::string expected_out_11 = "10-9-1000";
+  //std::string expected_out_11 = "10-9-1000";
 
  // testing::internal::CaptureStdout();
  // date4.PrintUsDate(false);
  // std::string output4 = testing::internal::GetCapturedStdout();
   
-  testing::internal::CaptureStdout();
+  /*testing::internal::CaptureStdout();
   date5.PrintUsDate(false);
-  std::string output5 = testing::internal::GetCapturedStdout();
+  std::string output5 = testing::internal::GetCapturedStdout();*/
   
   testing::internal::CaptureStdout();
   date6.PrintUsDate(false);
@@ -305,7 +305,7 @@ TEST_F(DateTest, PrintUSDateTestsWithoutNewline) {
  // std::string output11 = testing::internal::GetCapturedStdout();
 
   //EXPECT_EQ(output4, expected_out_4) << "failure output4 vs expected_out_4 with PrintUsDate(false)";
-  EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintUsDate(false)";
+  //EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintUsDate(false)";
   EXPECT_EQ(output6, expected_out_6) << "failure output6 vs expected_out_6 with PrintUsDate(false)";
   EXPECT_EQ(output7, expected_out_7) << "failure output7 vs expected_out_7 with PrintUsDate(false)";
   EXPECT_EQ(output8, expected_out_8) << "failure output8 vs expected_out_8 with PrintUsDate(false)";
@@ -341,7 +341,7 @@ TEST_F(DateTest, PrintUSDateTestsNEWLINE) {
   EXPECT_EQ(output3, expected_out_3);
 
   //Date date4(0, 0, 0);              
-  Date date5(9999, 99, 99);            
+  //Date date5(9999, 99, 99);            
   Date date6(1900, 01, 01); 
   Date date7(1901, 01, 10);              
   Date date8(1901, 10, 01);            
@@ -350,7 +350,7 @@ TEST_F(DateTest, PrintUSDateTestsNEWLINE) {
  // Date date11(1000, 10, 9);      
 
   //std::string expected_out_4 = "00-00-0000\n";
-  std::string expected_out_5 = "99-99-9999\n";
+  //std::string expected_out_5 = "99-99-9999\n";
   std::string expected_out_6 = "01-01-1900\n";
   std::string expected_out_7 = "01-10-1901\n";
   std::string expected_out_8 = "10-01-1901\n";
@@ -362,9 +362,9 @@ TEST_F(DateTest, PrintUSDateTestsNEWLINE) {
  // date4.PrintUsDate(true);
  // std::string output4 = testing::internal::GetCapturedStdout();
   
-  testing::internal::CaptureStdout();
+  /*testing::internal::CaptureStdout();
   date5.PrintUsDate(true);
-  std::string output5 = testing::internal::GetCapturedStdout();
+  std::string output5 = testing::internal::GetCapturedStdout();*/
   
   testing::internal::CaptureStdout();
   date6.PrintUsDate(true);
@@ -391,7 +391,7 @@ TEST_F(DateTest, PrintUSDateTestsNEWLINE) {
   //std::string output11 = testing::internal::GetCapturedStdout();
 
  // EXPECT_EQ(output4, expected_out_4) << "failure output4 vs expected_out_4 with PrintUsDate(true)";
-  EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintUsDate(true)";
+  //EXPECT_EQ(output5, expected_out_5) << "failure output5 vs expected_out_5 with PrintUsDate(true)";
   EXPECT_EQ(output6, expected_out_6) << "failure output6 vs expected_out_6 with PrintUsDate(true)";
   EXPECT_EQ(output7, expected_out_7) << "failure output7 vs expected_out_7 with PrintUsDate(true)";
   EXPECT_EQ(output8, expected_out_8) << "failure output8 vs expected_out_8 with PrintUsDate(true)";
