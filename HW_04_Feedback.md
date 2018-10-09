@@ -1,6 +1,6 @@
 ### Feedback for Homework 04
 
-Run on October 08, 19:22:30 PM.
+Run on October 08, 19:54:12 PM.
 
 
 #### System Files and HW Directory Structure
@@ -55,79 +55,33 @@ Run on October 08, 19:22:30 PM.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.GetDateTests.
-<pre>
-[ RUN      ] DateTest.GetDateTests
-./date_unittest.cc:32: Failure
-      Expected: date5.GetDate()
-      Which is: "1-01-01"
-To be equal to: "9999-99-99"
-date5 GetDate() failure</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.GetDateTests.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.GetUSDateTests.
-<pre>
-[ RUN      ] DateTest.GetUSDateTests
-./date_unittest.cc:52: Failure
-      Expected: date5.GetUsDate()
-      Which is: "01-01-1"
-To be equal to: "99-99-9999"
-date5 GetUsDate() failure</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.GetUSDateTests.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.PrintDateTests.
-<pre>
-[ RUN      ] DateTest.PrintDateTests
-./date_unittest.cc:137: Failure
-      Expected: output5
-      Which is: "1-01-01\n"
-To be equal to: expected_out_5
-      Which is: "9999-99-99\n"
-failure output5 vs expected_out_5 with PrintDate(true)</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.PrintDateTests.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.PrintDateTestsWithoutNewline.
-<pre>
-[ RUN      ] DateTest.PrintDateTestsWithoutNewline
-./date_unittest.cc:223: Failure
-      Expected: output5
-      Which is: "1-01-01"
-To be equal to: expected_out_5
-      Which is: "9999-99-99"
-failure output5 vs expected_out_5 with PrintDate(false)</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.PrintDateTestsWithoutNewline.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.PrintUSDateTestsWithoutNewline.
-<pre>
-[ RUN      ] DateTest.PrintUSDateTestsWithoutNewline
-./date_unittest.cc:308: Failure
-      Expected: output5
-      Which is: "01-01-1"
-To be equal to: expected_out_5
-      Which is: "99-99-9999"
-failure output5 vs expected_out_5 with PrintUsDate(false)</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.PrintUSDateTestsWithoutNewline.
 
 
 
-+ Fail: Check that a GoogleTest test passes.
-    fails the test: DateTest.PrintUSDateTestsNEWLINE.
-<pre>
-[ RUN      ] DateTest.PrintUSDateTestsNEWLINE
-./date_unittest.cc:394: Failure
-      Expected: output5
-      Which is: "01-01-1\n"
-To be equal to: expected_out_5
-      Which is: "99-99-9999\n"
-failure output5 vs expected_out_5 with PrintUsDate(true)</pre>
++ Pass: Check that a GoogleTest test passes.
+    passes the test: DateTest.PrintUSDateTestsNEWLINE.
 
 
 
@@ -146,68 +100,52 @@ failure output5 vs expected_out_5 with PrintUsDate(true)</pre>
 
 
 
-+ Fail: At least one test failed.
++ Pass: All tests passed.
 
 
 #### Testing Mutant 1 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Fail: There is no test case for this mutant (since all tests pass).
+   - Reason - Dates constructed with epoch are about 70 years in the future
 
 
 #### Testing Mutant 2 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 2
 
 
 #### Testing Mutant 3 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 3
 
 
 #### Testing Mutant 4 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Fail: There is no test case for this mutant (since all tests pass).
+   - Reason - Today's date month off by one
 
 
 #### Testing Mutant 5 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 5
 
 
 #### Testing Mutant 6 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 6
 
 
 #### Testing Mutant 7 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 7
 
 
 #### Testing Mutant 8 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 8
 
 
 #### Testing Mutant 9 for failure
 
-+ Skip: Abstract test class.
-
-  This test was not run because of an earlier failing test.
++ Pass: At least one test failed for Mutant 9
 
