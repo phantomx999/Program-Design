@@ -70,7 +70,7 @@ header guards should use the full path to that file
 (e.g. `HOME_WENDT_3081_F18_REPO_HW_HW01_POINT2_H_`), but for this class we are 
 going to include only from the point of the _HW_ directory. The _--root_ flag 
 allows us to specify where in the path to start, thus the header guard for _point2.h_ 
-should be `HW01_POINT2_H`.
+should be `HW01_POINT2_H_`.
 
 When you run the linter, you should get a report of each error that includes the
 file, line number, and a short description of the problem. If you need guidance
