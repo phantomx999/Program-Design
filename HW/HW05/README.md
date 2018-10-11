@@ -67,7 +67,7 @@ If you have already included the header during compilation, you don't want the
 compiler to include it again, thus you are _guarding_ against including it multiple 
 times (possibly infinite if circular references exist). Google Style states that 
 header guards should use the full path to that file 
-(e.g. `HOME_WENDT_3081_F18_REPO_HW_HW01_POINT2_H_`), but for this class we are 
+(e.g. `HW_HW01_POINT2_H_`), but for this class we are 
 going to include only from the point of the _HW_ directory. The _--root_ flag 
 allows us to specify where in the path to start, thus the header guard for _point2.h_ 
 should be `HW01_POINT2_H_`.
@@ -88,4 +88,5 @@ might need to be installed (but probably not if you have python3 -- type `pip3
 --version` to verify), then install cpplint with `pip3 install cpplint`.
 
 As part of assessment, all files LISTED ABOVE will be run through cpplint. Make 
-sure your code has 0 errors when you submit.
+sure your code has 0 errors when you submit. You should leave these files in their
+current locations (e.g. point2.h in HW/HW01) and *not* move them to the HW05 folder.
