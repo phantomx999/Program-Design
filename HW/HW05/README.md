@@ -1,5 +1,7 @@
 ## Lab 5 - Google Style Guide Compliance
 
+**_Note: cpplint.py is a bit slow on some of the CSE Lab machines.  Please refer to [Option #3 below](https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/blob/support-code/HW/HW05/README.md#alternative-options-for-running-cpplintpy) for a solution._**
+
 ### Google Style Compliance: Linting
 
 https://google.github.io/styleguide/cppguide.html
