@@ -22,7 +22,7 @@ Tests primarily consist of a comparison of an expected result to a calculated re
 **Think carefully about the range of input to a given method to ensure the code is thoroughly tested.** For example, if you were trying to test a function that calculated a fibonacci number, you would want to consider _boundary_ cases such as 1 and 2, some _normal_ cases such as 3 and 8, some _error_ cases such as -1 and 3.6, and then there is 0. Is this an error or do you define it as 0? It could be either, but maybe you need to ask someone how this should be handled. As you are writing tests, you will often reveal ambiguities in the specifications, which is another excellent reason to write code with testing in mind (and even to write requirements with testing in mind)!
 
 For this class, we will be using the Google C++ Testing Framework. For more information please refer to the following link:
-https://github.com/google/googletest/blob/master/googletest/docs/Primer.md.
+https://github.com/google/googletest/blob/master/googletest/docs/primer.md.
 
 To work on your personal machine, please see the google test website for setup: https://github.com/google/googletest.
 
