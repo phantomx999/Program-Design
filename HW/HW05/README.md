@@ -114,7 +114,7 @@ of the local system storage to speed up cpplint.py.  This is available by pullin
       ```git pull upstream support-code```
 
       To use, you simply replace cpplint.py with the path to cpplint-cse.sh (be sure to always include the **--root=** option).
-      Here is how to use it:
+      Here are a couple of examples:
 
      ```bash
      # Example usage
