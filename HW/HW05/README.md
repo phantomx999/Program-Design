@@ -102,23 +102,25 @@ issue that is slowing down cpplint.py in other labs (i.e. KH 1-250)
 you have trouble installing cpplint.py, we included it in the support-code here:
 https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint.
 
-  ```bash
-  # Example usage
-  cd HW/HW01
-  ../../cpplint/cpplint.py --root=.. point2.h
-  ```
+    ```bash
+    # Example usage
+    cd HW/HW01
+    ../../cpplint/cpplint.py --root=.. point2.h
+    ```
   
 3. **Use cpplint-cse.sh in CSE Labs** - We included a CSE Labs script that will take advantage
-of the local system storage to speed up cpplint.py (also stored and available from pulling the support-code here: https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint).
-To use, you simply replace cpplint.py with the path to cpplint-cse.sh (be sure to always include the **--root=** option).
-Here is how to use it:
+of the local system storage to speed up cpplint.py.  This is available by pulling the support-code into your repository (https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint):
 
+      ```git pull upstream support-code```
 
-  ```bash
-  # Example usage
-  cd HW/HW01
-  ../../cpplint/cpplint-cse.sh --root=.. point2.h
-  
-  #Another example
-  ../../cpplint/cpplint-cse.sh --root=.. *.cc
-  ```
+      To use, you simply replace cpplint.py with the path to cpplint-cse.sh (be sure to always include the **--root=** option).
+      Here is how to use it:
+
+     ```bash
+     # Example usage
+     cd HW/HW01
+     ../../cpplint/cpplint-cse.sh --root=.. point2.h
+
+     #Another example
+     ../../cpplint/cpplint-cse.sh --root=.. *.cc
+     ```
