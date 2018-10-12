@@ -90,3 +90,35 @@ might need to be installed (but probably not if you have python3 -- type `pip3
 As part of assessment, all files LISTED ABOVE will be run through cpplint. Make 
 sure your code has 0 errors when you submit. You should leave these files in their
 current locations (e.g. point2.h in HW/HW01) and *not* move them to the HW05 folder.
+
+### Alternative Options for Running cpplint.py
+
+It has come to our attention that cpplint.py is running quite slow on the lab machines,
+so we have compiled a few practical options to help speed things up.
+
+1. **SSH into Apollo or Atlas** - These machines do not appear to have the network storage
+issue that is slowing down cpplint.py in other labs (i.e. KH 1-250)
+2. **Run on your local machine** - You could install from instructions above, but just in case
+you have trouble installing cpplint.py, we included it in the support-code here:
+https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint.
+
+  ```bash
+  # Example usage
+  cd HW/HW01
+  ../../cpplint/cpplint.py --root=.. point2.h
+  ```
+  
+3. **Use cpplint-cse.sh in CSE Labs** - We included a CSE Labs script that will take advantage
+of the local system storage to speed up cpplint.py (also stored and available from pulling the support-code here: https://github.umn.edu/umn-csci-3081-F18/csci3081-shared-upstream/tree/support-code/cpplint).
+To use, you simply replace cpplint.py with the path to cpplint-cse.sh (be sure to always include the **--root=** option).
+Here is how to use it:
+
+
+  ```bash
+  # Example usage
+  cd HW/HW01
+  ../../cpplint/cpplint-cse.sh --root=.. point2.h
+  
+  #Another example
+  ../../cpplint/cpplint-cse.sh --root=.. *.cc
+  ```
