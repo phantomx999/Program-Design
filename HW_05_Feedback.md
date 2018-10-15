@@ -1,6 +1,6 @@
 ### Feedback for Homework 05
 
-Run on October 14, 16:49:10 PM.
+Run on October 14, 20:26:37 PM.
 
 
 #### System Files and HW Directory Structure
@@ -45,60 +45,32 @@ Run on October 14, 16:49:10 PM.
 
 + Fail: Check Style for point2.h.
 
-<pre>point2.h:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
-point2.h:1:  #ifndef header guard has wrong style, please use: HW01_POINT2_H_  [build/header_guard] [5]
-point2.h:19:  #endif line should be "#endif  // HW01_POINT2_H_"  [build/header_guard] [5]
-point2.h:5:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:6:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:7:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:8:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:9:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:10:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:11:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:12:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:13:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:13:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-point2.h:14:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:15:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:16:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:16:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-point2.h:17:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+<pre>point2.h:0:  No #ifndef header guard found, suggested CPP variable is: HW01_POINT2_H_  [build/header_guard] [5]
+point2.h:17:  Tab found; better to use spaces  [whitespace/tab] [1]
+point2.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+point2.h:20:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing point2.h
-Total errors found: 18
+Total errors found: 4
 </pre>
 
 
 
 + Fail: Check Style for point2.cc.
 
-<pre>point2.cc:0:  No copyright message found.  You should have a line: "Copyright [year] <Copyright Owner>"  [legal/copyright] [5]
-point2.cc:1:  Should have a space between // and comment  [whitespace/comments] [4]
-point2.cc:4:  Include the directory when naming .h files  [build/include] [4]
-point2.cc:6:  Missing space before {  [whitespace/braces] [5]
-point2.cc:7:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.cc:8:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.cc:11:  Missing space before {  [whitespace/braces] [5]
-point2.cc:12:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.cc:13:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.cc:16:  Missing space before {  [whitespace/braces] [5]
-point2.cc:17:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-point2.cc:17:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+<pre>point2.cc:10:  Missing space before {  [whitespace/braces] [5]
+point2.cc:15:  Missing space before {  [whitespace/braces] [5]
 point2.cc:20:  Missing space before {  [whitespace/braces] [5]
-point2.cc:21:  Tab found; better to use spaces  [whitespace/tab] [1]
+point2.cc:21:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+point2.cc:21:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
 point2.cc:24:  Missing space before {  [whitespace/braces] [5]
-point2.cc:25:  Tab found; better to use spaces  [whitespace/tab] [1]
 point2.cc:28:  Missing space before {  [whitespace/braces] [5]
-point2.cc:29:  Tab found; better to use spaces  [whitespace/tab] [1]
 point2.cc:32:  Missing space before {  [whitespace/braces] [5]
-point2.cc:33:  Tab found; better to use spaces  [whitespace/tab] [1]
 point2.cc:36:  Missing space before {  [whitespace/braces] [5]
-point2.cc:37:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.cc:38:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.cc:38:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-point2.cc:38:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-point2.cc:39:  Tab found; better to use spaces  [whitespace/tab] [1]
+point2.cc:40:  Missing space before {  [whitespace/braces] [5]
+point2.cc:43:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+point2.cc:44:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing point2.cc
-Total errors found: 26
+Total errors found: 12
 </pre>
 
 
@@ -144,200 +116,144 @@ Total errors found: 26
 
 + Fail: Check Style for DecoyDuck.h.
 
-<pre>DecoyDuck.h:8:  #ifndef header guard has wrong style, please use: HW02_DECOYDUCK_H_  [build/header_guard] [5]
-DecoyDuck.h:22:  #endif line should be "#endif  // HW02_DECOYDUCK_H_"  [build/header_guard] [5]
-DecoyDuck.h:15:  public: should be indented +1 space inside class DecoyDuck  [whitespace/indent] [3]
-DecoyDuck.h:18:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+<pre>DecoyDuck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_DECOYDUCK_H_  [build/header_guard] [5]
+DecoyDuck.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing DecoyDuck.h
-Total errors found: 4
+Total errors found: 2
 </pre>
 
 
 
 + Fail: Check Style for MallardDuck.h.
 
-<pre>MallardDuck.h:8:  #ifndef header guard has wrong style, please use: HW02_MALLARDDUCK_H_  [build/header_guard] [5]
-MallardDuck.h:22:  #endif line should be "#endif  // HW02_MALLARDDUCK_H_"  [build/header_guard] [5]
-MallardDuck.h:15:  public: should be indented +1 space inside class MallardDuck  [whitespace/indent] [3]
-MallardDuck.h:18:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-MallardDuck.h:22:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+<pre>MallardDuck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_MALLARDDUCK_H_  [build/header_guard] [5]
+MallardDuck.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing MallardDuck.h
-Total errors found: 5
+Total errors found: 2
 </pre>
 
 
 
 + Fail: Check Style for QuackBehavior.h.
 
-<pre>QuackBehavior.h:8:  #ifndef header guard has wrong style, please use: HW02_QUACKBEHAVIOR_H_  [build/header_guard] [5]
-QuackBehavior.h:19:  #endif line should be "#endif  // HW02_QUACKBEHAVIOR_H_"  [build/header_guard] [5]
-QuackBehavior.h:14:  public: should be indented +1 space inside class QuackBehavior  [whitespace/indent] [3]
-QuackBehavior.h:15:  You don't need a ; after a }  [readability/braces] [4]
+<pre>QuackBehavior.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_QUACKBEHAVIOR_H_  [build/header_guard] [5]
 Done processing QuackBehavior.h
-Total errors found: 4
+Total errors found: 1
 </pre>
 
 
 
 + Fail: Check Style for RubberDuck.h.
 
-<pre>RubberDuck.h:8:  #ifndef header guard has wrong style, please use: HW02_RUBBERDUCK_H_  [build/header_guard] [5]
-RubberDuck.h:22:  #endif line should be "#endif  // HW02_RUBBERDUCK_H_"  [build/header_guard] [5]
-RubberDuck.h:15:  public: should be indented +1 space inside class RubberDuck  [whitespace/indent] [3]
-RubberDuck.h:18:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+<pre>RubberDuck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_RUBBERDUCK_H_  [build/header_guard] [5]
+RubberDuck.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing RubberDuck.h
-Total errors found: 4
+Total errors found: 2
 </pre>
 
 
 
 + Fail: Check Style for Duck.h.
 
-<pre>Duck.h:8:  #ifndef header guard has wrong style, please use: HW02_DUCK_H_  [build/header_guard] [5]
-Duck.h:35:  #endif line should be "#endif  // HW02_DUCK_H_"  [build/header_guard] [5]
-Duck.h:17:  public: should be indented +1 space inside class Duck  [whitespace/indent] [3]
-Duck.h:19:  You don't need a ; after a }  [readability/braces] [4]
-Duck.h:20:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Duck.h:28:  protected: should be indented +1 space inside class Duck  [whitespace/indent] [3]
-Duck.h:32:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Duck.h:32:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
+<pre>Duck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_DUCK_H_  [build/header_guard] [5]
+Duck.h:19:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+Duck.h:27:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing Duck.h
-Total errors found: 8
+Total errors found: 3
 </pre>
 
 
 
 + Fail: Check Style for MuteQuack.h.
 
-<pre>MuteQuack.h:8:  #ifndef header guard has wrong style, please use: HW02_MUTEQUACK_H_  [build/header_guard] [5]
-MuteQuack.h:20:  #endif line should be "#endif  // HW02_MUTEQUACK_H_"  [build/header_guard] [5]
-MuteQuack.h:14:  public: should be indented +1 space inside class MuteQuack  [whitespace/indent] [3]
-MuteQuack.h:15:  You don't need a ; after a }  [readability/braces] [4]
-MuteQuack.h:16:  You don't need a ; after a }  [readability/braces] [4]
+<pre>MuteQuack.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_MUTEQUACK_H_  [build/header_guard] [5]
 Done processing MuteQuack.h
-Total errors found: 5
+Total errors found: 1
 </pre>
 
 
 
 + Fail: Check Style for Quack.h.
 
-<pre>Quack.h:8:  #ifndef header guard has wrong style, please use: HW02_QUACK_H_  [build/header_guard] [5]
-Quack.h:20:  #endif line should be "#endif  // HW02_QUACK_H_"  [build/header_guard] [5]
-Quack.h:14:  public: should be indented +1 space inside class Quack  [whitespace/indent] [3]
-Quack.h:15:  You don't need a ; after a }  [readability/braces] [4]
-Quack.h:16:  You don't need a ; after a }  [readability/braces] [4]
+<pre>Quack.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_QUACK_H_  [build/header_guard] [5]
 Done processing Quack.h
-Total errors found: 5
+Total errors found: 1
 </pre>
 
 
 
 + Fail: Check Style for Squeak.h.
 
-<pre>Squeak.h:8:  #ifndef header guard has wrong style, please use: HW02_SQUEAK_H_  [build/header_guard] [5]
-Squeak.h:20:  #endif line should be "#endif  // HW02_SQUEAK_H_"  [build/header_guard] [5]
-Squeak.h:14:  public: should be indented +1 space inside class Squeak  [whitespace/indent] [3]
-Squeak.h:15:  You don't need a ; after a }  [readability/braces] [4]
+<pre>Squeak.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_SQUEAK_H_  [build/header_guard] [5]
 Squeak.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing Squeak.h
-Total errors found: 5
+Total errors found: 2
 </pre>
 
 
 
-+ Fail: Check Style for DecoyDuck.cpp.
++ Pass: Check Style for DecoyDuck.cpp.
 
-<pre>DecoyDuck.cpp:8:  HW/HW02/DecoyDuck.cpp should include its header file HW/HW02/DecoyDuck.h  [build/include] [5]
-Done processing DecoyDuck.cpp
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
 + Fail: Check Style for main.cpp.
 
-<pre>main.cpp:24:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-main.cpp:29:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:33:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:34:  At least two spaces is best between code and comments  [whitespace/comments] [2]
-main.cpp:35:  At least two spaces is best between code and comments  [whitespace/comments] [2]
-main.cpp:38:  Should have a space between // and comment  [whitespace/comments] [4]
-main.cpp:56:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:63:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-main.cpp:70:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+<pre>main.cpp:29:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+main.cpp:30:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+main.cpp:31:  At least two spaces is best between code and comments  [whitespace/comments] [2]
+main.cpp:48:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+main.cpp:54:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
 Done processing main.cpp
-Total errors found: 9
+Total errors found: 5
 </pre>
 
 
 
-+ Fail: Check Style for MuteQuack.cpp.
++ Pass: Check Style for MuteQuack.cpp.
 
-<pre>MuteQuack.cpp:10:  HW/HW02/MuteQuack.cpp should include its header file HW/HW02/MuteQuack.h  [build/include] [5]
-MuteQuack.cpp:17:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
-Done processing MuteQuack.cpp
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for Quack.cpp.
++ Pass: Check Style for Quack.cpp.
 
-<pre>Quack.cpp:8:  HW/HW02/Quack.cpp should include its header file HW/HW02/Quack.h  [build/include] [5]
-Quack.cpp:16:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
-Done processing Quack.cpp
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for Squeak.cpp.
++ Pass: Check Style for Squeak.cpp.
 
-<pre>Squeak.cpp:10:  HW/HW02/Squeak.cpp should include its header file HW/HW02/Squeak.h  [build/include] [5]
-Done processing Squeak.cpp
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
 + Fail: Check Style for Duck.cpp.
 
-<pre>Duck.cpp:31:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Duck.cpp:10:  HW/HW02/Duck.cpp should include its header file HW/HW02/Duck.h  [build/include] [5]
-Duck.cpp:33:  Could not find a newline character at the end of the file.  [whitespace/ending_newline] [5]
+<pre>Duck.cpp:30:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+Duck.cpp:9:  HW/HW02/Duck.cpp should include its header file HW/HW02/Duck.h  [build/include] [5]
 Done processing Duck.cpp
-Total errors found: 3
+Total errors found: 2
 </pre>
 
 
 
-+ Fail: Check Style for MallardDuck.cpp.
++ Pass: Check Style for MallardDuck.cpp.
 
-<pre>MallardDuck.cpp:19:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-MallardDuck.cpp:19:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
-MallardDuck.cpp:8:  HW/HW02/MallardDuck.cpp should include its header file HW/HW02/MallardDuck.h  [build/include] [5]
-Done processing MallardDuck.cpp
-Total errors found: 3
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for QuackBehavior.cpp.
++ Pass: Check Style for QuackBehavior.cpp.
 
-<pre>QuackBehavior.cpp:0:  HW/HW02/QuackBehavior.cpp should include its header file HW/HW02/QuackBehavior.h  [build/include] [5]
-Done processing QuackBehavior.cpp
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for RubberDuck.cpp.
++ Pass: Check Style for RubberDuck.cpp.
 
-<pre>RubberDuck.cpp:8:  HW/HW02/RubberDuck.cpp should include its header file HW/HW02/RubberDuck.h  [build/include] [5]
-Done processing RubberDuck.cpp
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
