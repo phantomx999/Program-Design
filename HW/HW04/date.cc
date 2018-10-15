@@ -8,12 +8,11 @@
 #include <iomanip>   // Used to print leading zeroes for month, day
 #include <ctime>     // Used to get current date
 
-#include "date.h"
+#include "HW/HW04/date.h"
 
 Date::Date(void) {
   std::time_t t = std::time(0);
   std::tm* now = std::localtime(&t);
-  
   //tm year's value is years since 1900
   yyyy_ = now->tm_year + 1900;
   //tm month's value is zero-indexed
@@ -27,7 +26,6 @@ Date::Date(int year, int month, int day) {
   mm_ = month;
   dd_ = day;
 }
-
 /**
 * Constructor
 * param [in] epoch: an approximation of the number of seconds that have elapsed since 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970
@@ -37,7 +35,6 @@ Date::Date(int year, int month, int day) {
 Date::Date(int epoch) {
   std::time_t epoch_t = epoch;
   std::tm* yyyy_mm_dd = std::gmtime( &epoch_t );
-  
   //tm year's value is years since 1900
   yyyy_ = yyyy_mm_dd->tm_year + 1900;
   //tm month's value is zero-indexed
@@ -45,7 +42,6 @@ Date::Date(int epoch) {
   //tm day's value is one-indexed
   dd_ = yyyy_mm_dd->tm_mday;
 }
-
 /**
 * Adding days to the date.
 * param [in] rhs: right hand side of this+rhs
@@ -54,13 +50,12 @@ Date::Date(int epoch) {
 **/
 Date Date::operator+(int days) const {
   int old_date = ConvertToDays(yyyy_, mm_, dd_);
-  //std::cout << "Debugging ConvertToDays: " << old_date << std::endl;
+  //  std::cout << "Debugging ConvertToDays: " << old_date << std::endl;
   int * new_date = ConvertFromDays(old_date + days);
-  //std::cout << "Debugging ConvertFromDays: " << std::endl;
-  //std::cout << old_date << " + " << days << " = ";
+  //  std::cout << "Debugging ConvertFromDays: " << std::endl;
+  //  std::cout << old_date << " + " << days << " = ";
   return Date(new_date[0], new_date[1], new_date[2]);
 }
-
 /**
 * Subtracting days from the date.
 * param [in] rhs: right hand side of this+rhs
@@ -73,15 +68,15 @@ Date Date::operator-(int days) const{
 }
 
 /**
-* Number of days between this date and the date provided
-* param [in] rhs: left hand side of this-rhs
-* param [out] number of days between the two dates (always positive)
+*  Number of days between this date and the date provided
+*  param [in] rhs: left hand side of this-rhs
+*  param [out] number of days between the two dates (always positive)
 **/
 int Date::DaysBetween(const Date& date) const {
   int this_days = ConvertToDays(yyyy_, mm_, dd_);
-  //std::cout << "Debugging ConvertToDays (LHS): " << this_days << std::endl;
+  //  std::cout << "Debugging ConvertToDays (LHS): " << this_days << std::endl;
   int that_days = ConvertToDays(date.yyyy_, date.mm_, date.dd_);
-  //std::cout << "Debugging ConvertToDays: (RHS)" << that_days << std::endl;
+  //  std::cout << "Debugging ConvertToDays: (RHS)" << that_days << std::endl;
   return std::abs(this_days - that_days);
 }
 
@@ -110,8 +105,7 @@ std::string Date::GetDate() const {
 * param [out] Date formatted as a MM-DD-YYYY string
 **/
 std::string Date::GetUsDate() const {
-  char numstr[5]; //large enough for years, months, days
-
+  char numstr[5]; //  large enough for years, months, days
   std::string date;
   if (mm_ < 10)
     date = date + "0";
@@ -179,3 +173,4 @@ int * Date::ConvertFromDays(int days) const{
   date_back[0] = 100 * ( n - 49 ) + i + l;
   return date_back;
 }
+

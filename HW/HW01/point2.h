@@ -2,8 +2,8 @@
 	Copyright 2018
 */
 
-#ifndef HW01_POINT2_H
-#define POINT2_H_
+#ifndef HW01_POINT2_H_
+#define HW01_POINT2_H_
 
 class Point2{
  public:

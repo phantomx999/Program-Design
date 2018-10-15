@@ -9,10 +9,10 @@
    Date: Oct 20, 2009.
 */
 
-#include "Exceptions.h"
+#include "HW/HW03/Exceptions.h"
 #include <string>
 
-using namespace std;
+//  using namespace std;
 
 InvalidData::InvalidData(string _msg) {
     msg = _msg;

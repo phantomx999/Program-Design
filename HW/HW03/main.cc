@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
+//  using namespace std;
 
 void doInterestingThing(int yr) {
   // variables used in this method
@@ -19,7 +19,7 @@ void doInterestingThing(int yr) {
   Date d3;
   Date* birthday_list;
 
-  cout << " ... A set of Dates ... " << endl;
+  std::cout << " ... A set of Dates ... " << std::endl;
 
   array_len = NULL;
   array_len = new int;
@@ -27,13 +27,13 @@ void doInterestingThing(int yr) {
   d3 = d2.copy();
   *array_len = 4;
 
-  cout << "default date is: " << d1.show() << endl;
+  std::cout << "default date is: " << d1.show() << std::endl;
 
-  cout << "date d2 is: " << d2.show() << endl;
+  std::cout << "date d2 is: " << d2.show() << std::endl;
 
-  cout << "date d3 is: " << d3.show() << endl;
+  std::cout << "date d3 is: " << d3.show() << std::endl;
 
-  cout << " ... Now print out 4 dates in reverse time order ... " << endl;
+  std::cout << " ... Now print out 4 dates in reverse time order ... " << std::endl;
 
   birthday_list = new Date[*array_len];
   // accumulate the all dates January 1, from 1990 to 1990+array_len
@@ -44,7 +44,7 @@ void doInterestingThing(int yr) {
   // now show the dates accumulated in reverse order
   //for (int i = 0; i < *array_len; --i) {
   for (int i = 3; i >= 0; --i) {
-    cout << "date is: " << birthday_list[i].show() << endl;
+   std::cout << "date is: " << birthday_list[i].show() << std::endl;
   }
 
   // now set the dates to January 2
@@ -52,11 +52,11 @@ void doInterestingThing(int yr) {
     birthday_list[i] = Date(1990+i, 1, 2);
   }
 
-  cout << "the first date is: " << birthday_list[0].show() << endl;
+  std::cout << "the first date is: " << birthday_list[0].show() << std::endl;
 }
 
 int main() {
   doInterestingThing(1998);
   doInterestingThing(1999);
-  cout << endl << "... Goodbye ..." << endl;
+  std::cout << endl << "... Goodbye ..." << std::endl;
 }

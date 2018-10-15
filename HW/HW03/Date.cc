@@ -3,27 +3,27 @@
  *
  * @copyright 2018 3081 Staff, All rights reserved.
  */
-#include "Date.h"
-#include "Debug.h"
-#include "Exceptions.h"
+#include "HW/HW03/Date.h"
+#include "HW/HW03/Debug.h"
+#include "HW/HW03/Exceptions.h"
 
 #include <iostream>
 #include <sstream>
 #include <string>
 
-using namespace std;
+// using namespace std;
 
 bool is_valid_date(int y, int m, int d);
 
 Date::Date() {
     if (DEBUG)
-        cout << "... calling default constructor for Date..." << endl;
+        std::cout << "... calling default constructor for Date..." << std::endl;
     year = 1900; month = 1; day = 1;
 }
 
 Date::Date(int y, int m, int d) {
     if (DEBUG)
-        cout << "... calling parameterize constructor for Date..." << endl;
+       std::cout << "... calling parameterize constructor for Date..." << std::endl;
     // assert ( y >= 1900 )
     // assert ( 0 <= m && m <= 12 )
     // assert ( 0 <= d && d <= 31 )
@@ -32,8 +32,8 @@ Date::Date(int y, int m, int d) {
 
 Date::~Date() {
     if (DEBUG)
-        cout << "... calling destructor for Date \""
-             << show() << "\" ..." << endl;
+        std::cout << "... calling destructor for Date \""
+             << show() << "\" ..." << std::endl;
 }
 
 Date Date::copy() const {
@@ -151,7 +151,7 @@ bool Date::before(const Date &d) const {
 
 Date mkDate(int y, int m, int d) {
     if (DEBUG)
-        cout << "... calling mkDate to create Date ..." << endl;
+        std::cout << "... calling mkDate to create Date ..." << std::endl;
 
     if ( !is_valid_date(y, m, d) )
         throw InvalidData("Invalid Date passed to Date::before.");
@@ -163,7 +163,7 @@ Date mkDate(int y, int m, int d) {
 
 Date * mkDate_ptr(int y, int m, int d) {
     if (DEBUG)
-        cout << "... calling mkDate to create Date ..." << endl;
+        std::cout << "... calling mkDate to create Date ..." << std::endl;
 
     if ( !is_valid_date(y, m, d) )
         throw InvalidData("Invalid Date passed to Date::before.");
