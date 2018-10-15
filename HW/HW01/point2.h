@@ -3,7 +3,7 @@
 */
 
 #ifndef HW01_POINT2_H
-#define POINT2_H
+#define POINT2_H_
 
 class Point2{
  public:
@@ -14,9 +14,9 @@ class Point2{
   void setY(float y);
   float getX();
   float getY();
-  float DistanceBetween(Point2 p2);	
+  float DistanceBetween(Point2 p2);
  private:
   float x_;
-  float y_;  
+  float y_;
 };
 #endif  // HW01__POINT2_H
