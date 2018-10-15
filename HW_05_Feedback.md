@@ -1,6 +1,6 @@
 ### Feedback for Homework 05
 
-Run on October 14, 20:58:28 PM.
+Run on October 14, 21:05:32 PM.
 
 
 #### System Files and HW Directory Structure
@@ -138,12 +138,9 @@ Total errors found: 12
 
 
 
-+ Fail: Check Style for Duck.h.
++ Pass: Check Style for Duck.h.
 
-<pre>Duck.h:29:  #endif line should be "#endif  // HW02_DUCK_H_"  [build/header_guard] [5]
-Done processing Duck.h
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
@@ -171,13 +168,9 @@ Total errors found: 1
 
 
 
-+ Fail: Check Style for main.cpp.
++ Pass: Check Style for main.cpp.
 
-<pre>main.cpp:60:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-main.cpp:61:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-Done processing main.cpp
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
@@ -199,12 +192,9 @@ Total errors found: 2
 
 
 
-+ Fail: Check Style for Duck.cpp.
++ Pass: Check Style for Duck.cpp.
 
-<pre>Duck.cpp:30:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Done processing Duck.cpp
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
