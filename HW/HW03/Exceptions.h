@@ -13,13 +13,13 @@
 
 class InvalidData {
  public:
-    InvalidData (std::string);
-    ~InvalidData ();
+    explicit InvalidData(std::string);
+    ~InvalidData();
 
     std::string get_msg();
 
-private:
+ private:
     std::string msg;
 };
 
-#endif // HW03_EXCEPTIONS_H_
+#endif  // HW03_EXCEPTIONS_H_

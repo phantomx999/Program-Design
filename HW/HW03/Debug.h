@@ -1,6 +1,4 @@
-/*
-  Coppyright 2018
-*/
+/* Copyright 2018 */
 
 #ifndef HW03_DEBUG_H_
 #define HW03_DEBUG_H_

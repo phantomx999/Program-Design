@@ -4,9 +4,9 @@
  * @copyright 208 3081 Staff, All rights reserved.
  */
 
-#ifndef HW04_SRC_DATE_H_
-#define HW04_SRC_DATE_H_
-
+#ifndef HW04_DATE_H_
+#define HW04_DATE_H_
+#include <string>
 
 /*******************************************************************************
  * Class Definitions
@@ -29,7 +29,7 @@ class Date {
     *
     * Converts epoch time given to this Date format and stored.
     **/
-  Date(int epoch);
+  explicit Date(int epoch);
   /**
     * Adding days to the date.
     * param [in] rhs: right hand side of this+rhs
@@ -62,16 +62,17 @@ class Date {
     * Print the date in YYYY-MM-DD format
     * param [in] boolean flag, true: print newline, false: don't
     **/
-  void PrintDate(bool newline) const;  
+  void PrintDate(bool newline) const;
   /**
     * Print the date in MM-DD-YYYY format
     * param [in] boolean flag, true: print newline, false: don't
     **/
   void PrintUsDate(bool newline) const;
+
  private:
   int yyyy_, mm_, dd_;
   int ConvertToDays(int yyyy, int mm, int dd) const;
-  int * ConvertFromDays(int days) const;  
+  int * ConvertFromDays(int days) const;
 };
 
 #endif  // HW04_DATE_H_

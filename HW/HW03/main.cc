@@ -33,7 +33,8 @@ void doInterestingThing(int yr) {
 
   std::cout << "date d3 is: " << d3.show() << std::endl;
 
-  std::cout << " ... Now print out 4 dates in reverse time order ... " << std::endl;
+  std::cout << " ... Now print out 4 dates in reverse time order ... ";
+  std::endl;
 
   birthday_list = new Date[*array_len];
   // accumulate the all dates January 1, from 1990 to 1990+array_len
@@ -42,9 +43,9 @@ void doInterestingThing(int yr) {
   }
 
   // now show the dates accumulated in reverse order
-  //for (int i = 0; i < *array_len; --i) {
+  // for (int i = 0; i < *array_len; --i) {
   for (int i = 3; i >= 0; --i) {
-   std::cout << "date is: " << birthday_list[i].show() << std::endl;
+    std::cout << "date is: " << birthday_list[i].show() << std::endl;
   }
 
   // now set the dates to January 2

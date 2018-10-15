@@ -5,9 +5,8 @@
 #ifndef HW03_DATE_H_
 #define HW03_DATE_H_
 
-#include "HW/HW03/Exceptions.h"
-
 #include <string>
+#include "HW/HW03/Exceptions.h"
 
 class Date {
  public:
@@ -29,6 +28,6 @@ class Date {
     int year, month, day;
 };
 
-Date mkDat mkDate_ptr(int y, int m, int d) ;
+Date mkDat mkDate_ptr(int y, int m, int d);
 
 #endif  // HW03_DATE_H_
