@@ -80,6 +80,12 @@ class PixelBuffer {
   /** Loads from a PNG file.  Will resize the buffer as needed. */
   void LoadFromFile(const std::string &filename);
 
+  /** Check for "equality", taking floating point imprecision into account */
+  friend bool operator==(const PixelBuffer& a, const PixelBuffer& b);
+
+  /** Check for "inequality", taking floating point imprecision into account */
+  friend bool operator!=(const PixelBuffer& a, const PixelBuffer& b);
+
  private:
   int width_;
   int height_;

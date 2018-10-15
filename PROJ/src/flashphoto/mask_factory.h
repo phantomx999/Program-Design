@@ -32,7 +32,6 @@ class MaskFactory {
 
   static FloatMatrix* CreateLinearFalloffMask(float radius);
 
-  static FloatMatrix* CreateBullseyeMask(float radius, float linewidth);
 };
 
 }  // namespace image_tools
