@@ -1,6 +1,6 @@
 ### Feedback for Homework 05
 
-Run on October 15, 17:05:02 PM.
+Run on October 15, 17:08:19 PM.
 
 
 #### System Files and HW Directory Structure
@@ -43,12 +43,9 @@ Run on October 15, 17:05:02 PM.
 
 
 
-+ Fail: Check Style for point2.h.
++ Pass: Check Style for point2.h.
 
-<pre>point2.h:22:  #endif line should be "#endif  // HW01_POINT2_H_"  [build/header_guard] [5]
-Done processing point2.h
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
@@ -234,13 +231,9 @@ Total errors found: 1
 
 
 
-+ Fail: Check Style for Date.cc.
++ Pass: Check Style for Date.cc.
 
-<pre>Date.cc:19:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Date.cc:25:  If/else bodies with multiple statements require braces  [readability/braces] [4]
-Done processing Date.cc
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
@@ -279,15 +272,9 @@ Total errors found: 2
 
 
 
-+ Fail: Check Style for date.cc.
++ Pass: Check Style for date.cc.
 
-<pre>date.cc:142:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-date.cc:158:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-date.cc:158:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-date.cc:173:  Extra space after (  [whitespace/parens] [2]
-Done processing date.cc
-Total errors found: 4
-</pre>
+    Complete.
 
 
 
