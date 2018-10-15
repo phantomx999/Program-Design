@@ -1,4 +1,3 @@
-//
 //  MallardDuck.h
 //
 //  Created by Sarit Ghildayal on 1/24/15.
@@ -6,16 +5,17 @@
 //
 
 #ifndef HW02_MALLARDDUCK_H_
-#define MALLARDDUCK_H
+#define HW02_MALLARDDUCK_H_
 
 #include <string>
-#include "Duck.h"
+#include "HW/HW02/Duck.h"
 
 class MallardDuck : public Duck {
  public:
     MallardDuck();
-    ~MallardDuck();    
+    ~MallardDuck();
     std::string getDescription();
 };
 
 #endif  // HW02_MALLARDDUCK_H_
+

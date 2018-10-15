@@ -26,9 +26,9 @@ int main(int argc, const char * argv[]) {
     Duck * edmund = new DecoyDuck();
     steve->setName("Steve");
     charles->setName("Charles");
-    edmund->setName("Edmund");  
-    Duck ** duckArray = new Duck* [10]; //  Make room for 10 ducks
-    int duckCount = 0; //  This will increase by one everytime we add a
+    edmund->setName("Edmund");
+    Duck ** duckArray = new Duck* [10];  //  Make room for 10 ducks
+    int duckCount = 0;  //  This will increase by one everytime we add a
     duckArray[duckCount++] = steve;
     duckArray[duckCount++] = charles;
     //  duckArray[duckCount++] = edmund;
@@ -51,12 +51,14 @@ int main(int argc, const char * argv[]) {
 }
 
 void introduceDuck(Duck* duck) {
-    cout << duck->getName() << " is " << duck->getDescription() << " who says: ";
+    cout << duck->getName();
+    cout << " is " << duck->getDescription() << " who says: ";
     duck->performQuack();
 }
 
 void shushDuck(Duck* duck) {
-    cout << "\"Shhhh, " << duck->getName() << "!\"" << endl;
+ 
+   cout << "\"Shhhh, " << duck->getName() << "!\"" << endl;
     duck->setQuackBehavior(new MuteQuack());
 }
 

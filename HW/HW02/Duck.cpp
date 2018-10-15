@@ -4,7 +4,7 @@
 //  Copyright (c) 2015 Sarit Ghildayal. All rights reserved.
 //
 
-#include "Duck.h"
+#include "HW/HW02/Duck.h"
 
 #include <iostream>
 
@@ -30,4 +30,11 @@ void Duck::setQuackBehavior(QuackBehavior* behavior) {
     
     m_quackBehavior = behavior;
 }
+
+
+
+
+
+
+
 

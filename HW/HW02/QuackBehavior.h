@@ -6,7 +6,7 @@
 //
 
 #ifndef HW02_QUACKBEHAVIOR_H_
-#define QUACKBEHAVIOR_H
+#define HW02_QUACKBEHAVIOR_H_
 
 #include <stdio.h>
 
@@ -17,3 +17,4 @@ class QuackBehavior {
     virtual void quack() = 0;
 };
 #endif  // HW02_QUACKBEHAVIOR_H_
+

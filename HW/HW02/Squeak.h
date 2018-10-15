@@ -1,4 +1,3 @@
-//
 //  Squeak.h
 //
 //  Created by Seth Johnson on 2/5/15.
@@ -6,15 +5,16 @@
 //
 
 #ifndef HW02_SQUEAK_H_
-#define SQUEAK_H
+#define HW02_SQUEAK_H_
 
-#include "QuackBehavior.h"
+#include "HW/HW02/QuackBehavior.h"
 
 class Squeak : public QuackBehavior {
  public:
-    Squeak() {}
-    ~Squeak() {}
-    void quack();    
+    Squeak() {};
+    ~Squeak() {};
+    void quack();
 };
 
 #endif  // HW02_SQUEAK_H_
+

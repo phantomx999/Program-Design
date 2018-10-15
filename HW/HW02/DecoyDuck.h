@@ -1,4 +1,3 @@
-//
 //  DecoyDuck.h
 //
 //  Created by Seth Johnson on 1/24/15.
@@ -6,16 +5,17 @@
 //
 
 #ifndef HW02_DECOYDUCK_H_
-#define DECOYDUCK_H
+#define HW02_DECOYDUCK_H_
 
 #include <string>
-#include "Duck.h"
+#include "HW/HW02/Duck.h"
 
 class DecoyDuck : public Duck {
  public:
     DecoyDuck();
-    ~DecoyDuck();    
+    ~DecoyDuck();
     std::string getDescription();
 };
 
 #endif  // HW02_DECOYDUCK_H_
+

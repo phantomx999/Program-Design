@@ -8,7 +8,7 @@
 #include <string>
 #include "HW/HW02/MallardDuck.h"
 
-#include "Quack.h"
+#include "HW/HW02/Quack.h"
 
 using std::cout;
 using std::endl;
@@ -22,4 +22,5 @@ string MallardDuck::getDescription() {
     string descriptionText = "a mallard duck";
     return descriptionText;
 }
+
 
