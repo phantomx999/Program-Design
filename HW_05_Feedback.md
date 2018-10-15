@@ -1,6 +1,6 @@
 ### Feedback for Homework 05
 
-Run on October 14, 20:50:10 PM.
+Run on October 14, 20:58:28 PM.
 
 
 #### System Files and HW Directory Structure
@@ -140,40 +140,28 @@ Total errors found: 12
 
 + Fail: Check Style for Duck.h.
 
-<pre>Duck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_DUCK_H_  [build/header_guard] [5]
-Duck.h:18:  You don't need a ; after a }  [readability/braces] [4]
+<pre>Duck.h:29:  #endif line should be "#endif  // HW02_DUCK_H_"  [build/header_guard] [5]
 Done processing Duck.h
-Total errors found: 2
-</pre>
-
-
-
-+ Fail: Check Style for MuteQuack.h.
-
-<pre>MuteQuack.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_MUTEQUACK_H_  [build/header_guard] [5]
-Done processing MuteQuack.h
 Total errors found: 1
 </pre>
 
 
 
-+ Fail: Check Style for Quack.h.
++ Pass: Check Style for MuteQuack.h.
 
-<pre>Quack.h:14:  You don't need a ; after a }  [readability/braces] [4]
-Quack.h:15:  You don't need a ; after a }  [readability/braces] [4]
-Done processing Quack.h
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for Squeak.h.
++ Pass: Check Style for Quack.h.
 
-<pre>Squeak.h:14:  You don't need a ; after a }  [readability/braces] [4]
-Squeak.h:15:  You don't need a ; after a }  [readability/braces] [4]
-Done processing Squeak.h
-Total errors found: 2
-</pre>
+    Complete.
+
+
+
++ Pass: Check Style for Squeak.h.
+
+    Complete.
 
 
 
@@ -185,13 +173,10 @@ Total errors found: 2
 
 + Fail: Check Style for main.cpp.
 
-<pre>main.cpp:48:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:60:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
-main.cpp:60:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:60:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+<pre>main.cpp:60:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 main.cpp:61:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 Done processing main.cpp
-Total errors found: 5
+Total errors found: 2
 </pre>
 
 
