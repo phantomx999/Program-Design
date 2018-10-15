@@ -26,7 +26,8 @@ class Duck {
     QuackBehavior * m_quackBehavior;
 };
 
-#endif  // HW02_DUCK_H
+#endif  // HW02_DUCK_H_
+
 
 
 

@@ -57,10 +57,9 @@ void introduceDuck(Duck* duck) {
 }
 
 void shushDuck(Duck* duck) {
-   cout << "\"Shhhh, " << duck->getName() << "!\"" << endl;
-   duck->setQuackBehavior(new MuteQuack());
+  cout << "\"Shhhh, " << duck->getName() << "!\"" << endl;
+  duck->setQuackBehavior(new MuteQuack());
 }
-
 
 
 
