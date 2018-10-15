@@ -1,6 +1,6 @@
 ### Feedback for Homework 05
 
-Run on October 14, 20:27:10 PM.
+Run on October 14, 20:50:10 PM.
 
 
 #### System Files and HW Directory Structure
@@ -114,52 +114,36 @@ Total errors found: 12
 
 + Pass: Check that file "RubberDuck.cpp" exists.
 
-+ Fail: Check Style for DecoyDuck.h.
++ Pass: Check Style for DecoyDuck.h.
 
-<pre>DecoyDuck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_DECOYDUCK_H_  [build/header_guard] [5]
-DecoyDuck.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Done processing DecoyDuck.h
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for MallardDuck.h.
++ Pass: Check Style for MallardDuck.h.
 
-<pre>MallardDuck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_MALLARDDUCK_H_  [build/header_guard] [5]
-MallardDuck.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Done processing MallardDuck.h
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for QuackBehavior.h.
++ Pass: Check Style for QuackBehavior.h.
 
-<pre>QuackBehavior.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_QUACKBEHAVIOR_H_  [build/header_guard] [5]
-Done processing QuackBehavior.h
-Total errors found: 1
-</pre>
+    Complete.
 
 
 
-+ Fail: Check Style for RubberDuck.h.
++ Pass: Check Style for RubberDuck.h.
 
-<pre>RubberDuck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_RUBBERDUCK_H_  [build/header_guard] [5]
-RubberDuck.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Done processing RubberDuck.h
-Total errors found: 2
-</pre>
+    Complete.
 
 
 
 + Fail: Check Style for Duck.h.
 
 <pre>Duck.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_DUCK_H_  [build/header_guard] [5]
-Duck.h:19:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Duck.h:27:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+Duck.h:18:  You don't need a ; after a }  [readability/braces] [4]
 Done processing Duck.h
-Total errors found: 3
+Total errors found: 2
 </pre>
 
 
@@ -175,17 +159,18 @@ Total errors found: 1
 
 + Fail: Check Style for Quack.h.
 
-<pre>Quack.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_QUACK_H_  [build/header_guard] [5]
+<pre>Quack.h:14:  You don't need a ; after a }  [readability/braces] [4]
+Quack.h:15:  You don't need a ; after a }  [readability/braces] [4]
 Done processing Quack.h
-Total errors found: 1
+Total errors found: 2
 </pre>
 
 
 
 + Fail: Check Style for Squeak.h.
 
-<pre>Squeak.h:0:  No #ifndef header guard found, suggested CPP variable is: HW02_SQUEAK_H_  [build/header_guard] [5]
-Squeak.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+<pre>Squeak.h:14:  You don't need a ; after a }  [readability/braces] [4]
+Squeak.h:15:  You don't need a ; after a }  [readability/braces] [4]
 Done processing Squeak.h
 Total errors found: 2
 </pre>
@@ -200,11 +185,11 @@ Total errors found: 2
 
 + Fail: Check Style for main.cpp.
 
-<pre>main.cpp:29:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:30:  At least two spaces is best between code and comments  [whitespace/comments] [2]
-main.cpp:31:  At least two spaces is best between code and comments  [whitespace/comments] [2]
-main.cpp:48:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-main.cpp:54:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+<pre>main.cpp:48:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+main.cpp:60:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
+main.cpp:60:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+main.cpp:60:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
+main.cpp:61:  Weird number of spaces at line-start.  Are you using a 2-space indent?  [whitespace/indent] [3]
 Done processing main.cpp
 Total errors found: 5
 </pre>
@@ -232,9 +217,8 @@ Total errors found: 5
 + Fail: Check Style for Duck.cpp.
 
 <pre>Duck.cpp:30:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Duck.cpp:9:  HW/HW02/Duck.cpp should include its header file HW/HW02/Duck.h  [build/include] [5]
 Done processing Duck.cpp
-Total errors found: 2
+Total errors found: 1
 </pre>
 
 
