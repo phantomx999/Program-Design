@@ -1,6 +1,6 @@
 ### Feedback for Homework 05
 
-Run on October 14, 21:05:32 PM.
+Run on October 14, 21:12:27 PM.
 
 
 #### System Files and HW Directory Structure
@@ -46,32 +46,15 @@ Run on October 14, 21:05:32 PM.
 + Fail: Check Style for point2.h.
 
 <pre>point2.h:0:  No #ifndef header guard found, suggested CPP variable is: HW01_POINT2_H_  [build/header_guard] [5]
-point2.h:17:  Tab found; better to use spaces  [whitespace/tab] [1]
-point2.h:17:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-point2.h:20:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
 Done processing point2.h
-Total errors found: 4
+Total errors found: 1
 </pre>
 
 
 
-+ Fail: Check Style for point2.cc.
++ Pass: Check Style for point2.cc.
 
-<pre>point2.cc:10:  Missing space before {  [whitespace/braces] [5]
-point2.cc:15:  Missing space before {  [whitespace/braces] [5]
-point2.cc:20:  Missing space before {  [whitespace/braces] [5]
-point2.cc:21:  Redundant blank line at the start of a code block should be deleted.  [whitespace/blank_line] [2]
-point2.cc:21:  Redundant blank line at the end of a code block should be deleted.  [whitespace/blank_line] [3]
-point2.cc:24:  Missing space before {  [whitespace/braces] [5]
-point2.cc:28:  Missing space before {  [whitespace/braces] [5]
-point2.cc:32:  Missing space before {  [whitespace/braces] [5]
-point2.cc:36:  Missing space before {  [whitespace/braces] [5]
-point2.cc:40:  Missing space before {  [whitespace/braces] [5]
-point2.cc:43:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-point2.cc:44:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-Done processing point2.cc
-Total errors found: 12
-</pre>
+    Complete.
 
 
 
