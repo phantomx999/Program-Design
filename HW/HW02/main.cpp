@@ -45,7 +45,7 @@ int main(int argc, const char * argv[]) {
     cout << "\nHere we have " << duckCount << " ducks." << endl;
     for (int i = 0; i < duckCount; i++) {
         Duck* current_duck = duckArray[i];
-        introduceDuck(current_duck); 
+        introduceDuck(current_duck);
     }
     return 0;
 }
@@ -57,8 +57,11 @@ void introduceDuck(Duck* duck) {
 }
 
 void shushDuck(Duck* duck) {
- 
    cout << "\"Shhhh, " << duck->getName() << "!\"" << endl;
-    duck->setQuackBehavior(new MuteQuack());
+   duck->setQuackBehavior(new MuteQuack());
 }
+
+
+
+
 

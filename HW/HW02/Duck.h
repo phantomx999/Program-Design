@@ -5,7 +5,7 @@
 //
 
 #ifndef HW02_DUCK_H_
-#define DUCK_H
+#define HW02_DUCK_H_
 
 #include <string>
 
@@ -15,7 +15,7 @@ class QuackBehavior;
 class Duck {
  public:
     Duck();
-    virtual ~Duck() {};
+    virtual ~Duck() {}
     virtual void performQuack();
     virtual std::string getDescription() = 0;
     std::string getName() {return m_name;}

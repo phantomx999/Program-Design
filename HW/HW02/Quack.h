@@ -11,8 +11,8 @@
 
 class Quack : public QuackBehavior {
  public:
-    Quack() {};
-    ~Quack() {};
+    Quack() {}
+    ~Quack() {}
     void quack();
 };
 

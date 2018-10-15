@@ -35,6 +35,3 @@ void Duck::setQuackBehavior(QuackBehavior* behavior) {
 
 
 
-
-
-

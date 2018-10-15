@@ -11,8 +11,8 @@
 
 class Squeak : public QuackBehavior {
  public:
-    Squeak() {};
-    ~Squeak() {};
+    Squeak() {}
+    ~Squeak() {}
     void quack();
 };
 

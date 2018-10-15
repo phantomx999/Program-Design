@@ -6,7 +6,7 @@
 //
 
 #ifndef HW02_MUTEQUACK_H_
-#define MUTEQUACK_H
+#define HW02_MUTEQUACK_H_
 
 #include "QuackBehavior.h"
 
