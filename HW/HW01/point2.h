@@ -19,4 +19,4 @@ class Point2{
   float x_;
   float y_;
 };
-#endif  // HW01__POINT2_H_
+#endif  // HW01_POINT2_H_

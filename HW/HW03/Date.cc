@@ -16,15 +16,16 @@ bool is_valid_date(int y, int m, int d);
 
 Date::Date() {
     if (DEBUG)
-        std::cout << "... calling default constructor for Date..."; 
+        std::cout << "... calling default constructor for Date...";
 std::endl;
     year = 1900; month = 1; day = 1;
 }
 
 Date::Date(int y, int m, int d) {
-    if (DEBUG)
+    if (DEBUG) {
        std::cout << "... calling parameterize constructor for Date...";
        std::endl;
+    }
     // assert ( y >= 1900 )
     // assert ( 0 <= m && m <= 12 )
     // assert ( 0 <= d && d <= 31 )

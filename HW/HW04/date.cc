@@ -139,7 +139,8 @@ void Date::PrintDate(bool newline) const {
 **/
 void Date::PrintUsDate(bool newline) const {
   std::cout << std::setw(2) << std::setfill('0');
-  std::cout << mm_ << "-" << std::setw(2) << std::setfill('0') << dd_ << "-" << yyyy_;
+  std::cout << mm_ << "-" << std::setw(2);
+  std::cout << std::setfill('0') << dd_ << "-" << yyyy_;
   if (newline)
     std::cout << std::endl;
 }
@@ -155,7 +156,7 @@ void Date::PrintUsDate(bool newline) const {
    *   https://www.hermetic.ch/cal_stud/jdn.htm#comp
    *
    */
-   
+
 int Date::ConvertToDays(int yyyy, int mm, int dd) const {
   return (1461 * (yyyy + 4800 + (mm - 14) / 12)) / 4 +
           (367 * (mm - 2 - 12 * ((mm - 14) / 12))) / 12 -
@@ -170,7 +171,7 @@ int * Date::ConvertFromDays(int days) const {
   l = l - (146097 * n + 3) / 4;
   int i = (4000 * (l + 1)) / 1461001;
   l = l - (1461 * i) / 4 + 31;
-  int j = ( 80 * l) / 2447;
+  int j = (80 * l) / 2447;
   date_back[2] = l - (2447 * j) / 80;
   l = j / 11;
   date_back[1] = j + 2 - (12 * l);
