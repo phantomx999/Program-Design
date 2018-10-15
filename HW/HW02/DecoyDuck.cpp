@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <string>
-#include "DecoyDuck.h"
+#include "HW/HW02/DecoyDuck.h"
 #include "MuteQuack.h"
 
 using std::cout;

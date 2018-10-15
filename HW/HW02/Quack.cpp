@@ -1,4 +1,3 @@
-//
 //  Quack.cpp
 //
 //  Created by Seth Johnson on 2/4/15.
@@ -6,7 +5,7 @@
 //
 
 #include <iostream>
-#include "Quack.h"
+#include "HW/HW02/Quack.h"
 
 using std::cout;
 using std::endl;
@@ -14,3 +13,4 @@ using std::endl;
 void Quack::quack() {
     cout << "QUACK!!" << endl;
 }
+

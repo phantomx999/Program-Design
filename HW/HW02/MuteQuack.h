@@ -5,16 +5,16 @@
 //  Copyright (c) 2015 Seth Johnson. All rights reserved.
 //
 
-#ifndef MUTEQUACK_H
+#ifndef HW02_MUTEQUACK_H_
 #define MUTEQUACK_H
 
 #include "QuackBehavior.h"
 
 class MuteQuack : public QuackBehavior {
-public:
-    MuteQuack() {};
-    ~MuteQuack() {};
+ public:
+    MuteQuack() {}
+    ~MuteQuack() {}
     void quack();
 };
 
-#endif
+#endif  // HW02_MUTEQUACK_H_

@@ -1,4 +1,3 @@
-//
 //  RubberDuck.cpp
 //
 //  Created by Seth Johnson on 1/24/15.
@@ -7,8 +6,8 @@
 
 #include <iostream>
 #include <string>
-#include "RubberDuck.h"
-#include "Squeak.h"
+#include "HW/HW02/RubberDuck.h"
+#include "HW/HW02/Squeak.h"
 
 using std::cout;
 using std::endl;

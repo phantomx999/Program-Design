@@ -5,18 +5,17 @@
 //  Copyright (c) 2015 Seth Johnson. All rights reserved.
 //
 
-#ifndef DECOYDUCK_H
+#ifndef HW02_DECOYDUCK_H_
 #define DECOYDUCK_H
 
 #include <string>
 #include "Duck.h"
 
 class DecoyDuck : public Duck {
-public:
+ public:
     DecoyDuck();
-    ~DecoyDuck();
-    
+    ~DecoyDuck();    
     std::string getDescription();
 };
 
-#endif
+#endif  // HW02_DECOYDUCK_H_

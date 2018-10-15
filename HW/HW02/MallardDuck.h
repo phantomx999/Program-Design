@@ -5,18 +5,17 @@
 //  Copyright (c) 2015 Sarit Ghildayal. All rights reserved.
 //
 
-#ifndef MALLARDDUCK_H
+#ifndef HW02_MALLARDDUCK_H_
 #define MALLARDDUCK_H
 
 #include <string>
 #include "Duck.h"
 
 class MallardDuck : public Duck {
-public:
+ public:
     MallardDuck();
-    ~MallardDuck();
-    
+    ~MallardDuck();    
     std::string getDescription();
 };
 
-#endif 
+#endif  // HW02_MALLARDDUCK_H_

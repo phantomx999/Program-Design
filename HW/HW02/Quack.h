@@ -5,16 +5,16 @@
 //  Copyright (c) 2015 Seth Johnson. All rights reserved.
 //
 
-#ifndef QUACK_H
+#ifndef HW02_QUACK_H_
 #define QUACK_H
 
 #include "QuackBehavior.h"
 
 class Quack : public QuackBehavior {
-public:
-    Quack() {};
-    ~Quack() {};
+ public:
+    Quack() {}
+    ~Quack() {}
     void quack();
 };
 
-#endif
+#endif  // HW02_QUACK_H_

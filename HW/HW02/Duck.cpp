@@ -1,4 +1,3 @@
-//
 //  Duck.cpp
 //
 //  Created by Sarit Ghildayal on 1/24/15.
@@ -9,8 +8,8 @@
 
 #include <iostream>
 
-#include "QuackBehavior.h"
-#include "Quack.h"
+#include "HW/HW02/QuackBehavior.h"
+#include "HW/HW02/Quack.h"
 
 using std::cout;
 using std::endl;
@@ -31,3 +30,4 @@ void Duck::setQuackBehavior(QuackBehavior* behavior) {
     
     m_quackBehavior = behavior;
 }
+

@@ -5,16 +5,16 @@
 //  Copyright (c) 2015 Seth Johnson. All rights reserved.
 //
 
-#ifndef SQUEAK_H
+#ifndef HW02_SQUEAK_H_
 #define SQUEAK_H
 
 #include "QuackBehavior.h"
 
 class Squeak : public QuackBehavior {
-public:
-    Squeak() {};
+ public:
+    Squeak() {}
     ~Squeak() {}
     void quack();    
 };
 
-#endif
+#endif  // HW02_SQUEAK_H_
