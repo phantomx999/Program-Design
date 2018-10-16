@@ -58,7 +58,7 @@ else # LINUX
 endif
 
 # The command to run for the C++ compiler and linker
-CXX = g++
+CXX = /soft/gcc/7.1.0/Linux_x86_64/bin/g++
 
 # Arguments to pass to the C++ compiler.
 # -c is required, it tells the compiler to output a .o file
@@ -74,6 +74,7 @@ LDFLAGS = $(LIBDIRS)
 # Library names to pass to the C++ linker, such as -lfoo
 LDLIBS = $(LIBS)
 
+-include Makefile.local
 
 ### Section II: Rules ###
 
