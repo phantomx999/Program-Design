@@ -2,7 +2,7 @@
 
 #### Total score: _95.75_ / _100_
 
-Run on October 17, 20:05:15 PM.
+Run on October 18, 11:17:46 AM.
 
 
 #### System Files and HW Directory Structure
@@ -111,7 +111,7 @@ Run on October 17, 20:05:15 PM.
 
 
 
-+  _50_ / _50_ : Pass: All tests passed.
++  _50_ / _50_ : Pass: 100% of the tests passed.
 
 
 ### Testing Mutants
