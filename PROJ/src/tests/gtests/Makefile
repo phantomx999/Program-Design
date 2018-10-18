@@ -107,14 +107,14 @@ $(OBJDIR) $(BINDIR):
 # $(SRCDIR)/filename.cpp can be turned into $(OBJDIR)/filename.o.
 
 # The same thing will also work for files with a .cc extension
-$(OBJDIR)/%.o: $(SRCDIR)/%.cc
+$(OBJDIR)/%.o: $(SRCDIR)/%.cc googletest
 	@echo "==== Auto-Generating Dependencies for $<. ===="
 	$(call make-depend-cxx,$<,$@,$(subst .o,.d,$@))
 	@echo "==== Compiling $< into $@. ===="
 	$(CXX) -fopenmp  $(CXXFLAGS) $(CXXLIBDIRS) -c -fPIC -o  $@ $<
 
 # The same thing will also work for files with a .cc extension
-$(OBJDIR)/%.o: $(FLASHPHOTO_DIR)/%.cc
+$(OBJDIR)/%.o: $(FLASHPHOTO_DIR)/%.cc googletest
 	@echo "==== Auto-Generating Dependencies for $<. ===="
 	$(call make-depend-cxx,$<,$@,$(subst .o,.d,$@))
 	@echo "==== Compiling $< into $@. ===="
