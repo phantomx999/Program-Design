@@ -1,7 +1,7 @@
 CC=/soft/gcc/7.1.0/Linux_x86_64/bin/gcc
 CXX=/soft/gcc/7.1.0/Linux_x86_64/bin/g++
 
--include Makefile.local
+-include ../../../Makefile.local
 
 all: MinGfx
 

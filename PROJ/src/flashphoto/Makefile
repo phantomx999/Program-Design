@@ -74,7 +74,7 @@ LDFLAGS = $(LIBDIRS)
 # Library names to pass to the C++ linker, such as -lfoo
 LDLIBS = $(LIBS)
 
--include Makefile.local
+-include ../../Makefile.local
 
 ### Section II: Rules ###
 

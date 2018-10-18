@@ -15,3 +15,6 @@ tests:
 clean:
 	rm -rf build
 
+clobber: clean
+	cd src/external/MinGfx; make clobber
+	cs src/external/googletest; make clean
