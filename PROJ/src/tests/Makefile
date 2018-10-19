@@ -1,5 +1,5 @@
 all:
-	cd gtests; make
+	cd gtests; make -j
 	#cd gtests-interactive; make
 
 clean:

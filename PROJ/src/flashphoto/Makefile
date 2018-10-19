@@ -85,7 +85,7 @@ LDLIBS = $(LIBS)
 
 
 # The default target which will be run if the user just types "make"
-all: MinGfx $(EXEFILE) 
+all: $(MINGFX_DIR) $(EXEFILE) 
 
 # This rule says that each .o file in $(OBJDIR)/ depends on the
 # presence of the $(OBJDIR)/ directory.
@@ -104,7 +104,7 @@ $(OBJDIR) $(BINDIR):
 # $(SRCDIR)/filename.cpp can be turned into $(OBJDIR)/filename.o.
 
 # The same thing will also work for files with a .cc extension
-$(OBJDIR)/%.o: $(SRCDIR)/%.cc MinGfx
+$(OBJDIR)/%.o: $(SRCDIR)/%.cc $(MINGFX_DIR)
 	@echo "==== Auto-Generating Dependencies for $<. ===="
 	$(call make-depend-cxx,$<,$@,$(subst .o,.d,$@))
 	@echo "==== Compiling $< into $@. ===="
@@ -159,7 +159,7 @@ check-style-cse:
 	@echo "==== Checking style is correct ===="
 	$(CS3081DIR)/cpplint/cpplint-cse.sh --root=.. *.cc *.h
 
-MinGfx:
+$(MINGFX_DIR):
 	cd $(EXTERNAL_DIR)/MinGfx; make
 
 # Clean up the project, removing ALL files generated during a build.
