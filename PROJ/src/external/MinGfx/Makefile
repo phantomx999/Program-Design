@@ -1,3 +1,8 @@
+CC=/soft/gcc/7.1.0/Linux_x86_64/bin/gcc
+CXX=/soft/gcc/7.1.0/Linux_x86_64/bin/g++
+
+-include ../../../Makefile.local
+
 all: MinGfx
 
 MinGfx: build
@@ -5,7 +10,7 @@ MinGfx: build
 
 build: src
 	mkdir -p build
-	cd build; cmake -DAUTOBUILD_DEPENDENCIES=ON -DAUTOBUILD_EXECUTE_NOW=ON -DCMAKE_BUILD_TYPE=Debug ../src
+	cd build; CC=$(CC) CXX=$(CXX) cmake -DAUTOBUILD_DEPENDENCIES=ON -DAUTOBUILD_EXECUTE_NOW=ON -DCMAKE_BUILD_TYPE=Debug ../src
 
 src:
 	git clone https://github.com/ivlab/MinGfx.git src

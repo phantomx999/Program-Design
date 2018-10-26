@@ -28,3 +28,12 @@ make check-style-cse
 ./build/test/gtests
 ```
 
+#### Clean the Project
+
+```bash
+# Simply clean the project (for most situations)
+make clean
+
+# If there are catastrophic problems, especially with MinGfx, you can clobber everything
+make clobber
+```

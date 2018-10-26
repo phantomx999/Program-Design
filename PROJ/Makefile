@@ -7,11 +7,14 @@ check-style-cse:
 	cd src/flashphoto; make check-style-cse
 
 flashphoto:
-	cd src/flashphoto; make
+	cd src/flashphoto; make -j
 
 tests:
-	cd src/tests; make
+	cd src/tests; make -j
 
 clean:
 	rm -rf build
 
+clobber: clean
+	cd src/external/MinGfx; make clobber
+	cs src/external/googletest; make clean
