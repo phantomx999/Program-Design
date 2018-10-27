@@ -2,7 +2,7 @@
 
 #### Total score: _100.0_ / _100.0_
 
-Run on October 27, 08:53:38 AM.
+Run on October 27, 15:26:09 PM.
 
 
 #### System Files and HW Directory Structure
@@ -27,6 +27,10 @@ Run on October 27, 08:53:38 AM.
 #### Set up cpplint
 
 + Pass: Copy directory "cpplint".
+
+
+
++ Pass: Copy directory "cpplint config".
 
 
 
