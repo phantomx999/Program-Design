@@ -37,4 +37,3 @@ class ToolPen : public Tool {
 }  // namespace image_tools
 
 #endif  // FLASHPHOTO_TOOL_PEN_H_
-
