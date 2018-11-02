@@ -2,14 +2,12 @@
 
 #### Total score: _95.75_ / _100_
 
-Run on October 18, 11:17:46 AM.
+Run on November 02, 10:10:55 AM.
 
 
 #### System Files and HW Directory Structure
 
 + Pass: Switch to correct commit.
-
-    Complete.
 
 
 
