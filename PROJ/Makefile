@@ -1,4 +1,4 @@
-all: flashphoto tests 
+all: flashphoto tests
 
 check-style:
 	cd src/flashphoto; make check-style
@@ -6,14 +6,11 @@ check-style:
 check-style-cse:
 	cd src/flashphoto; make check-style-cse
 
-flashphoto: mingfx
+flashphoto:
 	cd src/flashphoto; make -j
 
-tests: mingfx
+tests:
 	cd src/tests; make -j
-
-mingfx:
-	cd src/external/MinGfx; make
 
 clean:
 	rm -rf build
