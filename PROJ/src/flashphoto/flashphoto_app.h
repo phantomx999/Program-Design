@@ -37,6 +37,8 @@ Author(s) of Significant Updates/Modifications to the File:
 #include "flashphoto/tool_highlighter.h"
 #include "flashphoto/tool_pen.h"
 #include "flashphoto/tool_spray_can.h"
+//  #include "flashphoto/filter.h"
+#include "flashphoto/filter_threshold.h"
 
 namespace image_tools {
 

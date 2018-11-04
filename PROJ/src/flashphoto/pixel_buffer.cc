@@ -108,17 +108,16 @@ void PixelBuffer::SaveToFile(const std::string &filename) {
 void PixelBuffer::LoadFromFile(const std::string &filename) {
   (void)filename;
 }
-    
-    
+
+
 bool operator==(const PixelBuffer& a, const PixelBuffer& b) {
   if ((a.width() != b.width()) || (a.height() != b.height())) {
     return false;
-  }
-  else {
+  } else {
     // check the actual pixels
     for (int y = 0; y < a.height(); y++) {
       for (int x = 0; x < a.width(); x++) {
-        if (a.pixel(x,y) != b.pixel(x,y)) {
+        if (a.pixel(x, y) != b.pixel(x, y)) {
           return false;
         }
       }

@@ -31,7 +31,6 @@ class MaskFactory {
                                      float ratio);
 
   static FloatMatrix* CreateLinearFalloffMask(float radius);
-
 };
 
 }  // namespace image_tools

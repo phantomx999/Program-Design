@@ -26,6 +26,8 @@ Author(s) of Significant Updates/Modifications to the File:
 #include <utility>
 #include "flashphoto/color_data.h"
 #include "flashphoto/pixel_buffer.h"
+//  #include "flashphoto/filter.h"
+#include "flashphoto/filter_threshold.h"
 
 namespace image_tools {
 
@@ -622,6 +624,10 @@ void FlashPhotoApp::ApplyEdgeDetectFilter() {
 }
 
 void FlashPhotoApp::ApplyThresholdFilter(float value) {
+  ThresholdFilter filter = new ThresholdFilter(value);
+  if(current_buffer_ && filter){
+    filter.ApplyToBuffer(current_buffer_);
+  }
   (void)value;
 }
 
