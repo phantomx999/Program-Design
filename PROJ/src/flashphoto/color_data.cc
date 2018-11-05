@@ -64,9 +64,6 @@ bool operator==(const ColorData& a, const ColorData& b) {
           fabs(a.alpha_ - b.alpha_) < EPSILON);
 }
 
-bool operator!=(const ColorData& a, const ColorData& b) {
-  return !(a == b);
-}
+bool operator!=(const ColorData& a, const ColorData& b) { return !(a == b); }
 
 } /* namespace image_tools */
-

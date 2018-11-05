@@ -27,7 +27,7 @@ namespace image_tools{
 
   FilterThreshold::~FilterThreshold(){}
 
-  FilterThreshold FilterThreshold::getThreshold(){
+  float FilterThreshold::getThreshold(){
     return threshold_;
   }
 
@@ -37,14 +37,15 @@ namespace image_tools{
 
   ColorData FilterThreshold::CalculateFilteredPixel(PixelBuffer* buffer, int x, int y){
     ColorData data = buffer->pixel(x, y);  // get color of pixel
-    float average_intensity = (data.red() + data.blue() + data.green()/3.0);
-    FilterThreshold temp = getThreshold();
-    if(average_intensity > temp.threshold_){
-	ColorData white(1.0, 1.0, 1.0, 1.0); 
+    float numerator = data.red() + data.blue() + data.green();
+    float average_intensity = (numerator/3.0);
+    float temp = threshold_;
+    if(average_intensity > temp){
+	ColorData white(1.0, 1.0, 1.0); 
 	buffer->set_pixel(x, y, white);
     	return white; 
     } else {
-	ColorData black(0.0, 0.0, 0.0, 0.0);
+	ColorData black(0.0, 0.0, 0.0);
         buffer->set_pixel(x, y, black);
         return black;
     }

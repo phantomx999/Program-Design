@@ -24,13 +24,13 @@ namespace image_tools {
 	//if(!can_copy_in_place){
 	 // PixelBuffer* temp = buffer;
 	//}
-	SetupFilter();
-	for(int row = 0; row < buffer->height(); row++){
-	  for(int column = 0; column < buffer->width(); buffer++){
+	//  SetupFilter();
+	for(int row = 0; row < buffer->width(); row++){
+	  for(int column = 0; column < buffer->height(); column++){
 	    CalculateFilteredPixel(buffer, row, column);
 	  } 
 	}
-	CleanupFilter();
+	//  CleanupFilter();
     }
     
     //  void SetupFilter();

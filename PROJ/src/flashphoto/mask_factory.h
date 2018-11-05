@@ -36,4 +36,3 @@ class MaskFactory {
 }  // namespace image_tools
 
 #endif  // FLASHPHOTO_MASK_FACTORY_H_
-

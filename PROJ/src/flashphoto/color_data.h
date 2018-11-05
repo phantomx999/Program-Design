@@ -71,4 +71,3 @@ class ColorData {
 }  // namespace image_tools
 
 #endif  // FLASHPHOTO_COLOR_DATA_H_
-

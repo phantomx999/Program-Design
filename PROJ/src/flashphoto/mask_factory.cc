@@ -87,6 +87,4 @@ FloatMatrix* MaskFactory::CreateLinearFalloffMask(float radius) {
   return mask;
 }
 
-
 }  // namespace image_tools
-

@@ -1,10 +1,10 @@
 /*
-	filter_threshold.h
+	filter_saturate.h
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#ifndef FLASHPHOTO_FILTER_THRESHOLD_H_
-#define FLASHPHOTO_FILTER_THRESHOLD_H_
+#ifndef FLASHPHOTO_FILTER_SATURATE_H_
+#define FLASHPHOTO_FILTER_SATURATE_H_
 
 #include <iostream>
 #include <mingfx.h>
@@ -21,18 +21,19 @@
 
 namespace image_tools {
 
-class FilterThreshold : public Filter {
+class FilterSaturate : public Filter {
   public:
-    FilterThreshold(float threshold);
-    FilterThreshold();
-    virtual ~FilterThreshold();
-    float getThreshold();
-    void setThreshold(float threshold);
+    FilterSaturate();
+    FilterSaturate(float saturate);
+    virtual ~FilterSaturate();
+    float getSaturate();
+    void setSaturate(float saturate);
 
     ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override;
+
+  private:
+    float saturate_;
     
-  protected:
-    float threshold_;
 };
 
 }

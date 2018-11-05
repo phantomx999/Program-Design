@@ -26,11 +26,11 @@ class Filter {
 
     void ApplyToBuffer(PixelBuffer* buffer);
     
-    void SetupFilter();
+    //  virtual void SetupFilter() =0;
 
     virtual ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) = 0;
 
-    void CleanupFilter();
+    //  virtual void CleanupFilter() = 0;
 
     bool can_copy_in_place();
 
