@@ -59,6 +59,7 @@ endif
 
 # The command to run for the C++ compiler and linker
 CXX = /soft/gcc/7.1.0/Linux_x86_64/bin/g++
+OMP = -fopenmp
 
 # Arguments to pass to the C++ compiler.
 # -c is required, it tells the compiler to output a .o file
@@ -85,7 +86,7 @@ LDLIBS = $(LIBS)
 
 
 # The default target which will be run if the user just types "make"
-all: MinGfx $(EXEFILE) 
+all: $(MINGFX_DIR) $(EXEFILE) 
 
 # This rule says that each .o file in $(OBJDIR)/ depends on the
 # presence of the $(OBJDIR)/ directory.
@@ -104,11 +105,11 @@ $(OBJDIR) $(BINDIR):
 # $(SRCDIR)/filename.cpp can be turned into $(OBJDIR)/filename.o.
 
 # The same thing will also work for files with a .cc extension
-$(OBJDIR)/%.o: $(SRCDIR)/%.cc MinGfx
+$(OBJDIR)/%.o: $(SRCDIR)/%.cc $(MINGFX_DIR)
 	@echo "==== Auto-Generating Dependencies for $<. ===="
 	$(call make-depend-cxx,$<,$@,$(subst .o,.d,$@))
 	@echo "==== Compiling $< into $@. ===="
-	$(CXX) -fopenmp  $(CXXFLAGS) $(CXXLIBDIRS) -c -fPIC -o  $@ $<
+	$(CXX) $(OMP) $(CXXFLAGS) $(CXXLIBDIRS) -c -fPIC -o  $@ $<
 
 # WITH AUTO-GENERATED DEPENDENCIES:
 # Note that there are actually two steps to the compiling recipe above.  The second
@@ -149,7 +150,7 @@ make-depend-cxx=$(CXX) -MM -MF $3 -MP -MT $2 $(CXXFLAGS) $1
 # .o files into an executable program.
 $(EXEFILE): $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
 	@echo "==== Linking $@. ===="
-	$(CXX) -fopenmp  $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
+	$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
 
 check-style:
 	@echo "==== Checking style is correct ===="
@@ -159,7 +160,7 @@ check-style-cse:
 	@echo "==== Checking style is correct ===="
 	$(CS3081DIR)/cpplint/cpplint-cse.sh --root=.. *.cc *.h
 
-MinGfx:
+$(MINGFX_DIR):
 	cd $(EXTERNAL_DIR)/MinGfx; make
 
 # Clean up the project, removing ALL files generated during a build.

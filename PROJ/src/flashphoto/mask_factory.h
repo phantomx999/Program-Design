@@ -31,10 +31,8 @@ class MaskFactory {
                                      float ratio);
 
   static FloatMatrix* CreateLinearFalloffMask(float radius);
-
 };
 
 }  // namespace image_tools
 
 #endif  // FLASHPHOTO_MASK_FACTORY_H_
-
