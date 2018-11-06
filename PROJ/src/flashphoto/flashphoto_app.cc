@@ -623,8 +623,13 @@ void FlashPhotoApp::SaveToFile(const std::string &filename) {
 }
 
 void FlashPhotoApp::ApplyBlurFilter(float radius) {
-  SaveStateForPossibleUndo();
-  (void)radius;
+  ConvolutionFilterBlur* filter = new ConvolutionFilterBlur(radius);
+  filter->CreateKernel();
+  if(current_buffer_ && filter){
+    SaveStateForPossibleUndo();
+    filter->ApplyToBuffer(current_buffer_);
+  }
+  //  (void)radius;
 }
 
 void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
@@ -643,7 +648,14 @@ void FlashPhotoApp::ApplySharpenFilter(float rad) {
   }
 }
 
-void FlashPhotoApp::ApplyEdgeDetectFilter() { SaveStateForPossibleUndo(); }
+void FlashPhotoApp::ApplyEdgeDetectFilter() { 
+  ConvolutionFilterEdge* filter = new ConvolutionFilterEdge();
+  filter->CreateKernel();
+  if(current_buffer_ && filter){
+    SaveStateForPossibleUndo(); 
+    filter->ApplyToBuffer(current_buffer_);
+  }
+}
 
 void FlashPhotoApp::ApplyThresholdFilter(float value) {
   FilterThreshold* filter = new FilterThreshold(value);
