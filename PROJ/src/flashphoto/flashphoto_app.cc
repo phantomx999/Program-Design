@@ -633,9 +633,15 @@ void FlashPhotoApp::ApplyBlurFilter(float radius) {
 }
 
 void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
-  SaveStateForPossibleUndo();
-  (void)rad;
-  (void)dir;
+  std::string direction = MotionBlurDirectionName(dir);
+  ConvolutionFilterMotionBlur* filter = new ConvolutionFilterMotionBlur(rad, direction);
+  filter->CreateKernel();
+  if(current_buffer_ && filter){
+    SaveStateForPossibleUndo();
+    filter->ApplyToBuffer(current_buffer_);
+  }
+  //  (void)rad;
+  //  (void)dir;
 }
 
 void FlashPhotoApp::ApplySharpenFilter(float rad) {

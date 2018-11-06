@@ -43,6 +43,7 @@ Author(s) of Significant Updates/Modifications to the File:
 #include "flashphoto/filter_convolution_sharpen.h"
 #include "flashphoto/filter_convolution_edge.h"
 #include "flashphoto/filter_convolution_blur.h"
+#include "flashphoto/filter_convolution_motion_blur.h"
 
 namespace image_tools {
 

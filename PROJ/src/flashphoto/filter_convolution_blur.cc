@@ -57,6 +57,7 @@ void ConvolutionFilterBlur::CreateKernel(){
       kernel_->set_value(column, row, Gaus); 
     }
   }
+  kernel_->Normalize();
 }
 
 }
