@@ -17,19 +17,27 @@
 
 namespace image_tools {
 
-    //  Filter::Filter();
-    //  Filter::~Filter(){};
+    Filter::Filter(){
+       copy_buffer_ = NULL;
+    }
+
+    Filter::~Filter(){};
 
     void Filter::ApplyToBuffer(PixelBuffer* buffer){
-	//if(!can_copy_in_place){
-	 // PixelBuffer* temp = buffer;
-	//}
+	if(!can_copy_in_place()){
+          copy_buffer_ = new PixelBuffer(*buffer);
+	}
 	//  SetupFilter();
-	for(int row = 0; row < buffer->width(); row++){
-	  for(int column = 0; column < buffer->height(); column++){
-	    CalculateFilteredPixel(buffer, row, column);
+        for(int row = 0; row < buffer->height(); row++){
+	  for(int column = 0; column < buffer->width(); column++){
+	    CalculateFilteredPixel(buffer, column, row);
 	  } 
 	}
+	//for(int row = 0; row < buffer->width(); row++){
+	  //for(int column = 0; column < buffer->height(); column++){
+	    //CalculateFilteredPixel(buffer, row, column);
+	  //} 
+	//}
 	//  CleanupFilter();
     }
     

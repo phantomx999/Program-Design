@@ -43,21 +43,6 @@ namespace image_tools{
     ColorData final_value = ImageToolsMath::Lerp(gray_scale, data, saturate_);
     buffer->set_pixel(x, y, final_value);
     return final_value;
-    /*
-    ColorData data = buffer->pixel(x, y);  // get color of pixel
-    float numerator = data.red() + data.blue() + data.green();
-    float average_intensity = (numerator/3.0);
-    float temp = threshold_;
-    if(average_intensity > temp){
-	ColorData white(1.0, 1.0, 1.0); 
-	buffer->set_pixel(x, y, white);
-    	return white; 
-    } else {
-	ColorData black(0.0, 0.0, 0.0);
-        buffer->set_pixel(x, y, black);
-        return black;
-    }
-    */
   } 
 
 }

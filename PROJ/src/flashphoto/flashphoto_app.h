@@ -37,6 +37,10 @@ Author(s) of Significant Updates/Modifications to the File:
 //  #include "flashphoto/filter.h"
 #include "flashphoto/filter_threshold.h"
 #include "flashphoto/filter_saturate.h"
+#include "flashphoto/filter_channels.h"
+#include "flashphoto/filter_quantize.h"
+#include "flashphoto/filter_convolution.h"
+#include "flashphoto/filter_convolution_sharpen.h"
 
 namespace image_tools {
 

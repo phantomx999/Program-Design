@@ -634,8 +634,13 @@ void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
 }
 
 void FlashPhotoApp::ApplySharpenFilter(float rad) {
-  SaveStateForPossibleUndo();
-  (void)rad;
+  ConvolutionFilterSharpen* filter = new ConvolutionFilterSharpen(rad);
+  filter->CreateKernel();
+  if(current_buffer_ && filter){
+    SaveStateForPossibleUndo();
+    filter->ApplyToBuffer(current_buffer_);
+  //  (void)rad;
+  }
 }
 
 void FlashPhotoApp::ApplyEdgeDetectFilter() { SaveStateForPossibleUndo(); }
@@ -659,15 +664,23 @@ void FlashPhotoApp::ApplySaturateFilter(float scale) {
 }
 
 void FlashPhotoApp::ApplyChannelsFilter(float red, float green, float blue) {
-  SaveStateForPossibleUndo();
-  (void)red;
-  (void)green;
-  (void)blue;
+  FilterChannels* filter = new FilterChannels(red, green, blue);
+  if(current_buffer_ && filter){
+    SaveStateForPossibleUndo();
+    filter->ApplyToBuffer(current_buffer_);
+  }
+  //  (void)red;
+  //  (void)green;
+  //  (void)blue;
 }
 
 void FlashPhotoApp::ApplyQuantizeFilter(int num) {
-  SaveStateForPossibleUndo();
-  (void)num;
+  FilterQuantize* filter = new FilterQuantize(num);
+  if(current_buffer_ && filter){
+    SaveStateForPossibleUndo();
+    filter->ApplyToBuffer(current_buffer_);
+  }
+  //  (void)num;
 }
 
 bool FlashPhotoApp::can_undo() { return saved_states_.size(); }

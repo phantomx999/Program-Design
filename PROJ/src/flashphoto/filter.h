@@ -21,8 +21,8 @@ namespace image_tools {
 
 class Filter {
   public:
-    //  Filter();
-    //  virtual ~Filter();
+    Filter();
+    virtual ~Filter();
 
     void ApplyToBuffer(PixelBuffer* buffer);
     
@@ -32,8 +32,9 @@ class Filter {
 
     //  virtual void CleanupFilter() = 0;
 
-    bool can_copy_in_place();
-
+    virtual bool can_copy_in_place();
+  protected:
+    PixelBuffer* copy_buffer_;
     
 };
 
