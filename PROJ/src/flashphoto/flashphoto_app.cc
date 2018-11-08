@@ -80,9 +80,9 @@ void FlashPhotoApp::InitNanoGUI() {
     std::string fname =
         nanogui::file_dialog({{"png", "Portable Network Graphics"}}, false);
     if (fname != "") {
-      //image_editor_.LoadFromFile(fname);
-      ResizeWindow(image_editor_.pixel_buffer()->width(),
-                   image_editor_.pixel_buffer()->height());
+      LoadFromFile(fname);
+      ResizeWindow(pixel_buffer()->width(),
+                   pixel_buffer()->height());
     }
   });
   b = new nanogui::Button(file_io, "Save");
