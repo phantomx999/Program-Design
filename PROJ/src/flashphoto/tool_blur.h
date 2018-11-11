@@ -20,6 +20,7 @@ Author(s) of Significant Updates/Modifications to the File:
 #include <stdio.h>
 #include <string>
 #include "flashphoto/tool.h"
+#include "flashphoto/filter_convolution_blur.h"
 
 namespace image_tools {
 
@@ -41,6 +42,8 @@ class ToolBlur : public Tool {
   /* Copy assignment/construction is disallowed */
   ToolBlur(const ToolBlur& rhs) = delete;
   ToolBlur& operator=(const ToolBlur& rhs) = delete;
+
+  ConvolutionFilterBlur *blur_;
 
   // TODO(students): add a member variable to create an instance of your
   // ConvolutionBlurFilter here.

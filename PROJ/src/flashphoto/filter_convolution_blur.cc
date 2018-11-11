@@ -60,4 +60,8 @@ void ConvolutionFilterBlur::CreateKernel(){
   kernel_->Normalize();
 }
 
+void ConvolutionFilterBlur::setCopyBuffer(PixelBuffer* buffer) {
+  copy_buffer_ = new PixelBuffer(*buffer);
+}
+
 }

@@ -30,6 +30,7 @@ class ConvolutionFilterBlur : public ConvolutionFilter {
     float getRadius();
     void setRadius(float rad);
     void CreateKernel() override;
+    void setCopyBuffer(PixelBuffer* buffer);
   protected:
     float radius_;
 };
