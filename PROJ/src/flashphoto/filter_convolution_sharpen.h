@@ -30,6 +30,7 @@ class ConvolutionFilterSharpen : public ConvolutionFilter {
     void setRadius(float rad);
     void CreateKernel() override;
  protected:
+    // rad size matrix
     float radius_;
 };
 

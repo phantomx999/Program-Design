@@ -37,10 +37,11 @@ float ConvolutionFilterSharpen::getRadius() {
 }
 
 void ConvolutionFilterSharpen::CreateKernel() {
-  kernel_ = new FloatMatrix(radius_);
-  kernel_->Scale(-1.0);
-  float length = 2.0*radius_ + 1;
-  int integer_rad = static_cast<int>(radius_);
+  kernel_ = new FloatMatrix(radius_);  // create kernel size radius
+  kernel_->Scale(-1.0);                // set all elements to -1
+  float length = 2.0*radius_ + 1;      // n size length of matrix
+  int integer_rad = static_cast<int>(radius_);  // radius to int
+  // for center element, change val to n*n (matrix length)
   kernel_->set_value(integer_rad, integer_rad, length*length);
   //  *kernel_ = kernel;
 }

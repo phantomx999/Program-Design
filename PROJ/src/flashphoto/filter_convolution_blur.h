@@ -29,8 +29,9 @@ class ConvolutionFilterBlur : public ConvolutionFilter {
     float getRadius();
     void setRadius(float rad);
     void CreateKernel() override;
-    void setCopyBuffer(PixelBuffer* buffer);
+    void setCopyBuffer(PixelBuffer* buffer);  // used for blur tool
  protected:
+    // size of matrix
     float radius_;
 };
 

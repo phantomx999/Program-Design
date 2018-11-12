@@ -25,11 +25,12 @@ ConvolutionFilterEdge::~ConvolutionFilterEdge() {}
 void  ConvolutionFilterEdge::CreateKernel() {
   int rad = 1;
   float neg = -1.0;
-  kernel_ = new FloatMatrix(rad);
-  kernel_->Scale(neg);
-  float length = 2.0*rad + 1.0;
+  kernel_ = new FloatMatrix(rad);  // create kernel size radius
+  kernel_->Scale(neg);  // make all kernel elements -1
+  float length = 2.0*rad + 1.0;  // length of kernel matrix
+  // change center (rad, rad) kernel value
   kernel_->set_value(rad, rad, ((length*length) - 1.0));
-  //  *kernel_ = kernel;
+  //  center value in matrix is length of matrix squared - 1
 }
 
 }  // namespace image_tools

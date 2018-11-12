@@ -34,8 +34,8 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
     void setDirection(std::string direction);
     void CreateKernel() override;
  protected:
-    float radius_;
-    std::string direction_;
+    float radius_;  // radius of matrix user input
+    std::string direction_;  // direction of blur user input
 };
 
 }  // namespace image_tools

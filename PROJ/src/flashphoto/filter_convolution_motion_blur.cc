@@ -22,8 +22,8 @@
 namespace image_tools {
 
 ConvolutionFilterMotionBlur::ConvolutionFilterMotionBlur() {
-  radius_ = 1.0;
-  direction_ = "East/West";
+  radius_ = 1.0;             // default radius
+  direction_ = "East/West";  // default direction
 }
 
 ConvolutionFilterMotionBlur::ConvolutionFilterMotionBlur(
@@ -51,21 +51,22 @@ std::string ConvolutionFilterMotionBlur::getDirection() {
 }
 
 void ConvolutionFilterMotionBlur::CreateKernel() {
-  int rad = radius_;
-  kernel_ = new FloatMatrix(rad);
-  kernel_->Scale(0.0);
-  int length = 2*rad + 1;
-  float element = 1.0/length;
-  // std::cout << direction_ << std::endl;
-  if (direction_ == "East/West") {
+  int rad = radius_;  // radius to int
+  kernel_ = new FloatMatrix(rad);  // kernel with size radius
+  kernel_->Scale(0.0);             // all kernel values = 0.0
+  int length = 2*rad + 1;          // length n of matrix
+  float element = 1.0/length;      // direction kernel element values
+  // 1/n for all non zero elements in matrix 
+  // set 1/n for direction elements, 0 for all other elements
+  if (direction_ == "East/West") { // middle row of matrix, left to right
     for (int column = 0; column < kernel_->width(); column++) {
       kernel_->set_value(column, rad, element);
     }
-  } else if (direction_ == "North/South") {
+  } else if (direction_ == "North/South") { // middle column of matrix, up and down
     for (int row = 0; row < kernel_->height(); row++) {
       kernel_->set_value(rad, row, element);
     }
-  } else if (direction_ == "Northwest/Southeast") {
+  } else if (direction_ == "Northwest/Southeast") {  // left upper corner to bottom lower corner
     for (int row = 0; row < kernel_->height(); row++) {
       for (int column = 0; column < kernel_->width(); column++) {
         if (row == column) {
@@ -73,7 +74,7 @@ void ConvolutionFilterMotionBlur::CreateKernel() {
         }
       }
     }
-  } else if (direction_ == "Northeast/Southwest") {
+  } else if (direction_ == "Northeast/Southwest") {  // right upper corner to bottom lower corner
     int double_rad = 2*rad;
     for (int row = 0; row < kernel_->height(); row++) {
       for (int column = 0; column < kernel_->width(); column++) {
@@ -82,7 +83,7 @@ void ConvolutionFilterMotionBlur::CreateKernel() {
         }
       }
     }
-  } else {
+  } else {  // error
     std::cout << "Error, incorrect direction" << std::endl;
   }
 }

@@ -35,6 +35,7 @@ class FilterChannels : public Filter {
     ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                      int x, int y) override;
  private:
+    //  scale factors
     float red_;
     float blue_;
     float green_;

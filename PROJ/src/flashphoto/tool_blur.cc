@@ -38,8 +38,9 @@ FloatMatrix* ToolBlur::CreateMask(float radius) {
 }
 
 ColorData ToolBlur::LookupPaintColor(int x, int y) {
-  blur_->CreateKernel();
-  blur_->setCopyBuffer(buffer_);
+  blur_->CreateKernel();  // create kernel with blur filter
+  blur_->setCopyBuffer(buffer_);  // set copy buffer
+  // user blur filter on x, y coordinates given
   return blur_->CalculateFilteredPixel(buffer_, x, y);
   // TODO(Students) here's your hook to calculate a filtered version of the
   // pixel. Use your filter to compute the blurred version of the pixel at (x,y)

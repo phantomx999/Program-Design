@@ -43,6 +43,7 @@ class ToolBlur : public Tool {
   ToolBlur(const ToolBlur& rhs) = delete;
   ToolBlur& operator=(const ToolBlur& rhs) = delete;
 
+  // blur filter to use with blur tool
   ConvolutionFilterBlur *blur_;
 
   // TODO(students): add a member variable to create an instance of your

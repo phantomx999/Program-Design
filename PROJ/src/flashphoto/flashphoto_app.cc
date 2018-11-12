@@ -623,8 +623,10 @@ void FlashPhotoApp::SaveToFile(const std::string &filename) {
 }
 
 void FlashPhotoApp::ApplyBlurFilter(float radius) {
+  // create filter
   ConvolutionFilterBlur* filter = new ConvolutionFilterBlur(radius);
-  filter->CreateKernel();
+  filter->CreateKernel();  // create kernel
+  // check if current buffer and filter exist
   if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
@@ -633,13 +635,16 @@ void FlashPhotoApp::ApplyBlurFilter(float radius) {
 }
 
 void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
+  // convert direction into string
   std::string direction = MotionBlurDirectionName(dir);
+  // make filter
   ConvolutionFilterMotionBlur* filter =
         new ConvolutionFilterMotionBlur(rad, direction);
-  filter->CreateKernel();
+  filter->CreateKernel();  // make kernel
+  // check if filter and current buffer exist
   if (current_buffer_ && filter) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
+    SaveStateForPossibleUndo();  // save last state
+    filter->ApplyToBuffer(current_buffer_);  // apply filter to buffer
   }
   //  (void)rad;
   //  (void)dir;
