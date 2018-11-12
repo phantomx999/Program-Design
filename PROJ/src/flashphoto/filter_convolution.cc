@@ -16,36 +16,35 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_convolution.h"
 
-namespace image_tools{
+namespace image_tools {
 
-ConvolutionFilter::ConvolutionFilter(){
+ConvolutionFilter::ConvolutionFilter() {
   kernel_ = NULL;
 }
 
-ConvolutionFilter::ConvolutionFilter(FloatMatrix* kernel){
+ConvolutionFilter::ConvolutionFilter(FloatMatrix* kernel) {
   kernel_ = kernel;
 }
 
 ConvolutionFilter::~ConvolutionFilter() {}
 
-
-
-void ConvolutionFilter::setKernel(FloatMatrix* kernel){
+void ConvolutionFilter::setKernel(FloatMatrix* kernel) {
   kernel_ = kernel;
 }
 
-FloatMatrix* ConvolutionFilter::getKernel(){
+FloatMatrix* ConvolutionFilter::getKernel() {
   return kernel_;
 }
 
-bool ConvolutionFilter::can_copy_in_place(){
+bool ConvolutionFilter::can_copy_in_place() {
   return false;
 }
 
-ColorData ConvolutionFilter::CalculateFilteredPixel(PixelBuffer* buffer, int x, int y){
+ColorData ConvolutionFilter::CalculateFilteredPixel(PixelBuffer* buffer, 
+                                                    int x, int y) {
   ColorData sum(0.0, 0.0, 0.0);
-  for(int row = 0; row < kernel_->height(); row++){
-    for(int column = 0; column < kernel_->width(); column++){
+  for (int row = 0; row < kernel_->height(); row++) {
+    for (int column = 0; column < kernel_->width(); column++) {
       int imageX = (x - kernel_->width()/2 + column + buffer->width()) % buffer->width();
       int imageY = (y - kernel_->height()/2 + row + buffer->height()) % buffer->height();
       ColorData temp = copy_buffer_->pixel(imageX, imageY) * kernel_->value(column, row);
@@ -57,4 +56,4 @@ ColorData ConvolutionFilter::CalculateFilteredPixel(PixelBuffer* buffer, int x, 
   return sum;
 }
 
-}
+}  // namespace image_tools

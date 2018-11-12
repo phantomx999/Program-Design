@@ -16,49 +16,50 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_channels.h"
 
-namespace image_tools{
-  FilterChannels::FilterChannels(){
+namespace image_tools {
+  FilterChannels::FilterChannels() {
     setRed(1.0);
     setBlue(1.0);
     setGreen(1.0);
   }
-  
-  FilterChannels::FilterChannels(float red, float green, float blue){
+
+  FilterChannels::FilterChannels(float red, float green, float blue) {
     red_ = red;
     blue_ = blue;
     green_ = green;
   }
-  
+
   FilterChannels::~FilterChannels() {}
-  
-  void FilterChannels::setRed(float red){
+
+  void FilterChannels::setRed(float red) {
     red_ = red;
   }
-  
-  void FilterChannels::setBlue(float blue){
+
+  void FilterChannels::setBlue(float blue) {
     blue_ = blue;
   }
-  
-  void FilterChannels::setGreen(float green){
+
+  void FilterChannels::setGreen(float green) {
     green_ = green;
   }
-  
-  float FilterChannels::getRed(){
+
+  float FilterChannels::getRed() {
     return red_;
   }
-  
-  float FilterChannels::getBlue(){
+
+  float FilterChannels::getBlue() {
     return blue_;
   }
-  
-  float FilterChannels::getGreen(){
+
+  float FilterChannels::getGreen() {
     return green_;
   }
-  
-  ColorData FilterChannels::CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) {
+
+  ColorData FilterChannels::CalculateFilteredPixel(PixelBuffer* buffer,
+                                                   int x, int y) {
     ColorData data = buffer->pixel(x, y);
     ColorData final_value(data.red()*red_, data.green()*green_, data.blue()*blue_);
     buffer->set_pixel(x, y, final_value);
     return final_value;
   }
-}
+}  // namespace image_tools

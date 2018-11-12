@@ -17,28 +17,29 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_convolution_blur.h"
 
-namespace image_tools{
+namespace image_tools {
 
-ConvolutionFilterBlur::ConvolutionFilterBlur(){
+ConvolutionFilterBlur::ConvolutionFilterBlur() {
   radius_ = 1.0;
 }
 
-ConvolutionFilterBlur::ConvolutionFilterBlur(float rad){
+ConvolutionFilterBlur::ConvolutionFilterBlur(float rad) {
   radius_ = rad;
 }
 
 ConvolutionFilterBlur::~ConvolutionFilterBlur() {}
 
-void ConvolutionFilterBlur::setRadius(float rad){
+void ConvolutionFilterBlur::setRadius(float rad) {
   radius_ = rad;
 }
 
-float ConvolutionFilterBlur::getRadius(){
+float ConvolutionFilterBlur::getRadius() {
   return radius_;
 }
 
-void ConvolutionFilterBlur::CreateKernel(){
-  int rad = (int) radius_;
+void ConvolutionFilterBlur::CreateKernel() {
+  //  int rad = (int) radius_;
+  int rad = static_cast<int>(radius_);
   kernel_ = new FloatMatrix(rad);
   float dist = 0.0;
   float delta_x = 0.0;
@@ -47,14 +48,14 @@ void ConvolutionFilterBlur::CreateKernel(){
   int length = rad*2 + 1;
   // center of (x, y) = (rad, rad)
 
-  for(int row = 0; row < length; row++){
-    for(int column = 0; column < length; column++){
+  for (int row = 0; row < length; row++) {
+    for (int column = 0; column < length; column++) {
       delta_x = column - radius_;
       delta_y = row - radius_;
       dist = sqrt((delta_x * delta_x) + (delta_y * delta_y));
       float one_and_half = radius_ + 0.5;
       Gaus = ImageToolsMath::Gaussian(dist, one_and_half);
-      kernel_->set_value(column, row, Gaus); 
+      kernel_->set_value(column, row, Gaus);
     }
   }
   kernel_->Normalize();
@@ -64,4 +65,4 @@ void ConvolutionFilterBlur::setCopyBuffer(PixelBuffer* buffer) {
   copy_buffer_ = new PixelBuffer(*buffer);
 }
 
-}
+}  // namespace image_tools
