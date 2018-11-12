@@ -45,9 +45,6 @@ class ToolBlur : public Tool {
 
   // blur filter to use with blur tool
   ConvolutionFilterBlur *blur_;
-
-  // TODO(students): add a member variable to create an instance of your
-  // ConvolutionBlurFilter here.
 };
 
 }  // namespace image_tools

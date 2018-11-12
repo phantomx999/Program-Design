@@ -33,7 +33,7 @@ class Filter {   //  filter base class
     virtual ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                             int x, int y) = 0;
 
-    //  virtual void CleanupFilter() = 0;
+    void CleanupFilter();
 
     // checks if current buffer can be copied
     virtual bool can_copy_in_place();

@@ -41,10 +41,14 @@ namespace image_tools {
       //  CalculateFilteredPixel(buffer, row, column);
       //  }
       //  }
-      //  CleanupFilter();
+      this->CleanupFilter();
     }
     //  void SetupFilter();
     //  void Filter::CleanupFilter()
+
+    void Filter::CleanupFilter() {
+      delete this;  // remove filter
+    }
 
     bool Filter::can_copy_in_place() {
       return true;

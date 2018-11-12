@@ -29,7 +29,6 @@ ToolBlur::ToolBlur() {
 }
 
 ToolBlur::~ToolBlur() {
-  // TODO(Students) cleanup your filter here if needed.
   delete blur_;
 }
 
@@ -42,12 +41,6 @@ ColorData ToolBlur::LookupPaintColor(int x, int y) {
   blur_->setCopyBuffer(buffer_);  // set copy buffer
   // user blur filter on x, y coordinates given
   return blur_->CalculateFilteredPixel(buffer_, x, y);
-  // TODO(Students) here's your hook to calculate a filtered version of the
-  // pixel. Use your filter to compute the blurred version of the pixel at (x,y)
-  //  in *buffer_ and return the new color to make this tool work.
-  //  Remove this:  As a placeholder, we're just returning the original pixel
-  //  color for now.
-  //  return buffer_->pixel(x, y);
 }
 
 } /* namespace image_tools */
