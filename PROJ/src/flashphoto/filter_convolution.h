@@ -6,8 +6,8 @@
 #ifndef FLASHPHOTO_FILTER_CONVOLUTION_H_
 #define FLASHPHOTO_FILTER_CONVOLUTION_H_
 
-#include <iostream>
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>

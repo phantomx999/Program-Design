@@ -3,19 +3,19 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#include <iostream>
+#include "flashphoto/filter_quantize.h"
 #include <mingfx.h>
+#include <math.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
 #include <map>
-#include <math.h>
 
 #include "flashphoto/color_data.h"
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
 #include "flashphoto/image_tools_math.h"
-#include "flashphoto/filter_quantize.h"
 
 namespace image_tools {
   FilterQuantize::FilterQuantize() {
@@ -38,14 +38,14 @@ namespace image_tools {
 
   ColorData FilterQuantize::CalculateFilteredPixel(PixelBuffer* buffer,
                                                    int x, int y) {
-    ColorData data = buffer->pixel(x, y);
-    int bins = getBinCount();
-    int num_steps = bins - 1;
-    float red = (round(data.red() * num_steps)/num_steps);
-    float green = (round(data.green() * num_steps)/num_steps);
-    float blue = (round(data.blue() * num_steps)/num_steps);
-    ColorData final_value(red, green, blue);
-    buffer->set_pixel(x, y, final_value);
+    ColorData data = buffer->pixel(x, y);  // get pixel color
+    int bins = getBinCount();              // get number of bins
+    int num_steps = bins - 1;              // number of steps is bins-1
+    float red = (round(data.red() * num_steps)/num_steps);  //  red binned vals
+    float green = (round(data.green() * num_steps)/num_steps);  //  green ...
+    float blue = (round(data.blue() * num_steps)/num_steps);    //  blue ...
+    ColorData final_value(red, green, blue);  // create final binned color
+    buffer->set_pixel(x, y, final_value);     // set pixel color to binned color
     return final_value;
   }
 }  // namespace image_tools

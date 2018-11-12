@@ -3,8 +3,9 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#include <iostream>
+#include "flashphoto/filter_saturate.h"
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
@@ -14,7 +15,6 @@
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
 #include "flashphoto/image_tools_math.h"
-#include "flashphoto/filter_saturate.h"
 
 namespace image_tools {
 
@@ -38,11 +38,12 @@ namespace image_tools {
 
   ColorData FilterSaturate::CalculateFilteredPixel(PixelBuffer* buffer,
                                                    int x, int y) {
-    ColorData data = buffer->pixel(x, y);
-    float sat = data.Luminance();
-    ColorData gray_scale(sat, sat, sat);
+    ColorData data = buffer->pixel(x, y);  // get pixel color
+    float sat = data.Luminance();          // get luminance val
+    ColorData gray_scale(sat, sat, sat);   // create grayscale obj
+    // linearly interpolate from grayscale vs. color
     ColorData final_value = ImageToolsMath::Lerp(gray_scale, data, saturate_);
-    buffer->set_pixel(x, y, final_value);
+    buffer->set_pixel(x, y, final_value);  // change pixel color
     return final_value;
   }
 

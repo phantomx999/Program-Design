@@ -6,36 +6,36 @@
 #ifndef FLASHPHOTO_FILTER_CONVOLUTION_MOTION_BLUR_H_
 #define FLASHPHOTO_FILTER_CONVOLUTION_MOTION_BLUR_H_
 
-#include <iostream>
+#include "flashphoto/filter_convolution.h"
 #include <mingfx.h>
+#include <math.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
 #include <map>
-#include <math.h>
 
 #include "flashphoto/color_data.h"
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
-#include "flashphoto/filter_convolution.h"
 
-using namespace std;
+//  using namespace std;
 
 namespace image_tools {
 
 class ConvolutionFilterMotionBlur : public ConvolutionFilter {
  public:
     ConvolutionFilterMotionBlur();
-    ConvolutionFilterMotionBlur(float rad, string direction);
+    ConvolutionFilterMotionBlur(float rad, std::string direction);
     virtual ~ConvolutionFilterMotionBlur();
     float getRadius();
     void setRadius(float rad);
-    string getDirection();
-    void setDirection(string direction);
+    std::string getDirection();
+    void setDirection(std::string direction);
     void CreateKernel() override;
  protected:
     float radius_;
-    string direction_;
+    std::string direction_;
 };
 
 }  // namespace image_tools

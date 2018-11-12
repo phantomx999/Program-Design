@@ -4,8 +4,8 @@
 */
 
 #include "flashphoto/filter.h"
-#include <iostream>
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
@@ -25,10 +25,12 @@ namespace image_tools {
     Filter::~Filter() {}
 
     void Filter::ApplyToBuffer(PixelBuffer* buffer) {
+      // check for convolution filters only
       if (!can_copy_in_place()) {
         copy_buffer_ = new PixelBuffer(*buffer);
       }
       //  SetupFilter();
+      //  go through buffer, change pixels by filter type
       for (int row = 0; row < buffer->height(); row++) {
         for (int column = 0; column < buffer->width(); column++) {
           CalculateFilteredPixel(buffer, column, row);

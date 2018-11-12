@@ -3,8 +3,9 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#include <iostream>
+#include "flashphoto/filter_channels.h"
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
@@ -14,7 +15,6 @@
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
 #include "flashphoto/image_tools_math.h"
-#include "flashphoto/filter_channels.h"
 
 namespace image_tools {
   FilterChannels::FilterChannels() {
@@ -58,7 +58,8 @@ namespace image_tools {
   ColorData FilterChannels::CalculateFilteredPixel(PixelBuffer* buffer,
                                                    int x, int y) {
     ColorData data = buffer->pixel(x, y);
-    ColorData final_value(data.red()*red_, data.green()*green_, data.blue()*blue_);
+    ColorData final_value(data.red()*red_,
+                          data.green()*green_, data.blue()*blue_);
     buffer->set_pixel(x, y, final_value);
     return final_value;
   }

@@ -6,8 +6,8 @@
 #ifndef FLASHPHOTO_FILTER_H_
 #define FLASHPHOTO_FILTER_H_
 
-#include <iostream>
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
@@ -19,22 +19,26 @@
 
 namespace image_tools {
 
-class Filter {
+class Filter {   //  filter base class
  public:
     Filter();
     virtual ~Filter();
 
+    //  take current buffer and apply to buffer
     void ApplyToBuffer(PixelBuffer* buffer);
 
     //  virtual void SetupFilter() =0;
 
+    //  abstract method, calculates filter on pixels
     virtual ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                             int x, int y) = 0;
 
     //  virtual void CleanupFilter() = 0;
 
+    // checks if current buffer can be copied
     virtual bool can_copy_in_place();
  protected:
+    // stores current buffer for convolution filters
     PixelBuffer* copy_buffer_;
 };
 

@@ -6,19 +6,18 @@
 #ifndef FLASHPHOTO_FILTER_CONVOLUTION_BLUR_H_
 #define FLASHPHOTO_FILTER_CONVOLUTION_BLUR_H_
 
-#include <iostream>
+#include "flashphoto/filter_convolution.h"
 #include <mingfx.h>
+#include <math.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
 #include <map>
-#include <math.h>
 
 #include "flashphoto/color_data.h"
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
-#include "flashphoto/filter_convolution.h"
-
 
 namespace image_tools {
 

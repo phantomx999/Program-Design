@@ -3,8 +3,9 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#include <iostream>
+#include "flashphoto/filter_convolution.h"
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
@@ -14,7 +15,6 @@
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
 #include "flashphoto/image_tools_math.h"
-#include "flashphoto/filter_convolution.h"
 
 namespace image_tools {
 

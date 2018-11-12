@@ -3,8 +3,9 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#include <iostream>
+#include "flashphoto/filter_threshold.h"
 #include <mingfx.h>
+#include <iostream>
 #include <deque>
 #include <string>
 #include <vector>
@@ -13,7 +14,6 @@
 #include "flashphoto/color_data.h"
 #include "flashphoto/pixel_buffer.h"
 #include "flashphoto/float_matrix.h"
-#include "flashphoto/filter_threshold.h"
 
 namespace image_tools {
 
@@ -37,16 +37,19 @@ namespace image_tools {
 
   ColorData FilterThreshold::CalculateFilteredPixel(PixelBuffer* buffer,
                                                     int x, int y) {
-    ColorData data = buffer->pixel(x, y);  // get color of pixel
+    //  get color of pixel
+    ColorData data = buffer->pixel(x, y);
+    //  numerator value for RGB
     float numerator = data.red() + data.blue() + data.green();
+    //  get average value of RGB
     float average_intensity = (numerator/3.0);
     float temp = threshold_;
-    if (average_intensity > temp) {
-      ColorData white(1.0, 1.0, 1.0);
+    if (average_intensity > temp) {    // average RGB val > user input val
+      ColorData white(1.0, 1.0, 1.0);  // set to white
       buffer->set_pixel(x, y, white);
       return white;
-    } else {
-        ColorData black(0.0, 0.0, 0.0);
+    } else {                             // average RGV < user input
+        ColorData black(0.0, 0.0, 0.0);  // set to black
         buffer->set_pixel(x, y, black);
         return black;
     }
