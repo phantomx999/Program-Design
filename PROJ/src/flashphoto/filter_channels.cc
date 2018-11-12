@@ -58,7 +58,7 @@ namespace image_tools {
   ColorData FilterChannels::CalculateFilteredPixel(PixelBuffer* buffer,
                                                    int x, int y) {
     ColorData data = buffer->pixel(x, y);  // get pix color
-    //multiply color by RGB scale factors
+    // multiply color by RGB scale factors
     ColorData final_value(data.red()*red_,
                           data.green()*green_, data.blue()*blue_);
     buffer->set_pixel(x, y, final_value);  // change pix color

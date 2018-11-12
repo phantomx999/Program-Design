@@ -43,15 +43,15 @@ bool ConvolutionFilter::can_copy_in_place() {
 ColorData ConvolutionFilter::CalculateFilteredPixel(PixelBuffer* buffer,
                                                     int x, int y) {
   ColorData sum(0.0, 0.0, 0.0);  // sum all color vals
-  // go through kernel, calculate imageX and Y 
-  // using equation from "http://lodev.org/cgtutor/filtering.html" 
+  // go through kernel, calculate imageX and Y
+  // using equation from "http://lodev.org/cgtutor/filtering.html"
   for (int row = 0; row < kernel_->height(); row++) {
     for (int column = 0; column < kernel_->width(); column++) {
       int imageX = (x - kernel_->width()/2 + column + buffer->width())
                      % buffer->width();
       int imageY = (y - kernel_->height()/2 + row + buffer->height())
                      % buffer->height();
-      // use copy buffer x, y  multiplied by kernel x, y 
+      // use copy buffer x, y  multiplied by kernel x, y
       ColorData temp = copy_buffer_->pixel(imageX, imageY)
                         * kernel_->value(column, row);
       sum = sum + temp;  // sum up vals

@@ -53,9 +53,10 @@ void ConvolutionFilterBlur::CreateKernel() {
     for (int column = 0; column < length; column++) {
       delta_x = column - radius_;
       delta_y = row - radius_;
-      // find distance from kernel x y val versus center of matrix (radius, radius)
+      // find distance from kernel x y val to
+      // center of matrix (radius, radius)
       dist = sqrt((delta_x * delta_x) + (delta_y * delta_y));
-      // use calculated distance and radius with 
+      // use calculated distance and radius with
       // Gaussian function to get Gaus val
       Gaus = ImageToolsMath::Gaussian(dist, radius_);
       kernel_->set_value(column, row, Gaus);  // set this new Gaus in kernel

@@ -56,17 +56,19 @@ void ConvolutionFilterMotionBlur::CreateKernel() {
   kernel_->Scale(0.0);             // all kernel values = 0.0
   int length = 2*rad + 1;          // length n of matrix
   float element = 1.0/length;      // direction kernel element values
-  // 1/n for all non zero elements in matrix 
+  // 1/n for all non zero elements in matrix
   // set 1/n for direction elements, 0 for all other elements
-  if (direction_ == "East/West") { // middle row of matrix, left to right
+  if (direction_ == "East/West") {  // middle row of matrix, left to right
     for (int column = 0; column < kernel_->width(); column++) {
       kernel_->set_value(column, rad, element);
     }
-  } else if (direction_ == "North/South") { // middle column of matrix, up and down
+    // middle column of matrix, up and down
+  } else if (direction_ == "North/South") {
     for (int row = 0; row < kernel_->height(); row++) {
       kernel_->set_value(rad, row, element);
     }
-  } else if (direction_ == "Northwest/Southeast") {  // left upper corner to bottom lower corner
+    // left upper corner to bottom lower corner
+  } else if (direction_ == "Northwest/Southeast") {
     for (int row = 0; row < kernel_->height(); row++) {
       for (int column = 0; column < kernel_->width(); column++) {
         if (row == column) {
@@ -74,7 +76,8 @@ void ConvolutionFilterMotionBlur::CreateKernel() {
         }
       }
     }
-  } else if (direction_ == "Northeast/Southwest") {  // right upper corner to bottom lower corner
+    // right upper corner to bottom lower corner
+  } else if (direction_ == "Northeast/Southwest") {
     int double_rad = 2*rad;
     for (int row = 0; row < kernel_->height(); row++) {
       for (int column = 0; column < kernel_->width(); column++) {
