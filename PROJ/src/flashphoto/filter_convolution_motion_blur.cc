@@ -53,8 +53,8 @@ std::string ConvolutionFilterMotionBlur::getDirection() {
 void ConvolutionFilterMotionBlur::CreateKernel() {
   int rad = radius_;  // radius to int
   kernel_ = new FloatMatrix(rad);  // kernel with size radius
-  kernel_->Scale(0.0);             // all kernel values = 0.0
   int length = 2*rad + 1;          // length n of matrix
+  kernel_->Scale(0.0);             // all kernel values = 0.0
   float element = 1.0/length;      // direction kernel element values
   // 1/n for all non zero elements in matrix
   // set 1/n for direction elements, 0 for all other elements
