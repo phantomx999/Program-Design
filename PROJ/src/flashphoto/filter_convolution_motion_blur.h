@@ -24,7 +24,7 @@ using namespace std;
 namespace image_tools {
 
 class ConvolutionFilterMotionBlur : public ConvolutionFilter {
-  public:
+ public:
     ConvolutionFilterMotionBlur();
     ConvolutionFilterMotionBlur(float rad, string direction);
     virtual ~ConvolutionFilterMotionBlur();
@@ -33,10 +33,10 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
     string getDirection();
     void setDirection(string direction);
     void CreateKernel() override;
-  protected:
+ protected:
     float radius_;
     string direction_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_CONVOLUTION_MOTION_BLUR_H_

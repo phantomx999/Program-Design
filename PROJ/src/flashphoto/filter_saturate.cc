@@ -16,33 +16,34 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_saturate.h"
 
-namespace image_tools{
+namespace image_tools {
 
-  FilterSaturate::FilterSaturate(float saturate){
+  FilterSaturate::FilterSaturate(float saturate) {
     saturate_ = saturate;
   }
 
-  FilterSaturate::FilterSaturate(){
+  FilterSaturate::FilterSaturate() {
     saturate_ = 0.0;
   }
 
-  FilterSaturate::~FilterSaturate(){}
+  FilterSaturate::~FilterSaturate() {}
 
-  float FilterSaturate::getSaturate(){
+  float FilterSaturate::getSaturate() {
     return saturate_;
   }
 
-  void FilterSaturate::setSaturate(float saturate){
-    saturate_ = saturate;  
+  void FilterSaturate::setSaturate(float saturate) {
+    saturate_ = saturate;
   }
 
-  ColorData FilterSaturate::CalculateFilteredPixel(PixelBuffer* buffer, int x, int y){
-    ColorData data = buffer->pixel(x,y);
+  ColorData FilterSaturate::CalculateFilteredPixel(PixelBuffer* buffer,
+                                                   int x, int y) {
+    ColorData data = buffer->pixel(x, y);
     float sat = data.Luminance();
     ColorData gray_scale(sat, sat, sat);
     ColorData final_value = ImageToolsMath::Lerp(gray_scale, data, saturate_);
     buffer->set_pixel(x, y, final_value);
     return final_value;
-  } 
+  }
 
-}
+}  // namespace image_tools

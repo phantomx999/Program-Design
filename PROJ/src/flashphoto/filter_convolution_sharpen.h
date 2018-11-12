@@ -22,16 +22,16 @@
 namespace image_tools {
 
 class ConvolutionFilterSharpen : public ConvolutionFilter {
-  public:
+ public:
     ConvolutionFilterSharpen();
-    ConvolutionFilterSharpen(float rad);
+    explicit ConvolutionFilterSharpen(float rad);
     virtual ~ConvolutionFilterSharpen();
     float getRadius();
     void setRadius(float rad);
     void CreateKernel() override;
-  protected:
+ protected:
     float radius_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_CONVOLUTION_SHARPEN_H_

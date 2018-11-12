@@ -16,13 +16,13 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_convolution_edge.h"
 
-namespace image_tools{
+namespace image_tools {
 
 ConvolutionFilterEdge::ConvolutionFilterEdge() {}
 
 ConvolutionFilterEdge::~ConvolutionFilterEdge() {}
 
-void  ConvolutionFilterEdge::CreateKernel(){
+void  ConvolutionFilterEdge::CreateKernel() {
   int rad = 1;
   float neg = -1.0;
   kernel_ = new FloatMatrix(rad);
@@ -32,4 +32,4 @@ void  ConvolutionFilterEdge::CreateKernel(){
   //  *kernel_ = kernel;
 }
 
-}
+}  // namespace image_tools

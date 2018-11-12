@@ -20,23 +20,23 @@
 namespace image_tools {
 
 class Filter {
-  public:
+ public:
     Filter();
     virtual ~Filter();
 
     void ApplyToBuffer(PixelBuffer* buffer);
-    
+
     //  virtual void SetupFilter() =0;
 
-    virtual ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) = 0;
+    virtual ColorData CalculateFilteredPixel(PixelBuffer* buffer,
+                                            int x, int y) = 0;
 
     //  virtual void CleanupFilter() = 0;
 
     virtual bool can_copy_in_place();
-  protected:
+ protected:
     PixelBuffer* copy_buffer_;
-    
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_H_

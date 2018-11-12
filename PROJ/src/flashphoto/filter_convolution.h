@@ -22,18 +22,19 @@
 namespace image_tools {
 
 class ConvolutionFilter : public Filter {
-  public:
+ public:
     ConvolutionFilter();
-    ConvolutionFilter(FloatMatrix* kernel);
+    explicit ConvolutionFilter(FloatMatrix* kernel);
     virtual ~ConvolutionFilter();
     virtual void CreateKernel() = 0;
     void setKernel(FloatMatrix* kernel);
     FloatMatrix* getKernel();
     bool can_copy_in_place() override;
-    ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override;
-  protected:
+    ColorData CalculateFilteredPixel(PixelBuffer* buffer,
+                                     int x, int y) override;
+ protected:
     FloatMatrix* kernel_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_CONVOLUTION_H_

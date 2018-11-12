@@ -22,19 +22,18 @@
 namespace image_tools {
 
 class FilterSaturate : public Filter {
-  public:
+ public:
     FilterSaturate();
-    FilterSaturate(float saturate);
+    explicit FilterSaturate(float saturate);
     virtual ~FilterSaturate();
     float getSaturate();
     void setSaturate(float saturate);
 
-    ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override;
-
-  private:
+    ColorData CalculateFilteredPixel(PixelBuffer* buffer,
+                                     int x, int y) override;
+ private:
     float saturate_;
-    
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_SATURATE_H_

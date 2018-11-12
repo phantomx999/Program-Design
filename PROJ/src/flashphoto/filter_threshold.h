@@ -22,18 +22,18 @@
 namespace image_tools {
 
 class FilterThreshold : public Filter {
-  public:
-    FilterThreshold(float threshold);
+ public:
+    explicit FilterThreshold(float threshold);
     FilterThreshold();
     virtual ~FilterThreshold();
     float getThreshold();
     void setThreshold(float threshold);
 
-    ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override;
-    
-  protected:
+    ColorData CalculateFilteredPixel(PixelBuffer* buffer,
+                                     int x, int y) override;
+ protected:
     float threshold_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_THRESHOLD_H_

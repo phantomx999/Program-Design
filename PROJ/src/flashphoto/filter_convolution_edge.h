@@ -22,11 +22,11 @@
 namespace image_tools {
 
 class ConvolutionFilterEdge : public ConvolutionFilter {
-  public:
+ public:
     ConvolutionFilterEdge();
     virtual ~ConvolutionFilterEdge();
     void CreateKernel() override;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_CONVOLUTION_EDGE_H_

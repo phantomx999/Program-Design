@@ -22,7 +22,7 @@
 namespace image_tools {
 
 class FilterChannels : public Filter {
-  public:
+ public:
     FilterChannels();
     FilterChannels(float red, float green, float blue);
     virtual ~FilterChannels();
@@ -32,13 +32,13 @@ class FilterChannels : public Filter {
     float getRed();
     float getBlue();
     float getGreen();
-    ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override;
-    
-  private:
+    ColorData CalculateFilteredPixel(PixelBuffer* buffer,
+                                     int x, int y) override;
+ private:
     float red_;
     float blue_;
     float green_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_CHANNELS_H_

@@ -16,32 +16,33 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_convolution_sharpen.h"
 
-namespace image_tools{
+namespace image_tools {
 
-ConvolutionFilterSharpen::ConvolutionFilterSharpen(){
+ConvolutionFilterSharpen::ConvolutionFilterSharpen() {
   radius_ = 1.0;
 }
 
-ConvolutionFilterSharpen::ConvolutionFilterSharpen(float rad){
+ConvolutionFilterSharpen::ConvolutionFilterSharpen(float rad) {
   radius_ = rad;
 }
 
 ConvolutionFilterSharpen::~ConvolutionFilterSharpen() {}
 
-void ConvolutionFilterSharpen::setRadius(float rad){
+void ConvolutionFilterSharpen::setRadius(float rad) {
   radius_ = rad;
 }
 
-float ConvolutionFilterSharpen::getRadius(){
+float ConvolutionFilterSharpen::getRadius() {
   return radius_;
 }
 
-void ConvolutionFilterSharpen::CreateKernel(){
+void ConvolutionFilterSharpen::CreateKernel() {
   kernel_ = new FloatMatrix(radius_);
   kernel_->Scale(-1.0);
   float length = 2.0*radius_ + 1;
-  kernel_->set_value((int)radius_, (int)radius_, length*length);
+  int integer_rad = static_cast<int>(radius_);
+  kernel_->set_value(integer_rad, integer_rad, length*length);
   //  *kernel_ = kernel;
 }
 
-}
+}  // namespace image_tools

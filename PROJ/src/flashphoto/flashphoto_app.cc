@@ -625,7 +625,7 @@ void FlashPhotoApp::SaveToFile(const std::string &filename) {
 void FlashPhotoApp::ApplyBlurFilter(float radius) {
   ConvolutionFilterBlur* filter = new ConvolutionFilterBlur(radius);
   filter->CreateKernel();
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }
@@ -634,9 +634,10 @@ void FlashPhotoApp::ApplyBlurFilter(float radius) {
 
 void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
   std::string direction = MotionBlurDirectionName(dir);
-  ConvolutionFilterMotionBlur* filter = new ConvolutionFilterMotionBlur(rad, direction);
+  ConvolutionFilterMotionBlur* filter =
+        new ConvolutionFilterMotionBlur(rad, direction);
   filter->CreateKernel();
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }
@@ -647,25 +648,25 @@ void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
 void FlashPhotoApp::ApplySharpenFilter(float rad) {
   ConvolutionFilterSharpen* filter = new ConvolutionFilterSharpen(rad);
   filter->CreateKernel();
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   //  (void)rad;
   }
 }
 
-void FlashPhotoApp::ApplyEdgeDetectFilter() { 
+void FlashPhotoApp::ApplyEdgeDetectFilter() {
   ConvolutionFilterEdge* filter = new ConvolutionFilterEdge();
   filter->CreateKernel();
-  if(current_buffer_ && filter){
-    SaveStateForPossibleUndo(); 
+  if (current_buffer_ && filter) {
+    SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }
 }
 
 void FlashPhotoApp::ApplyThresholdFilter(float value) {
   FilterThreshold* filter = new FilterThreshold(value);
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }
@@ -673,7 +674,7 @@ void FlashPhotoApp::ApplyThresholdFilter(float value) {
 
 void FlashPhotoApp::ApplySaturateFilter(float scale) {
   FilterSaturate* filter = new FilterSaturate(scale);
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }
@@ -683,7 +684,7 @@ void FlashPhotoApp::ApplySaturateFilter(float scale) {
 
 void FlashPhotoApp::ApplyChannelsFilter(float red, float green, float blue) {
   FilterChannels* filter = new FilterChannels(red, green, blue);
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }
@@ -694,7 +695,7 @@ void FlashPhotoApp::ApplyChannelsFilter(float red, float green, float blue) {
 
 void FlashPhotoApp::ApplyQuantizeFilter(int num) {
   FilterQuantize* filter = new FilterQuantize(num);
-  if(current_buffer_ && filter){
+  if (current_buffer_ && filter) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
   }

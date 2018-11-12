@@ -22,16 +22,17 @@
 namespace image_tools {
 
 class FilterQuantize : public Filter {
-  public:
+ public:
     FilterQuantize();
-    FilterQuantize(int bin_count);
+    explicit FilterQuantize(int bin_count);
     virtual ~FilterQuantize();
     void setBinCount(int bin_count);
     int getBinCount();
-    ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override;
-  private:
+    ColorData CalculateFilteredPixel(PixelBuffer* buffer,
+                                     int x, int y) override;
+ private:
     int bin_count_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_QUANTIZE_H_

@@ -40,14 +40,17 @@ bool ConvolutionFilter::can_copy_in_place() {
   return false;
 }
 
-ColorData ConvolutionFilter::CalculateFilteredPixel(PixelBuffer* buffer, 
+ColorData ConvolutionFilter::CalculateFilteredPixel(PixelBuffer* buffer,
                                                     int x, int y) {
   ColorData sum(0.0, 0.0, 0.0);
   for (int row = 0; row < kernel_->height(); row++) {
     for (int column = 0; column < kernel_->width(); column++) {
-      int imageX = (x - kernel_->width()/2 + column + buffer->width()) % buffer->width();
-      int imageY = (y - kernel_->height()/2 + row + buffer->height()) % buffer->height();
-      ColorData temp = copy_buffer_->pixel(imageX, imageY) * kernel_->value(column, row);
+      int imageX = (x - kernel_->width()/2 + column + buffer->width())
+                     % buffer->width();
+      int imageY = (y - kernel_->height()/2 + row + buffer->height())
+                     % buffer->height();
+      ColorData temp = copy_buffer_->pixel(imageX, imageY)
+                        * kernel_->value(column, row);
       sum = sum + temp;
     }
   }

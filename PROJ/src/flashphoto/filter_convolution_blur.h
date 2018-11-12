@@ -23,17 +23,17 @@
 namespace image_tools {
 
 class ConvolutionFilterBlur : public ConvolutionFilter {
-  public:
+ public:
     ConvolutionFilterBlur();
-    ConvolutionFilterBlur(float rad);
+    explicit ConvolutionFilterBlur(float rad);
     virtual ~ConvolutionFilterBlur();
     float getRadius();
     void setRadius(float rad);
     void CreateKernel() override;
     void setCopyBuffer(PixelBuffer* buffer);
-  protected:
+ protected:
     float radius_;
 };
 
-}
-#endif
+}  // namespace image_tools
+#endif  // FLASHPHOTO_FILTER_CONVOLUTION_BLUR_H_

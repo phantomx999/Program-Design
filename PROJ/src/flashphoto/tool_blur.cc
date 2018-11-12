@@ -22,7 +22,6 @@ namespace image_tools {
 ToolBlur::ToolBlur() {
   // TODO(Students) setup your blur filter to use a radius of 5.0 here
   blur_ = new ConvolutionFilterBlur(5.0);
-  
   // the blur operation is not fast, so space the repeated applications of the
   // stamp out as far as we can get away with while still having it look good
   // 1/3 overlap is pretty good for this.
@@ -42,10 +41,9 @@ ColorData ToolBlur::LookupPaintColor(int x, int y) {
   blur_->CreateKernel();
   blur_->setCopyBuffer(buffer_);
   return blur_->CalculateFilteredPixel(buffer_, x, y);
-  //  TODO(Students) here's your hook to calculate a filtered version of the
-  //  pixel. Use your filter to compute the blurred version of the pixel at (x,y)
+  // TODO(Students) here's your hook to calculate a filtered version of the
+  // pixel. Use your filter to compute the blurred version of the pixel at (x,y)
   //  in *buffer_ and return the new color to make this tool work.
-
   //  Remove this:  As a placeholder, we're just returning the original pixel
   //  color for now.
   //  return buffer_->pixel(x, y);

@@ -17,26 +17,27 @@
 #include "flashphoto/image_tools_math.h"
 #include "flashphoto/filter_quantize.h"
 
-namespace image_tools{
-  FilterQuantize::FilterQuantize(){
+namespace image_tools {
+  FilterQuantize::FilterQuantize() {
     bin_count_ = 1;
   }
-  
-  FilterQuantize::FilterQuantize(int bin_count){
+
+  FilterQuantize::FilterQuantize(int bin_count) {
     bin_count_ = bin_count;
   }
-  
+
   FilterQuantize::~FilterQuantize() {}
-  
-  void FilterQuantize::setBinCount(int bin_count){
+
+  void FilterQuantize::setBinCount(int bin_count) {
     bin_count_ = bin_count;
   }
-  
-  int FilterQuantize::getBinCount(){
+
+  int FilterQuantize::getBinCount() {
     return bin_count_;
   }
-  
-  ColorData FilterQuantize::CalculateFilteredPixel(PixelBuffer* buffer, int x, int y){
+
+  ColorData FilterQuantize::CalculateFilteredPixel(PixelBuffer* buffer,
+                                                   int x, int y) {
     ColorData data = buffer->pixel(x, y);
     int bins = getBinCount();
     int num_steps = bins - 1;
@@ -47,4 +48,4 @@ namespace image_tools{
     buffer->set_pixel(x, y, final_value);
     return final_value;
   }
-}
+}  // namespace image_tools

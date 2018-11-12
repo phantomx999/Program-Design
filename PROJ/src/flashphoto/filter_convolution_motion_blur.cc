@@ -19,75 +19,72 @@
 
 using namespace std;
 
-namespace image_tools{
+namespace image_tools {
 
-ConvolutionFilterMotionBlur::ConvolutionFilterMotionBlur(){
+ConvolutionFilterMotionBlur::ConvolutionFilterMotionBlur() {
   radius_ = 1.0;
   direction_ = "East/West";
 }
 
-ConvolutionFilterMotionBlur::ConvolutionFilterMotionBlur(float rad, string direction){
+ConvolutionFilterMotionBlur::ConvolutionFilterMotionBlur(float rad,
+                                                         string direction) {
   radius_ = rad;
   direction_ = direction;
 }
 
 ConvolutionFilterMotionBlur::~ConvolutionFilterMotionBlur() {}
 
-void ConvolutionFilterMotionBlur::setRadius(float rad){
+void ConvolutionFilterMotionBlur::setRadius(float rad) {
   radius_ = rad;
 }
 
-float ConvolutionFilterMotionBlur::getRadius(){
+float ConvolutionFilterMotionBlur::getRadius() {
   return radius_;
 }
 
-void ConvolutionFilterMotionBlur::setDirection(string direction){
+void ConvolutionFilterMotionBlur::setDirection(string direction) {
   direction_ = direction;
 }
 
-string ConvolutionFilterMotionBlur::getDirection(){
+string ConvolutionFilterMotionBlur::getDirection() {
   return direction_;
 }
 
-void ConvolutionFilterMotionBlur::CreateKernel(){
+void ConvolutionFilterMotionBlur::CreateKernel() {
   int rad = radius_;
   kernel_ = new FloatMatrix(rad);
   kernel_->Scale(0.0);
   int length = 2*rad + 1;
   float element = 1.0/length;
   std::cout << direction_ << std::endl;
-  if(direction_ == "East/West"){
-    for(int column = 0; column < kernel_->width(); column++){
+  if (direction_ == "East/West") {
+    for (int column = 0; column < kernel_->width(); column++) {
       kernel_->set_value(column, rad, element);
     }
-  }
-  else if(direction_ == "North/South"){
-    for(int row = 0; row < kernel_->height(); row++){
+  } else if (direction_ == "North/South") {
+    for (int row = 0; row < kernel_->height(); row++) {
       kernel_->set_value(rad, row, element);
     }
-  }
-  else if(direction_ == "Northwest/Southeast"){
-    for(int row = 0; row < kernel_->height(); row++){
-      for(int column = 0; column < kernel_->width(); column++){
-        if(row == column){
+  } else if (direction_ == "Northwest/Southeast") {
+    for (int row = 0; row < kernel_->height(); row++) {
+      for (int column = 0; column < kernel_->width(); column++) {
+        if (row == column) {
           kernel_->set_value(column, row, element);
         }
       }
     }
-  }
-  else if(direction_ == "Northeast/Southwest"){
+  } else if (direction_ == "Northeast/Southwest") {
     int double_rad = 2*rad;
-    for(int row = 0; row < kernel_->height(); row++){
-      for(int column = 0; column < kernel_->width(); column++){
-        if((row + column == double_rad) && (row != column)){
+    for (int row = 0; row < kernel_->height(); row++) {
+      for (int column = 0; column < kernel_->width(); column++) {
+        if ((row + column == double_rad) && (row != column)) {
           kernel_->set_value(column, row, element);
         }
       }
     }
-  }
-  else{
+  } else {
     std::cout << "Error, incorrect direction" << std::endl;
   }
 }
 
-}
+}  // namespace image_tools
