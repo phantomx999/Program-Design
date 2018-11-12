@@ -53,8 +53,7 @@ void ConvolutionFilterBlur::CreateKernel() {
       delta_x = column - radius_;
       delta_y = row - radius_;
       dist = sqrt((delta_x * delta_x) + (delta_y * delta_y));
-      float one_and_half = radius_ + 0.5;
-      Gaus = ImageToolsMath::Gaussian(dist, one_and_half);
+      Gaus = ImageToolsMath::Gaussian(dist, radius_);
       kernel_->set_value(column, row, Gaus);
     }
   }
