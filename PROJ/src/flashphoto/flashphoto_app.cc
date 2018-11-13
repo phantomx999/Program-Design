@@ -626,7 +626,7 @@ void FlashPhotoApp::ApplyBlurFilter(float radius) {
   // create filter
   ConvolutionFilterBlur* filter = new ConvolutionFilterBlur(radius);
   filter->CreateKernel();  // create kernel
-  // check if current buffer and filter exist
+  // check if current buffer exists
   if (current_buffer_) {
     SaveStateForPossibleUndo();
     filter->ApplyToBuffer(current_buffer_);
@@ -641,7 +641,7 @@ void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
   ConvolutionFilterMotionBlur* filter =
         new ConvolutionFilterMotionBlur(rad, direction);
   filter->CreateKernel();  // make kernel
-  // check if filter and current buffer exist
+  // check if current buffer exists
   if (current_buffer_) {
     SaveStateForPossibleUndo();  // save last state
     filter->ApplyToBuffer(current_buffer_);  // apply filter to buffer
