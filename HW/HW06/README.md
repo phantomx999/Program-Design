@@ -1,6 +1,6 @@
 ## HW06 [OPTIONAL]: Merging, Branching, and GitHub Issues
 
-In this homework, you will prepare the iteration1 code for development of Iteration 2. You will maintain multiple branches and use Github _Issues_ to track necessary changes and fixes to the code.
+In this homework, you will change the structure of our development environment for Iteration 2. You will maintain multiple branches and use Github _Issues_ to track necessary changes and fixes to the code.
 
 John Harwell, a veteran 3081W TA, has put together an informative guide on the use of git and branching, much of which was used to create this lab. It can be found in **_git-usage.pdf_**  in the _HW06_ folder.
 
