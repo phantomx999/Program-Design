@@ -1,6 +1,6 @@
 ### Assessment for Project Iteration 01 - BasicFilters (Graded By: Shruti Verma)
 
-#### Total score: _17_ / _20_
+#### Total score: _12_ / _15_
 
 Run on November 17, 10:00:20 AM.
 
@@ -64,7 +64,7 @@ Run on November 17, 10:00:20 AM.
 
 #### Run Student Tests
 
-+  _5_ / _5_ : Pass: Running Student Tests.
++  ignore : Pass: Running Student Tests.
 
 
 
@@ -110,5 +110,5 @@ return code: -11
 
 
 
-#### Total score: _17_ / _20_
+#### Total score: _12_ / _15_
 
