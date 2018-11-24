@@ -1,11 +1,11 @@
 ### Feedback for Project Iteration 02
 
-Run on November 21, 14:04:37 PM.
+Run on November 24, 15:05:16 PM.
 
 
 #### System Files and PROJ Directory Structure
 
-+ Pass: Check that directory "/classes/grades/Fall-2018/csci3081/dtorban/grading-scripts/_proj_materials" exists.
++ Pass: Check that directory "/project/keefe01/vis/sw/user-checkouts/dtorban/TA/csci3081-test-env/grading-scripts/_proj_materials" exists.
 
 + Pass: Check that directory "PROJ" exists.
 
@@ -63,27 +63,11 @@ Run on November 21, 14:04:37 PM.
 
   This test was not run because of an earlier failing test.
 
-+ Skip: Check that file "./src/mia/image_editor_commands.cc" exists.
-
-  This test was not run because of an earlier failing test.
-
 + Skip: Ensuring code follows style guide.
 
   This test was not run because of an earlier failing test.
 
 + Skip: Check that make compiles.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that file "./build/lib/libimagetools.a" exists.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that file "./build/bin/flashphoto" exists.
-
-  This test was not run because of an earlier failing test.
-
-+ Skip: Check that file "./build/bin/mia" exists.
 
   This test was not run because of an earlier failing test.
 
