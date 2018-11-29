@@ -59,7 +59,7 @@ class BlurFilterCommand : public ImageEditorCommand {
   BlurFilterCommand(ImageEditor *image_editor, float radius);
   virtual ~BlurFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   float radius_;
@@ -71,7 +71,7 @@ class EdgeFilterCommand : public ImageEditorCommand {
   explicit EdgeFilterCommand(ImageEditor *image_editor);
   virtual ~EdgeFilterCommand();
 
-  void Execute();
+  void Execute() override;
 };
 
 /** Specific command for executing a sharpen filter. */
@@ -80,7 +80,7 @@ class SharpenFilterCommand : public ImageEditorCommand {
   SharpenFilterCommand(ImageEditor *image_editor, float radius);
   virtual ~SharpenFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   float radius_;
@@ -93,7 +93,7 @@ class ChannelsFilterCommand : public ImageEditorCommand {
                         float green_scale, float blue_scale);
   virtual ~ChannelsFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   float r_, g_, b_;
@@ -105,7 +105,7 @@ class QuantizeFilterCommand : public ImageEditorCommand {
   QuantizeFilterCommand(ImageEditor *image_editor, int bins);
   virtual ~QuantizeFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   int bins_;
@@ -117,7 +117,7 @@ class SaturateFilterCommand : public ImageEditorCommand {
   SaturateFilterCommand(ImageEditor *image_editor, float scale);
   virtual ~SaturateFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   float scale_;
@@ -129,7 +129,7 @@ class ThresholdFilterCommand : public ImageEditorCommand {
   ThresholdFilterCommand(ImageEditor *image_editor, float cutoff);
   virtual ~ThresholdFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   float cutoff_;
@@ -139,14 +139,14 @@ class ThresholdFilterCommand : public ImageEditorCommand {
 class MotionBlurFilterCommand : public ImageEditorCommand {
  public:
   MotionBlurFilterCommand(ImageEditor *image_editor, float radius,
-                          ConvolutionFilterMotionBlur::BlurDir dir);
+                          ConvolutionFilterMotionBlur::MBlurDir dir);
   virtual ~MotionBlurFilterCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   float radius_;
-  ConvolutionFilterMotionBlur::BlurDir dir_;
+  ConvolutionFilterMotionBlur::MBlurDir dir_;
 };
 
 /** Specific command for executing an undo. */
@@ -155,7 +155,7 @@ class UndoCommand : public ImageEditorCommand {
   explicit UndoCommand(ImageEditor *image_editor);
   virtual ~UndoCommand();
 
-  void Execute();
+  void Execute() override;
 };
 
 /** Specific command for executing a redo. */
@@ -164,7 +164,7 @@ class RedoCommand : public ImageEditorCommand {
   explicit RedoCommand(ImageEditor *image_editor);
   virtual ~RedoCommand();
 
-  void Execute();
+  void Execute() override;
 };
 
 /** Specific command for starting a stroke. */
@@ -174,7 +174,7 @@ class StartStrokeCommand : public ImageEditorCommand {
                      const ColorData &color, float radius, int x, int y);
   virtual ~StartStrokeCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   std::string tool_name_;
@@ -189,7 +189,7 @@ class AddToStrokeCommand : public ImageEditorCommand {
   AddToStrokeCommand(ImageEditor *image_editor, int x, int y);
   virtual ~AddToStrokeCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   int x_, y_;
@@ -201,7 +201,7 @@ class EndStrokeCommand : public ImageEditorCommand {
   EndStrokeCommand(ImageEditor *image_editor, int x, int y);
   virtual ~EndStrokeCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   int x_, y_;
@@ -213,7 +213,7 @@ class LoadCommand : public ImageEditorCommand {
   LoadCommand(ImageEditor *image_editor, const std::string &filename);
   virtual ~LoadCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   std::string filename_;
@@ -225,7 +225,7 @@ class SaveCommand : public ImageEditorCommand {
   SaveCommand(ImageEditor *image_editor, const std::string &filename);
   virtual ~SaveCommand();
 
-  void Execute();
+  void Execute() override;
 
  private:
   std::string filename_;
