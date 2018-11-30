@@ -69,6 +69,35 @@ void FlashPhotoApp::InitNanoGUI() {
 
   nanogui::Button *b;
 
+  // FILE Section
+
+  new nanogui::Label(window, "File", "sans-bold");
+
+  nanogui::Widget *file_io = new nanogui::Widget(window);
+  file_io->setLayout(new nanogui::BoxLayout(nanogui::Orientation::Horizontal,
+                                            nanogui::Alignment::Middle, 0, 6));
+  b = new nanogui::Button(file_io, "Open");
+  b->setFixedSize({72, 20});
+  b->setCallback([this] {
+    std::string fname =
+        nanogui::file_dialog({{"png", "Portable Network Graphics"}}, false);
+    if (fname != "") {
+      LoadFromFile(fname);
+      ResizeWindow(pixel_buffer()->width(),
+                   pixel_buffer()->height());
+    }
+  });
+  b = new nanogui::Button(file_io, "Save");
+  b->setFixedSize({72, 20});
+  b->setCallback([this] {
+    std::string fname =
+        nanogui::file_dialog({{"png", "Portable Network Graphics"}}, true);
+    if (fname != "") {
+      //image_editor_.SaveToFile(fname);
+    }
+  });
+
+
   // EDIT Section
 
   new nanogui::Label(window, "Edit", "sans-bold");
