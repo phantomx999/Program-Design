@@ -14,9 +14,9 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#include "flashphoto/tool_eraser.h"
+#include "imagetools/tool_eraser.h"
 
-#include "flashphoto/mask_factory.h"
+#include "imagetools/mask_factory.h"
 
 namespace image_tools {
 

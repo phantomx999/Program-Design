@@ -14,9 +14,9 @@
  ...
  */
 
-#include "flashphoto/tool_spray_can.h"
+#include "imagetools/tool_spray_can.h"
 
-#include "flashphoto/mask_factory.h"
+#include "imagetools/mask_factory.h"
 
 namespace image_tools {
 

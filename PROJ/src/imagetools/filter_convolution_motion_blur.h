@@ -3,10 +3,10 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#ifndef FLASHPHOTO_FILTER_CONVOLUTION_MOTION_BLUR_H_
-#define FLASHPHOTO_FILTER_CONVOLUTION_MOTION_BLUR_H_
+#ifndef IMAGETOOLS_FILTER_CONVOLUTION_MOTION_BLUR_H_
+#define IMAGETOOLS_FILTER_CONVOLUTION_MOTION_BLUR_H_
 
-#include "flashphoto/filter_convolution.h"
+#include "imagetools/filter_convolution.h"
 #include <mingfx.h>
 #include <math.h>
 #include <iostream>
@@ -15,9 +15,9 @@
 #include <vector>
 #include <map>
 
-#include "flashphoto/color_data.h"
-#include "flashphoto/pixel_buffer.h"
-#include "flashphoto/float_matrix.h"
+#include "imagetools/color_data.h"
+#include "imagetools/pixel_buffer.h"
+#include "imagetools/float_matrix.h"
 
 //  using namespace std;
 
@@ -39,4 +39,4 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
 };
 
 }  // namespace image_tools
-#endif  // FLASHPHOTO_FILTER_CONVOLUTION_MOTION_BLUR_H_
+#endif  // IMAGETOOLS_FILTER_CONVOLUTION_MOTION_BLUR_H_

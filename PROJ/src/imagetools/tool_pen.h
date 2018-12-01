@@ -14,11 +14,11 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#ifndef FLASHPHOTO_TOOL_PEN_H_
-#define FLASHPHOTO_TOOL_PEN_H_
+#ifndef IMAGETOOLS_TOOL_PEN_H_
+#define IMAGETOOLS_TOOL_PEN_H_
 
 #include <string>
-#include "flashphoto/tool.h"
+#include "imagetools/tool.h"
 
 namespace image_tools {
 
@@ -36,4 +36,4 @@ class ToolPen : public Tool {
 
 }  // namespace image_tools
 
-#endif  // FLASHPHOTO_TOOL_PEN_H_
+#endif  // IMAGETOOLS_TOOL_PEN_H_

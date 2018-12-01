@@ -14,12 +14,12 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#include "flashphoto/tool.h"
+#include "imagetools/tool.h"
 #include <assert.h>
 #include <algorithm>
 #include <cmath>
-#include "flashphoto/color_data.h"
-#include "flashphoto/pixel_buffer.h"
+#include "imagetools/color_data.h"
+#include "imagetools/pixel_buffer.h"
 
 namespace image_tools {
 

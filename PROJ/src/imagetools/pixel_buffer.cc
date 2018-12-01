@@ -14,12 +14,12 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#include "flashphoto/pixel_buffer.h"
+#include "imagetools/pixel_buffer.h"
 #include <mingfx.h>
 #include <algorithm>
 #include <cstring>
 #include <iostream>
-#include "flashphoto/color_data.h"
+#include "imagetools/color_data.h"
 
 using std::cerr;
 using std::endl;

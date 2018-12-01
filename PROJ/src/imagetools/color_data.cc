@@ -14,8 +14,8 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#include "flashphoto/color_data.h"
-#include "flashphoto/image_tools_math.h"
+#include "imagetools/color_data.h"
+#include "imagetools/image_tools_math.h"
 
 namespace image_tools {
 

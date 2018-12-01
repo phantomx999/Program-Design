@@ -3,8 +3,8 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#ifndef FLASHPHOTO_FILTER_CHANNELS_H_
-#define FLASHPHOTO_FILTER_CHANNELS_H_
+#ifndef IMAGETOOLS_FILTER_CHANNELS_H_
+#define IMAGETOOLS_FILTER_CHANNELS_H_
 
 #include <mingfx.h>
 #include <iostream>
@@ -13,10 +13,10 @@
 #include <vector>
 #include <map>
 
-#include "flashphoto/color_data.h"
-#include "flashphoto/pixel_buffer.h"
-#include "flashphoto/float_matrix.h"
-#include "flashphoto/filter.h"
+#include "imagetools/color_data.h"
+#include "imagetools/pixel_buffer.h"
+#include "imagetools/float_matrix.h"
+#include "imagetools/filter.h"
 
 
 namespace image_tools {
@@ -42,4 +42,4 @@ class FilterChannels : public Filter {
 };
 
 }  // namespace image_tools
-#endif  // FLASHPHOTO_FILTER_CHANNELS_H_
+#endif  // IMAGETOOLS_FILTER_CHANNELS_H_

@@ -15,12 +15,12 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#ifndef FLASHPHOTO_PIXEL_BUFFER_H_
-#define FLASHPHOTO_PIXEL_BUFFER_H_
+#ifndef IMAGETOOLS_PIXEL_BUFFER_H_
+#define IMAGETOOLS_PIXEL_BUFFER_H_
 
 #include <string>
 #include <vector>
-#include "flashphoto/color_data.h"
+#include "imagetools/color_data.h"
 
 namespace image_tools {
 
@@ -96,4 +96,4 @@ class PixelBuffer {
 
 }  // namespace image_tools
 
-#endif  // FLASHPHOTO_PIXEL_BUFFER_H_
+#endif  // IMAGETOOLS_PIXEL_BUFFER_H_

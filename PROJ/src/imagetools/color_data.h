@@ -14,8 +14,8 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#ifndef FLASHPHOTO_COLOR_DATA_H_
-#define FLASHPHOTO_COLOR_DATA_H_
+#ifndef IMAGETOOLS_COLOR_DATA_H_
+#define IMAGETOOLS_COLOR_DATA_H_
 
 namespace image_tools {
 
@@ -70,4 +70,4 @@ class ColorData {
 
 }  // namespace image_tools
 
-#endif  // FLASHPHOTO_COLOR_DATA_H_
+#endif  // IMAGETOOLS_COLOR_DATA_H_

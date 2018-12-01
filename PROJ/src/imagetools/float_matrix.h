@@ -14,8 +14,8 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#ifndef FLASHPHOTO_FLOAT_MATRIX_H_
-#define FLASHPHOTO_FLOAT_MATRIX_H_
+#ifndef IMAGETOOLS_FLOAT_MATRIX_H_
+#define IMAGETOOLS_FLOAT_MATRIX_H_
 
 #include <iostream>
 #include <vector>
@@ -78,4 +78,4 @@ class FloatMatrix {
 
 }  // namespace image_tools
 
-#endif  // FLASHPHOTO_FLOAT_MATRIX_H_
+#endif  // IMAGETOOLS_FLOAT_MATRIX_H_

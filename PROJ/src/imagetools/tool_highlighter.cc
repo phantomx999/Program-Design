@@ -14,8 +14,8 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#include "flashphoto/tool_highlighter.h"
-#include "flashphoto/mask_factory.h"
+#include "imagetools/tool_highlighter.h"
+#include "imagetools/mask_factory.h"
 
 namespace image_tools {
 

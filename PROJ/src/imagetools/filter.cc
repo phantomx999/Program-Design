@@ -3,7 +3,7 @@
 	Copyright November 2018 by Andrew Steinbrueck
 */
 
-#include "flashphoto/filter.h"
+#include "imagetools/filter.h"
 #include <mingfx.h>
 #include <iostream>
 #include <deque>
@@ -11,9 +11,9 @@
 #include <vector>
 #include <map>
 
-#include "flashphoto/color_data.h"
-#include "flashphoto/pixel_buffer.h"
-#include "flashphoto/float_matrix.h"
+#include "imagetools/color_data.h"
+#include "imagetools/pixel_buffer.h"
+#include "imagetools/float_matrix.h"
 
 
 namespace image_tools {

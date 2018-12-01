@@ -14,12 +14,12 @@ Author(s) of Significant Updates/Modifications to the File:
   ...
 */
 
-#ifndef FLASHPHOTO_IMAGE_TOOLS_MATH_H_
-#define FLASHPHOTO_IMAGE_TOOLS_MATH_H_
+#ifndef IMAGETOOLS_IMAGE_TOOLS_MATH_H_
+#define IMAGETOOLS_IMAGE_TOOLS_MATH_H_
 
 #include <algorithm>
 #include <cmath>
-#include "flashphoto/color_data.h"
+#include "imagetools/color_data.h"
 
 namespace image_tools {
 
@@ -48,4 +48,4 @@ class ImageToolsMath {
 
 }  // namespace image_tools
 
-#endif  // FLASHPHOTO_IMAGE_TOOLS_MATH_H_
+#endif  // IMAGETOOLS_IMAGE_TOOLS_MATH_H_
