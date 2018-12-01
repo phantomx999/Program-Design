@@ -14,8 +14,8 @@
  ...
  */
 
-#include "flashphoto/tool_calligraphy_pen.h"
-#include "flashphoto/mask_factory.h"
+#include "imagetools/tool_calligraphy_pen.h"
+#include "imagetools/mask_factory.h"
 
 namespace image_tools {
 

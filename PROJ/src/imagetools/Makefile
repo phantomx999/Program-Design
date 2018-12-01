@@ -1,6 +1,5 @@
 CXX = /soft/gcc/7.1.0/Linux_x86_64/bin/g++
 OMP = -fopenmp
-FLAGS=-l./-O3 -Wall -c
 CFILES:=$(shell ls | grep .c)
 PROJECT_NAME = imagetools
 CS3081DIR = $(shell git rev-parse --show-toplevel)
@@ -12,6 +11,7 @@ OBJDIR = $(BUILDDIR)/obj/$(PROJECT_NAME)
 LIBDIR = $(BUILDDIR)/lib
 EXTERNAL_DIR = $(PROJ_DIR)/src/external
 MINGFX_DIR = $(EXTERNAL_DIR)/MinGfx/build/install
+EXEFILE = $(BINDIR)/$(PROJECT_NAME)
 SRCFILES = $(wildcard $(SRCDIR)/*.cc)
 OBJFILES = $(notdir $(patsubst %.cc,%.o,$(SRCFILES)))
 INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(SRCDIR)/.. -isystem$(MINGFX_DIR)/include -isystem$(MINGFX_DIR)/include/nanovg -isystem$(MINGFX_DIR)/include/MinGfx-1.0
@@ -72,7 +72,7 @@ $(EXEFILE): $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
 	#$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
 	ar rcs libimagetools.a $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
 	mv $(addprefix $(OBJDIR)/, $(OBJFILES)) ../../build/obj #$(OBJDIR)
-	mv libimagetools.a $(LIBDIR)
+	mv libimagetools.a ../../build/lib #$(LIBDIR)
 
 check-style:
 	@echo "==== Checking style is correct ===="
@@ -89,41 +89,3 @@ $(MINGFX_DIR):
 clean:
 	@rm -rf $(OBJDIR)
 	@rm -rf $(EXEFILE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-all: libimagetools.a
-	ar rvs libimagetools.a *.o
-	mv %.o PROJ/build/obj
-	mv %.a PROJ/build/lib
-%.o: %.c
-	$(CXX) $(FLAGS) -o $@ $<

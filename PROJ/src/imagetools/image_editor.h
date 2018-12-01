@@ -21,12 +21,13 @@ Author(s) of Significant Updates/Modifications to the File:
 #include <string>
 
 #include "imagetools/pixel_buffer.h"
+#include "imagetools/color_data.h"
 
 // filters
-#include "imagetools/convolution_filter_blur.h"
-#include "imagetools/convolution_filter_edge.h"
-#include "imagetools/convolution_filter_motion_blur.h"
-#include "imagetools/convolution_filter_sharpen.h"
+#include "imagetools/filter_convolution_blur.h"
+#include "imagetools/filter_convolution_edge.h"
+#include "imagetools/filter_convolution_motion_blur.h"
+#include "imagetools/filter_convolution_sharpen.h"
 #include "imagetools/filter_channels.h"
 #include "imagetools/filter_quantize.h"
 #include "imagetools/filter_saturate.h"
@@ -146,7 +147,21 @@ class ImageEditor {
 
   void set_pixel_buffer(PixelBuffer *buffer);
 
+/*
+  enum BlurDir {
+    MBLUR_DIR_N_S,
+    MBLUR_DIR_E_W,
+    MBLUR_DIR_NE_SW,
+    MBLUR_DIR_NW_SE
+  };
+
+  static std::string MotionBlurDirectionName(BlurDir dir) {
+    return mblur_dir_names_.find(dir)->second;
+  }
+*/
  private:
+  //  BlurDir mblur_dir_;
+
   ConvolutionFilterBlur f_blur_;
   ConvolutionFilterEdge f_edge_;
   ConvolutionFilterMotionBlur f_motion_blur_;

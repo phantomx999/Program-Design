@@ -32,7 +32,10 @@ FloatMatrix* ToolStamp::CreateMask(float radius) {
   return MaskFactory::CreateBullseyeMask(radius, 0.2 * radius);
 }
 
-void ToolStamp::AddToStroke(int x, int y) {}
+void ToolStamp::AddToStroke(int x, int y) {
+  (void) x;
+  (void) y;
+}
 
 }  // namespace image_tools
 

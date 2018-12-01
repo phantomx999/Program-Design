@@ -24,19 +24,19 @@ Author(s) of Significant Updates/Modifications to the File:
 #include <map>
 #include <sstream>
 #include <utility>
-#include "flashphoto/color_data.h"
-#include "flashphoto/pixel_buffer.h"
 //  #include "flashphoto/filter.h"
 //  #include "flashphoto/filter_threshold.h"
 
 namespace image_tools {
 
+/*
 const std::map<FlashPhotoApp::MBlurDir, std::string>
     FlashPhotoApp::mblur_dir_names_ = {
         {MBLUR_DIR_N_S, "North/South"},
         {MBLUR_DIR_E_W, "East/West"},
         {MBLUR_DIR_NE_SW, "Northeast/Southwest"},
         {MBLUR_DIR_NW_SE, "Northwest/Southeast"}};
+*/
 
 FlashPhotoApp::FlashPhotoApp(int width, int height,
                              const ColorData &background_color)
@@ -56,6 +56,7 @@ FlashPhotoApp::FlashPhotoApp(int width, int height,
       chan_b_(1.0),
       quant_bins_(5) {
   current_buffer_ = new PixelBuffer(width, height, background_color);
+  image_editor_(current_buffer_);
 }
 
 FlashPhotoApp::~FlashPhotoApp() {}
@@ -591,199 +592,6 @@ void FlashPhotoApp::OnWindowResize(int new_width, int new_height) {
   display_texture_.InitFromFloats(pixel_buffer()->width(),
                                   pixel_buffer()->height(),
                                   pixel_buffer()->data());
-}
-
-Tool *FlashPhotoApp::GetToolByName(const std::string &name) {
-  if (name == t_blur_.name()) {
-    return &t_blur_;
-  } else if (name == t_calligraphy_pen_.name()) {
-    return &t_calligraphy_pen_;
-  } else if (name == t_chalk_.name()) {
-    return &t_chalk_;
-  } else if (name == t_eraser_.name()) {
-    return &t_eraser_;
-  } else if (name == t_highlighter_.name()) {
-    return &t_highlighter_;
-  } else if (name == t_pen_.name()) {
-    return &t_pen_;
-  } else if (name == t_spray_can_.name()) {
-    return &t_spray_can_;
-  } else {
-    return NULL;
-  }
-}
-
-void FlashPhotoApp::StartStroke(const std::string &tool_name,
-                                const ColorData &color, float radius, int x,
-                                int y) {
-  current_tool_ = GetToolByName(tool_name);
-  tool_color_ = color;
-  tool_radius_ = radius;
-  if ((current_tool_) && (current_buffer_)) {
-    SaveStateForPossibleUndo();
-    current_tool_->StartStroke(current_buffer_, x, y, tool_color_,
-                               tool_radius_);
-  }
-}
-
-void FlashPhotoApp::AddToStroke(int x, int y) {
-  if ((current_tool_) && (current_buffer_)) {
-    current_tool_->AddToStroke(x, y);
-  }
-}
-
-void FlashPhotoApp::EndStroke(int x, int y) {
-  if ((current_tool_) && (current_buffer_)) {
-    current_tool_->EndStroke(x, y);
-  }
-}
-
-void FlashPhotoApp::LoadFromFile(const std::string &filename) {
-  if (current_buffer_ != NULL) {
-    SaveStateForPossibleUndo();
-    current_buffer_->LoadFromFile(filename);
-  } else {
-    current_buffer_ = new PixelBuffer(filename);
-  }
-}
-
-void FlashPhotoApp::SaveToFile(const std::string &filename) {
-  current_buffer_->SaveToFile(filename);
-}
-
-void FlashPhotoApp::ApplyBlurFilter(float radius) {
-  // create filter
-  ConvolutionFilterBlur* filter = new ConvolutionFilterBlur(radius);
-  filter->CreateKernel();  // create kernel
-  // check if current buffer exists
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  }
-  //  (void)radius;
-}
-
-void FlashPhotoApp::ApplyMotionBlurFilter(float rad, MBlurDir dir) {
-  // convert direction into string
-  std::string direction = MotionBlurDirectionName(dir);
-  // make filter
-  ConvolutionFilterMotionBlur* filter =
-        new ConvolutionFilterMotionBlur(rad, direction);
-  filter->CreateKernel();  // make kernel
-  // check if current buffer exists
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();  // save last state
-    filter->ApplyToBuffer(current_buffer_);  // apply filter to buffer
-  }
-  //  (void)rad;
-  //  (void)dir;
-}
-
-void FlashPhotoApp::ApplySharpenFilter(float rad) {
-  ConvolutionFilterSharpen* filter = new ConvolutionFilterSharpen(rad);
-  filter->CreateKernel();
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  //  (void)rad;
-  }
-}
-
-void FlashPhotoApp::ApplyEdgeDetectFilter() {
-  ConvolutionFilterEdge* filter = new ConvolutionFilterEdge();
-  filter->CreateKernel();
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  }
-}
-
-void FlashPhotoApp::ApplyThresholdFilter(float value) {
-  FilterThreshold* filter = new FilterThreshold(value);
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  }
-}
-
-void FlashPhotoApp::ApplySaturateFilter(float scale) {
-  FilterSaturate* filter = new FilterSaturate(scale);
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  }
-  //  SaveStateForPossibleUndo();
-  //  (void)scale;
-}
-
-void FlashPhotoApp::ApplyChannelsFilter(float red, float green, float blue) {
-  FilterChannels* filter = new FilterChannels(red, green, blue);
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  }
-  //  (void)red;
-  //  (void)green;
-  //  (void)blue;
-}
-
-void FlashPhotoApp::ApplyQuantizeFilter(int num) {
-  FilterQuantize* filter = new FilterQuantize(num);
-  if (current_buffer_) {
-    SaveStateForPossibleUndo();
-    filter->ApplyToBuffer(current_buffer_);
-  }
-  //  (void)num;
-}
-
-bool FlashPhotoApp::can_undo() { return saved_states_.size(); }
-
-bool FlashPhotoApp::can_redo() { return undone_states_.size(); }
-
-void FlashPhotoApp::Undo() {
-  if (can_undo()) {
-    // save state for a possilbe redo
-    undone_states_.push_front(current_buffer_);
-
-    // make the top state on the undo stack the current one
-    current_buffer_ = saved_states_.front();
-    saved_states_.pop_front();
-  }
-}
-
-void FlashPhotoApp::Redo() {
-  if (can_redo()) {
-    // save state for a possible undo
-    saved_states_.push_front(current_buffer_);
-
-    // make the top state on the redo stack the current one
-    current_buffer_ = undone_states_.front();
-    undone_states_.pop_front();
-  }
-}
-
-void FlashPhotoApp::SaveStateForPossibleUndo() {
-  PixelBuffer *buffer_copy = new PixelBuffer(*current_buffer_);
-  saved_states_.push_front(buffer_copy);
-
-  // remove the oldest undos if we've over our limit
-  while (saved_states_.size() > max_undos_) {
-    delete saved_states_.back();
-    saved_states_.pop_back();
-  }
-
-  // committing a new state invalidates the states saved in the redo stack,
-  // so, we simply clear out this stack.
-  while (!undone_states_.empty()) {
-    delete undone_states_.back();
-    undone_states_.pop_back();
-  }
-}
-
-PixelBuffer *FlashPhotoApp::pixel_buffer() { return current_buffer_; }
-
-void FlashPhotoApp::set_pixel_buffer(PixelBuffer *buffer) {
-  current_buffer_ = buffer;
 }
 
 } /* namespace image_tools */

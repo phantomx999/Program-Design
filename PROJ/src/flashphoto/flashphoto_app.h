@@ -17,33 +17,12 @@ Author(s) of Significant Updates/Modifications to the File:
 #ifndef FLASHPHOTO_FLASHPHOTO_APP_H_
 #define FLASHPHOTO_FLASHPHOTO_APP_H_
 
+#include <imagetools/image_editor.h>
 #include <mingfx.h>
 #include <deque>
 #include <map>
 #include <string>
 #include <vector>
-
-#include "flashphoto/color_data.h"
-#include "flashphoto/pixel_buffer.h"
-
-// tools
-#include "flashphoto/tool_blur.h"
-#include "flashphoto/tool_calligraphy_pen.h"
-#include "flashphoto/tool_chalk.h"
-#include "flashphoto/tool_eraser.h"
-#include "flashphoto/tool_highlighter.h"
-#include "flashphoto/tool_pen.h"
-#include "flashphoto/tool_spray_can.h"
-//  #include "flashphoto/filter.h"
-#include "flashphoto/filter_threshold.h"
-#include "flashphoto/filter_saturate.h"
-#include "flashphoto/filter_channels.h"
-#include "flashphoto/filter_quantize.h"
-#include "flashphoto/filter_convolution.h"
-#include "flashphoto/filter_convolution_sharpen.h"
-#include "flashphoto/filter_convolution_edge.h"
-#include "flashphoto/filter_convolution_blur.h"
-#include "flashphoto/filter_convolution_motion_blur.h"
 
 namespace image_tools {
 
@@ -99,28 +78,7 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
   /** Saves the current pixel buffer to a PNG file. */
   void SaveToFile(const std::string &filename);
 
-  // TOOLS
-
-  Tool *GetToolByName(const std::string &name);
-
-  /** Call this from the controller to being a new stroke at pixel (x,y) using
-   the tool named tool_name and the specified color and radius.  Since it
-   takes multiple frames to complete a stroke the tool_name, color, and radius
-   are saved as state variables and are used for subsequent calls to
-   AddToStroke() and EndStroke(). */
-  void StartStroke(const std::string &tool_name, const ColorData &color,
-                   float radius, int x, int y);
-
-  /** Call this from the controller to add to a stroke that was recently
-   started with a call to StartStroke(). */
-  void AddToStroke(int x, int y);
-
-  /** Call this from the controller to end a stroke started with
-   StartStroke(). */
-  void EndStroke(int x, int y);
-
-  // FILTERS
-
+/*
   /// Four possible motion blur directions are supported
   enum MBlurDir {
     MBLUR_DIR_N_S,
@@ -128,65 +86,17 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
     MBLUR_DIR_NE_SW,
     MBLUR_DIR_NW_SE
   };
+
   static std::string MotionBlurDirectionName(MBlurDir dir) {
     return mblur_dir_names_.find(dir)->second;
   }
-
-  /** Call this from the controller to apply the blur filter to the current
-   pixel buffer using the current blur filter state. */
-  void ApplyBlurFilter(float radius);
-
-  /** Call this from the controller to apply the filter to the current
-   pixel buffer using the current motion blur filter state. */
-  void ApplyMotionBlurFilter(float radius, MBlurDir dir);
-
-  /** Call this from the controller to apply the sharpen filter to the current
-   pixel buffer using the current sharpen filter state. */
-  void ApplySharpenFilter(float radius);
-
-  /** Call this from the controller to apply the edge detect filter to the
-   current
-   pixel buffer using the current edge detect filter state. */
-  void ApplyEdgeDetectFilter();
-
-  /** Call this from the controller to apply the threshold filter to the current
-   pixel buffer using the current threshold filter state. */
-  void ApplyThresholdFilter(float cutoff_value);
-
-  /** Call this from the controller to apply the saturate filter to the current
-   pixel buffer using the current saturate filter state. */
-  void ApplySaturateFilter(float scale_factor);
-
-  /** Call this from the controller to apply the channels filter to the current
-   pixel buffer using the current channels filter state. */
-  void ApplyChannelsFilter(float red_scale, float green_scale,
-                           float blue_scale);
-
-  /** Call this from the controller to apply the quantize filter to the current
-   pixel buffer using the current quantize filter state. */
-  void ApplyQuantizeFilter(int num_bins);
-
-  /** Undo the last operation. */
-  void Undo();
-
-  /** Redo the last "undone" operation. */
-  void Redo();
-
-  /** True if the the log of applied commands is not empty, i.e., it is
-   possible to perform an undo operation. */
-  bool can_undo();
-
-  /** True if the log of undone commands is not empty, i.e., it is possible to
-   perform a redo operation. */
-  bool can_redo();
-
-  PixelBuffer *pixel_buffer();
-
-  void set_pixel_buffer(PixelBuffer *buffer);
+*/
+ 
 
  private:
   void InitializeBuffers(ColorData initial_color, int width, int height);
 
+  ImageEditor::ImageEditor image_editor_;
   mingfx::Texture2D display_texture_;
   mingfx::QuickShapes quick_shapes_;
 
@@ -196,15 +106,17 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
   int tool_y_;
   bool painting_;
 
+/*
   // state data saved during calls to StartStroke, AddToStroke, EndStroke
   Tool *current_tool_;
   ColorData tool_color_;
   float tool_radius_;
+*/
 
   // Variables updated by the GUI widgets
   float blur_radius_;
   float mblur_radius_;
-  MBlurDir mblur_dir_;
+  //  MBlurDir mblur_dir_;
   float sharpen_radius_;
   float thresh_cutoff_;
   float sat_value_;
@@ -213,6 +125,7 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
   float chan_b_;
   int quant_bins_;
 
+/*
   ToolBlur t_blur_;
   ToolCalligraphyPen t_calligraphy_pen_;
   ToolChalk t_chalk_;
@@ -222,21 +135,22 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
   ToolSprayCan t_spray_can_;
 
   PixelBuffer *current_buffer_;
+*/
 
   nanogui::Button *undo_btn_;
   nanogui::Button *redo_btn_;
 
-  void SaveStateForPossibleUndo();
+  //void SaveStateForPossibleUndo();
 
   unsigned int max_undos_;
-  std::deque<PixelBuffer *> saved_states_;   // undo
-  std::deque<PixelBuffer *> undone_states_;  // redo
+  //  std::deque<PixelBuffer *> saved_states_;   // undo
+  //  std::deque<PixelBuffer *> undone_states_;  // redo
 
   /* Copy/move assignment/construction disallowed */
   FlashPhotoApp(const FlashPhotoApp &rhs) = delete;
   FlashPhotoApp &operator=(const FlashPhotoApp &rhs) = delete;
 
-  static const std::map<MBlurDir, std::string> mblur_dir_names_;
+  //  static const std::map<MBlurDir, std::string> mblur_dir_names_;
 };
 
 } /* namespace image_tools */

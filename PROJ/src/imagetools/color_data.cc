@@ -59,7 +59,6 @@ bool operator==(const ColorData& a, const ColorData& b) {
   // EPSILON = 1.0/256.0 to account for 8 bit values (unsigned char) that are saved to files
   static const float EPSILON = 0.004; 
 
->>>>>>> support-code:PROJ/src/flashphoto/color_data.cc
   return (fabs(a.red_ - b.red_) < EPSILON &&
           fabs(a.green_ - b.green_) < EPSILON &&
           fabs(a.blue_ - b.blue_) < EPSILON &&

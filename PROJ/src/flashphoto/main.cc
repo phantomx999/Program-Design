@@ -13,8 +13,8 @@ Author(s) of Significant Updates/Modifications to the File:
         ...
 */
 
-#include "./color_data.h"
-#include "./flashphoto_app.h"
+#include "imagetools/color_data.h"
+#include "flashphoto/flashphoto_app.h"
 
 int main() {
   image_tools::FlashPhotoApp app(1280, 720, image_tools::ColorData(1, 1, 1));
