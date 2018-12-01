@@ -47,7 +47,7 @@ FlashPhotoApp::FlashPhotoApp(int width, int height,
       tool_radius_(5.0),
       blur_radius_(5.0),
       mblur_radius_(5.0),
-      mblur_dir_(MBLUR_DIR_N_S),
+      mblur_dir_(ImageEditor::MBLUR_DIR_N_S),
       sharpen_radius_(5.0),
       thresh_cutoff_(0.5),
       sat_value_(1.0),
@@ -55,8 +55,8 @@ FlashPhotoApp::FlashPhotoApp(int width, int height,
       chan_g_(1.0),
       chan_b_(1.0),
       quant_bins_(5) {
-  current_buffer_ = new PixelBuffer(width, height, background_color);
-  image_editor_(current_buffer_);
+  PixelBuffer* current_buffer = new PixelBuffer(width, height, background_color);
+  image_editor_ = new ImageEditor(current_buffer);
 }
 
 FlashPhotoApp::~FlashPhotoApp() {}
@@ -83,9 +83,9 @@ void FlashPhotoApp::InitNanoGUI() {
     std::string fname =
         nanogui::file_dialog({{"png", "Portable Network Graphics"}}, false);
     if (fname != "") {
-      LoadFromFile(fname);
-      ResizeWindow(pixel_buffer()->width(),
-                   pixel_buffer()->height());
+      image_editor_->LoadFromFile(fname);
+      ResizeWindow(image_editor_->pixel_buffer()->width(),
+                   image_editor_->pixel_buffer()->height());
     }
   });
   b = new nanogui::Button(file_io, "Save");
@@ -94,7 +94,7 @@ void FlashPhotoApp::InitNanoGUI() {
     std::string fname =
         nanogui::file_dialog({{"png", "Portable Network Graphics"}}, true);
     if (fname != "") {
-      //image_editor_.SaveToFile(fname);
+      image_editor_->SaveToFile(fname);
     }
   });
 
@@ -110,18 +110,18 @@ void FlashPhotoApp::InitNanoGUI() {
   undo_btn_->setFixedSize({72, 20});
   undo_btn_->setIcon(ENTYPO_ICON_REPLY);
   undo_btn_->setCallback([this]() {
-    if (can_undo()) {
-      Undo();
-      ResizeWindow(pixel_buffer()->width(), pixel_buffer()->height());
+    if (image_editor_->can_undo()) {
+      image_editor_->Undo();
+      ResizeWindow(image_editor_->pixel_buffer()->width(), image_editor_->pixel_buffer()->height());
     }
   });
   redo_btn_ = new nanogui::Button(undo_redo, "Redo");
   redo_btn_->setFixedSize({72, 20});
   redo_btn_->setIcon(ENTYPO_ICON_FORWARD);
   redo_btn_->setCallback([this]() {
-    if (can_redo()) {
-      Redo();
-      ResizeWindow(pixel_buffer()->width(), pixel_buffer()->height());
+    if (image_editor_->can_redo()) {
+      image_editor_->Redo();
+      ResizeWindow(image_editor_->pixel_buffer()->width(), image_editor_->pixel_buffer()->height());
     }
   });
 
@@ -242,7 +242,7 @@ void FlashPhotoApp::InitNanoGUI() {
   });
   b = new nanogui::Button(blur_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplyBlurFilter(blur_radius_); });
+  b->setCallback([this] { image_editor_->ApplyBlurFilter(blur_radius_); });
 
   // MOTION BLUR
   nanogui::PopupButton *m_blur_pb =
@@ -275,21 +275,21 @@ void FlashPhotoApp::InitNanoGUI() {
 
   new nanogui::Label(m_blur_params, "Direction:", "sans-bold");
   nanogui::ComboBox *mbr_cb = new nanogui::ComboBox(
-      m_blur_params, {MotionBlurDirectionName(MBLUR_DIR_N_S),
-                      MotionBlurDirectionName(MBLUR_DIR_E_W),
-                      MotionBlurDirectionName(MBLUR_DIR_NE_SW),
-                      MotionBlurDirectionName(MBLUR_DIR_NW_SE)});
+      m_blur_params, {ImageEditor::MotionBlurDirectionName(ImageEditor::MBLUR_DIR_N_S),
+                      ImageEditor::MotionBlurDirectionName(ImageEditor::MBLUR_DIR_E_W),
+                      ImageEditor::MotionBlurDirectionName(ImageEditor::MBLUR_DIR_NE_SW),
+                      ImageEditor::MotionBlurDirectionName(ImageEditor::MBLUR_DIR_NW_SE)});
   mbr_cb->setFixedSize({216, 20});
   mbr_cb->setSelectedIndex(static_cast<int>(mblur_dir_));
   mbr_cb->setCallback([this](float value) {
     (void)value;
     int intValue = static_cast<int>(value);
-    mblur_dir_ = static_cast<MBlurDir>(intValue);
+    mblur_dir_ = static_cast<ImageEditor::MBlurDir>(intValue);
   });
 
   b = new nanogui::Button(m_blur_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplyMotionBlurFilter(mblur_radius_, mblur_dir_); });
+  b->setCallback([this] { image_editor_->ApplyMotionBlurFilter(mblur_radius_, mblur_dir_); });
 
   // SHARPEN
   nanogui::PopupButton *sharp = new nanogui::PopupButton(filters, "Sharpen");
@@ -321,7 +321,7 @@ void FlashPhotoApp::InitNanoGUI() {
 
   b = new nanogui::Button(sharp_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplySharpenFilter(sharpen_radius_); });
+  b->setCallback([this] { image_editor_->ApplySharpenFilter(sharpen_radius_); });
 
   // EDGE DETECT
   nanogui::PopupButton *edge = new nanogui::PopupButton(filters, "Edge Detect");
@@ -331,7 +331,7 @@ void FlashPhotoApp::InitNanoGUI() {
   edge_win->setLayout(params_layout);
   b = new nanogui::Button(edge_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplyEdgeDetectFilter(); });
+  b->setCallback([this] { image_editor_->ApplyEdgeDetectFilter(); });
 
   // THRESHOLD
   nanogui::PopupButton *thresh = new nanogui::PopupButton(filters, "Threshold");
@@ -367,7 +367,7 @@ void FlashPhotoApp::InitNanoGUI() {
 
   b = new nanogui::Button(thresh_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplyThresholdFilter(thresh_cutoff_); });
+  b->setCallback([this] { image_editor_->ApplyThresholdFilter(thresh_cutoff_); });
 
   // SATURATE
   nanogui::PopupButton *sat = new nanogui::PopupButton(filters, "Saturate");
@@ -403,7 +403,7 @@ void FlashPhotoApp::InitNanoGUI() {
 
   b = new nanogui::Button(sat_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplySaturateFilter(sat_value_); });
+  b->setCallback([this] { image_editor_->ApplySaturateFilter(sat_value_); });
 
   // CHANNELS
   nanogui::PopupButton *channels =
@@ -484,7 +484,7 @@ void FlashPhotoApp::InitNanoGUI() {
 
   b = new nanogui::Button(chan_win, "Apply");
   b->setFixedSize({150, 30});
-  b->setCallback([this] { ApplyChannelsFilter(chan_r_, chan_g_, chan_b_); });
+  b->setCallback([this] { image_editor_->ApplyChannelsFilter(chan_r_, chan_g_, chan_b_); });
 
   // QUANTIZE
   nanogui::PopupButton *quant_pb =
@@ -518,15 +518,15 @@ void FlashPhotoApp::InitNanoGUI() {
   b = new nanogui::Button(quant_win, "Apply");
   b->setFixedSize({150, 30});
   b->setCallback(
-      [this] { ApplyQuantizeFilter(static_cast<int>(quant_bins_)); });
+      [this] { image_editor_->ApplyQuantizeFilter(static_cast<int>(quant_bins_)); });
 
   screen()->performLayout();
 }
 
 void FlashPhotoApp::InitOpenGL() {
-  display_texture_.InitFromFloats(pixel_buffer()->width(),
-                                  pixel_buffer()->height(),
-                                  pixel_buffer()->data());
+  display_texture_.InitFromFloats(image_editor_->pixel_buffer()->width(),
+                                  image_editor_->pixel_buffer()->height(),
+                                  image_editor_->pixel_buffer()->data());
 }
 
 void FlashPhotoApp::DrawUsingNanoVG(NVGcontext *ctx) {
@@ -538,8 +538,8 @@ void FlashPhotoApp::DrawUsingNanoVG(NVGcontext *ctx) {
 
 void FlashPhotoApp::DrawUsingOpenGL() {
   if (display_texture_.initialized()) {
-    display_texture_.UpdateFromFloats(pixel_buffer()->data());
-    ColorData bg = pixel_buffer()->background_color();
+    display_texture_.UpdateFromFloats(image_editor_->pixel_buffer()->data());
+    ColorData bg = image_editor_->pixel_buffer()->background_color();
     glClearColor(bg.red(), bg.blue(), bg.green(), 1.0);
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -558,7 +558,7 @@ void FlashPhotoApp::OnMouseMove(const mingfx::Point2 &pos,
 void FlashPhotoApp::OnLeftMouseDown(const mingfx::Point2 &pos) {
   tool_x_ = pos[0];
   tool_y_ = pos[1];
-  StartStroke(tool_name_, tool_color_, tool_radius_, tool_x_, tool_y_);
+  image_editor_->StartStroke(tool_name_, tool_color_, tool_radius_, tool_x_, tool_y_);
   painting_ = true;
 }
 
@@ -575,23 +575,23 @@ void FlashPhotoApp::OnLeftMouseDrag(const mingfx::Point2 &pos,
 void FlashPhotoApp::OnLeftMouseUp(const mingfx::Point2 &pos) {
   tool_x_ = pos[0];
   tool_y_ = pos[1];
-  EndStroke(tool_x_, tool_y_);
+  image_editor_->EndStroke(tool_x_, tool_y_);
   painting_ = false;
 }
 
 void FlashPhotoApp::UpdateSimulation(double dt) {
   (void)dt;
   if (painting_) {
-    AddToStroke(tool_x_, tool_y_);
+    image_editor_->AddToStroke(tool_x_, tool_y_);
   }
 }
 
 void FlashPhotoApp::OnWindowResize(int new_width, int new_height) {
-  pixel_buffer()->Resize(new_width, new_height);
+  image_editor_->pixel_buffer()->Resize(new_width, new_height);
   display_texture_ = mingfx::Texture2D();
-  display_texture_.InitFromFloats(pixel_buffer()->width(),
-                                  pixel_buffer()->height(),
-                                  pixel_buffer()->data());
+  display_texture_.InitFromFloats(image_editor_->pixel_buffer()->width(),
+                                  image_editor_->pixel_buffer()->height(),
+                                  image_editor_->pixel_buffer()->data());
 }
 
 } /* namespace image_tools */

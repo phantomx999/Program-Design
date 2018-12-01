@@ -96,7 +96,7 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
  private:
   void InitializeBuffers(ColorData initial_color, int width, int height);
 
-  ImageEditor::ImageEditor image_editor_;
+  ImageEditor* image_editor_;
   mingfx::Texture2D display_texture_;
   mingfx::QuickShapes quick_shapes_;
 
@@ -106,17 +106,17 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
   int tool_y_;
   bool painting_;
 
-/*
+
   // state data saved during calls to StartStroke, AddToStroke, EndStroke
   Tool *current_tool_;
   ColorData tool_color_;
   float tool_radius_;
-*/
+
 
   // Variables updated by the GUI widgets
   float blur_radius_;
   float mblur_radius_;
-  //  MBlurDir mblur_dir_;
+  ImageEditor::MBlurDir mblur_dir_;
   float sharpen_radius_;
   float thresh_cutoff_;
   float sat_value_;
@@ -133,9 +133,9 @@ class FlashPhotoApp : public mingfx::GraphicsApp {
   ToolHighlighter t_highlighter_;
   ToolPen t_pen_;
   ToolSprayCan t_spray_can_;
-
-  PixelBuffer *current_buffer_;
 */
+ // PixelBuffer *current_buffer_;
+
 
   nanogui::Button *undo_btn_;
   nanogui::Button *redo_btn_;

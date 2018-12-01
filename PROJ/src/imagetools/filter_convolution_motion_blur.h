@@ -33,7 +33,7 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
     std::string getDirection();
     void setDirection(std::string direction);
     void CreateKernel() override;
-//////////////////////////
+/*
   enum BlurDir {
     MBLUR_DIR_N_S,
     MBLUR_DIR_E_W,
@@ -44,13 +44,13 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
   static std::string MotionBlurDirectionName(BlurDir dir) {
     return mblur_dir_names_.find(dir)->second;
   }
-/////////////////////////
+*/
  protected:
     float radius_;  // radius of matrix user input
     std::string direction_;  // direction of blur user input
 ////////////////////////////////
-    BlurDir mblur_dir_;
-    static const std::map<BlurDir, std::string> mblur_dir_names_;
+    //BlurDir mblur_dir_;
+    //static const std::map<BlurDir, std::string> mblur_dir_names_;
 ////////////////////////////////
 };
 

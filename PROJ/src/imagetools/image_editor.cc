@@ -31,6 +31,13 @@ Author(s) of Significant Updates/Modifications to the File:
 
 namespace image_tools {
 
+const std::map<ImageEditor::MBlurDir, std::string>
+    ImageEditor::mblur_dir_names_ = {
+        {MBLUR_DIR_N_S, "North/South"},
+        {MBLUR_DIR_E_W, "East/West"},
+        {MBLUR_DIR_NE_SW, "Northeast/Southwest"},
+        {MBLUR_DIR_NW_SE, "Northwest/Southeast"}};
+
 ImageEditor::ImageEditor(PixelBuffer *buffer) {
   current_buffer_ = buffer;
 }
@@ -111,9 +118,9 @@ void ImageEditor::ApplyBlurFilter(float radius) {
   //  (void)radius;
 }
 
-void ImageEditor::ApplyMotionBlurFilter(float rad, ConvolutionFilterMotionBlur::BlurDir dir) {
+void ImageEditor::ApplyMotionBlurFilter(float rad, ImageEditor::MBlurDir dir) {
   // convert direction into string
-  std::string direction = ConvolutionFilterMotionBlur::MotionBlurDirectionName(dir);
+  std::string direction = ImageEditor::MotionBlurDirectionName(dir);
   // make filter
   ConvolutionFilterMotionBlur* filter =
         new ConvolutionFilterMotionBlur(rad, direction);

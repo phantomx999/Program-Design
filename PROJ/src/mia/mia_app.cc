@@ -259,9 +259,9 @@ void MiaApp::InitNanoGUI() {
   stream << std::fixed << std::setprecision(2) << thresh_cutoff_;
   th_text->setValue(stream.str());
   th_slider->setCallback([this, th_text](float value) {
-    std::stringstream stream;
-    stream << std::fixed << std::setprecision(2) << value;
-    th_text->setValue(stream.str());
+    std::stringstream stream2;
+    stream2 << std::fixed << std::setprecision(2) << value;
+    th_text->setValue(stream2.str());
     thresh_cutoff_ = value;
   });
 
@@ -338,6 +338,7 @@ void MiaApp::DrawUsingOpenGL() {
 
 void MiaApp::OnMouseMove(const mingfx::Point2 &pos,
                          const mingfx::Vector2 &delta) {
+  (void) delta;
   tool_x_ = pos[0];
   tool_y_ = pos[1];
 }
@@ -355,6 +356,7 @@ void MiaApp::OnLeftMouseDrag(const mingfx::Point2 &pos,
   // note: AddToStroke() is called inside UpdateSimulation to support tools like
   // the spray can that accumulate paint over time when the mouse is held down
   // even if not actually moving.
+  (void) delta;
   tool_x_ = pos[0];
   tool_y_ = pos[1];
 }
@@ -368,6 +370,7 @@ void MiaApp::OnLeftMouseUp(const mingfx::Point2 &pos) {
 
 void MiaApp::UpdateSimulation(double dt) {
   if (painting_) {
+    (void) dt;
     image_editor_.AddToStroke(tool_x_, tool_y_);
   }
 }

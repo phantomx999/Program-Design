@@ -1,4 +1,4 @@
-all: imagetools flashphoto mia tests
+all: imagetools flashphoto 
 
 check-style:
 	cd src/imagetools; make check-style

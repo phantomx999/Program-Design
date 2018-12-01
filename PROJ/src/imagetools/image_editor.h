@@ -64,6 +64,17 @@ class ImageEditor {
   /** Deletes the current pixel buffer if not null. */
   virtual ~ImageEditor();
 
+  enum MBlurDir {
+    MBLUR_DIR_N_S,
+    MBLUR_DIR_E_W,
+    MBLUR_DIR_NE_SW,
+    MBLUR_DIR_NW_SE
+  };
+
+  static std::string MotionBlurDirectionName(MBlurDir dir) {
+    return mblur_dir_names_.find(dir)->second;
+  }
+
   // FILE SAVING AND LOADING
 
   /** Loads a pixel buffer from a PNG formatted file. */
@@ -101,7 +112,7 @@ class ImageEditor {
   /** Call this from the controller to apply the filter to the current
    pixel buffer using the current motion blur filter state. */
   void ApplyMotionBlurFilter(float radius,
-                             ConvolutionFilterMotionBlur::BlurDir dir);
+                             MBlurDir dir);
 
   /** Call this from the controller to apply the sharpen filter to the current
    pixel buffer using the current sharpen filter state. */
@@ -147,18 +158,6 @@ class ImageEditor {
 
   void set_pixel_buffer(PixelBuffer *buffer);
 
-/*
-  enum BlurDir {
-    MBLUR_DIR_N_S,
-    MBLUR_DIR_E_W,
-    MBLUR_DIR_NE_SW,
-    MBLUR_DIR_NW_SE
-  };
-
-  static std::string MotionBlurDirectionName(BlurDir dir) {
-    return mblur_dir_names_.find(dir)->second;
-  }
-*/
  private:
   //  BlurDir mblur_dir_;
 
@@ -188,6 +187,8 @@ class ImageEditor {
   PixelBuffer *current_buffer_;
 
   void SaveStateForPossibleUndo();
+
+  static const std::map<MBlurDir, std::string> mblur_dir_names_;
 
   unsigned int max_undos_;
   std::deque<PixelBuffer *> saved_states_;   // undo

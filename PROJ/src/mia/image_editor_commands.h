@@ -20,7 +20,7 @@
 #include <string>
 
 #include "imagetools/color_data.h"
-#include "imagetools/convolution_filter_motion_blur.h"
+#include "imagetools/filter_convolution_motion_blur.h"
 #include "imagetools/image_editor.h"
 
 namespace image_tools {
