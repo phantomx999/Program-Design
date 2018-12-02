@@ -1,6 +1,6 @@
 ### Feedback for Project Iteration 02
 
-Run on December 01, 20:31:15 PM.
+Run on December 01, 21:49:37 PM.
 
 
 #### System Files and PROJ Directory Structure
@@ -67,9 +67,13 @@ make[1]: Entering directory '/class/grades/Fall-2018/csci3081/student-repos/PROJ
 /class/grades/Fall-2018/csci3081/student-repos/PROJ_02_Feedback/repo-stein936/cpplint/cpplint.py --root=.. *.cc *.h
 color_data.cc:59:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
 color_data.cc:60:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
-pixel_buffer.cc:107:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
-pixel_buffer.cc:110:  Missing space before ( in for(  [whitespace/parens] [5]
-pixel_buffer.cc:111:  Missing space before ( in for(  [whitespace/parens] [5]
+pixel_buffer.cc:104:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+pixel_buffer.cc:105:  Line ends in whitespace.  Consider deleting these extra spaces.  [whitespace/end_of_line] [4]
+pixel_buffer.cc:108:  Missing space before ( in for(  [whitespace/parens] [5]
+pixel_buffer.cc:109:  Missing space before ( in for(  [whitespace/parens] [5]
+pixel_buffer.cc:124:  Lines should be <= 80 characters long  [whitespace/line_length] [2]
+pixel_buffer.cc:127:  Missing space before ( in for(  [whitespace/parens] [5]
+pixel_buffer.cc:128:  Missing space before ( in for(  [whitespace/parens] [5]
 tool_chalk.cc:49:  Consider using rand_r(...) instead of rand(...) for improved thread safety.  [runtime/threadsafe_fn] [2]
 filter_convolution_motion_blur.h:52:  Should have a space between // and comment  [whitespace/comments] [4]
 filter_convolution_motion_blur.h:53:  Should have a space between // and comment  [whitespace/comments] [4]
@@ -123,7 +127,7 @@ Done processing tool_highlighter.h
 Done processing tool_pen.h
 Done processing tool_spray_can.h
 Done processing tool_stamp.h
-Total errors found: 9
+Total errors found: 13
 Makefile:79: recipe for target 'check-style' failed
 make[1]: *** [check-style] Error 1
 make[1]: Leaving directory '/class/grades/Fall-2018/csci3081/student-repos/PROJ_02_Feedback/repo-stein936/PROJ/src/imagetools'
