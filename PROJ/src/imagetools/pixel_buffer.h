@@ -21,6 +21,9 @@ Author(s) of Significant Updates/Modifications to the File:
 #include <string>
 #include <vector>
 #include "imagetools/color_data.h"
+#include "imageio/image.h"
+#include "imageio/image_manager.h"
+
 
 namespace image_tools {
 

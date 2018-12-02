@@ -19,6 +19,7 @@ Author(s) of Significant Updates/Modifications to the File:
 
 int main(int argc, char* argv[]) {
   if (argc > 1) {
+    (void) argv; ///////
     // command line mode
     //image_tools::CommandLineProcessor cmd_processor;
     //cmd_processor.ProcessCommandLine(argc, argv);

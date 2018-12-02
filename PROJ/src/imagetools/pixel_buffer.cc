@@ -104,7 +104,24 @@ void PixelBuffer::Resize(int new_width, int new_height) {
 void PixelBuffer::SaveToFile(const std::string &filename) { (void)filename; }
 
 void PixelBuffer::LoadFromFile(const std::string &filename) {
-  (void)filename;
+  imageio::Image* image = imageio::ImageManager::instance().LoadFromFile(filename);
+  ColorData data(0.0, 0.0, 0.0, 0.0);
+  PixelBuffer tmp(image->Width(), image->Height(), background_color_);
+  for(int height = 0; height < image->Height(); height++) {
+    for(int column = 0; column < image->Width(); column++) {
+        float red = image->FloatValue(column, height, 0);
+        float green = image->FloatValue(column, height, 1);
+        float blue = image->FloatValue(column, height, 2);
+        float alpha = image->FloatValue(column, height, 3);
+        data.set_red(red);
+        data.set_green(green);
+        data.set_blue(blue);
+        data.set_alpha(alpha);
+        tmp.set_pixel(column, height, data);
+    }
+  }
+  *this = tmp;
+  delete image;
 }
 
 bool operator==(const PixelBuffer &a, const PixelBuffer &b) {

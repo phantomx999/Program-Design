@@ -63,6 +63,8 @@ Tool *ImageEditor::GetToolByName(const std::string &name) {
     return &t_pen_;
   } else if (name == t_spray_can_.name()) {
     return &t_spray_can_;
+  } else if (name == t_stamp_.name()) {
+    return &t_stamp_;
   } else {
     return NULL;
   }

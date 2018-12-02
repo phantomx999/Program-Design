@@ -120,7 +120,8 @@ void MiaApp::InitNanoGUI() {
   b = new nanogui::Button(tools);
   b->setFlags(nanogui::Button::RadioButton);
   b->setFixedSize({150, 20});
-  b->setCaption("Mark");
+  //b->setCaption("Mark");
+  b->setCaption(ToolStamp::name());
   b->setCallback([this]() {
     tool_name_ = ToolStamp::name();
     tool_radius_ = 14;

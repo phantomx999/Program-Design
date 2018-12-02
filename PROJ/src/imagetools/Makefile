@@ -14,9 +14,9 @@ MINGFX_DIR = $(EXTERNAL_DIR)/MinGfx/build/install
 EXEFILE = $(BINDIR)/$(PROJECT_NAME)
 SRCFILES = $(wildcard $(SRCDIR)/*.cc)
 OBJFILES = $(notdir $(patsubst %.cc,%.o,$(SRCFILES)))
-INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(SRCDIR)/.. -isystem$(MINGFX_DIR)/include -isystem$(MINGFX_DIR)/include/nanovg -isystem$(MINGFX_DIR)/include/MinGfx-1.0
-LIBDIRS = -L$(LIBDIR) -L$(MINGFX_DIR)/lib -L$(MINGFX_DIR)/lib/MinGfx-1.0 
-LIBS =  -lMinGfxd -lnanogui -Wl,-rpath,$(MINGFX_DIR)/lib 
+INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(SRCDIR)/.. -isystem$(MINGFX_DIR)/include -isystem$(MINGFX_DIR)/include/nanovg -isystem$(MINGFX_DIR)/include/MinGfx-1.0 -I/classes/csel-f18c3081/include
+LIBDIRS = -L$(LIBDIR) -L$(MINGFX_DIR)/lib -L$(MINGFX_DIR)/lib/MinGfx-1.0 -L/classes/csel-f18c3081/lib
+LIBS =  -lMinGfxd -lnanogui -Wl,-rpath,$(MINGFX_DIR)/lib -limageio
 UNAME = $(shell uname)
 ifeq ($(UNAME), Darwin) # Mac OSX
 	LIBS += -framework glut -framework opengl
