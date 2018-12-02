@@ -101,7 +101,24 @@ void PixelBuffer::Resize(int new_width, int new_height) {
   *this = tmp;
 }
 
-void PixelBuffer::SaveToFile(const std::string &filename) { (void)filename; }
+void PixelBuffer::SaveToFile(const std::string &filename) { 
+  imageio::Image *image = new imageio::Image(this->width_, this->height_, 4); 
+  PixelBuffer *tmp = this;
+  ColorData data(0.0, 0.0, 0.0, 0.0);
+  for(int height = 0; height < this->height_; height++) {
+    for(int column = 0; column < this->width_; column++) {
+      // data = this->pixel(column, height);
+      data = tmp->pixel(column, height);
+      data.Clamp();
+      image->SetFloatValue(column, height, 0, data.red());
+      image->SetFloatValue(column, height, 1, data.green());
+      image->SetFloatValue(column, height, 2, data.blue());
+      image->SetFloatValue(column, height, 3, data.alpha());
+    }
+  }
+  imageio::ImageManager::instance().SaveToFile(filename, *image);
+  delete image;
+}
 
 void PixelBuffer::LoadFromFile(const std::string &filename) {
   imageio::Image* image = imageio::ImageManager::instance().LoadFromFile(filename);
