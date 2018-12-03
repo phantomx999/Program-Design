@@ -8,7 +8,11 @@
 namespace image_tools {
 
   CommandLineProcessor::CommandLineProcessor() {
+    ColorData white(1, 1, 1);
+    PixelBuffer *tmp = new PixelBuffer(1280, 720, white); 
     number_commands_ = 0;
+    editor_ = new ImageEditor(tmp);
+    delete tmp;
   }
 
   CommandLineProcessor::~CommandLineProcessor() {}
@@ -27,8 +31,9 @@ namespace image_tools {
     }
     if(argc == 3){
       try {
-        execution_.NumberOfCommands(2);
-        LoadCommand command0(image_editor_, argv[1]);
+        execution_ = new CommandExecution(2);
+        // execution_.NumberOfCommands(2);
+        editor LoadCommand command0(image_editor_, argv[1]);
         execution_.m_commands_->setCommand(0, command0);
         SaveCommand command1(image_editor_, argv[2]);
         execution_.SetCommand(0, execution_.m_commands

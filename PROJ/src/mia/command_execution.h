@@ -13,14 +13,16 @@ namespace image_tools {
 
 class CommandExecution {
   public:
+    CommandExecution(int commands);
     CommandExecution();
     ~CommandExecution();
     void NumberOfCommands(int num_commands);
     void SetCommand(int index, ImageEditorCommand* command);
     void CommandExecuted(int index);
+    ImageEditorCommand GetCommands();
   private:
-    int num_commands_;
     ImageEditorCommand** m_commands_;
+    int num_commands_;
 };
 
 }  // namespace image_tools

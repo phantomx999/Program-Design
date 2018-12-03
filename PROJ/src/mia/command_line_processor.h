@@ -24,6 +24,7 @@ class CommandLineProcessor {
    // std::string arg_str_;
     // bool valid_message_;
     int number_commands_;
+    ImageEditor *editor_;
     CommandExecution execution_;
 };
 

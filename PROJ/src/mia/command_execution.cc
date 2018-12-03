@@ -7,16 +7,25 @@
 
 namespace image_tools {
 
-CommandExecution::CommandExecution() {}
+CommandExecution::CommandExecution(int commands) {
+  m_commands_ = new ImageEditorCommand*[commands];
+  num_commands_ = 0;
+}
+
+CommandExecution::CommandExecution() {
+  num_commands_ = 0;
+}
 
 CommandExecution::~CommandExecution() {}
 
 CommandExecution::NumberOfCommands(int num_commands) {
   num_commands_ = num_commands;
+/*
   m_commands_ = new ImageEditorCommands*[num_commands_];
   for(int i = 0; i < num_commands_; i++) {
     m_commands_[i] = new ImageEditorCommand;
   }
+*/
 }
 
 CommandExecution::SetCommand(int index, ImageEditorCommand* command) {
