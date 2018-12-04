@@ -32,27 +32,158 @@ namespace image_tools {
     if(argc == 3){
       try {
         execution_ = new CommandExecution(2);
-        // execution_.NumberOfCommands(2);
-        editor LoadCommand command0(image_editor_, argv[1]);
-        execution_.m_commands_->setCommand(0, command0);
-        SaveCommand command1(image_editor_, argv[2]);
-        execution_.SetCommand(0, execution_.m_commands
-        std::string file_in = command0;
-        std::string file_out 
-        
-      }
-      catch {
-        this->PrintHelpMessage();
+        std::string load_file = argv[1];
+        std::string save_file = argv[2];
+        LoadCommand command0(editor_, load_file);
+        execution_.SetCommand(0, command0);
+        SaveCommand command1(editor_, save_file);
+        execution_.SetCommand(1, command1);
+        execution_.NumberOfCommands(2);  
+        execution_.ExecuteAllCommands(execution_.num_commands_);
+        delete;
         return;
+      } catch {
+          std::cerr << "error message 2.  Load and/or save did not work, or invalid user input" << std::endl; 
+          this->PrintHelpMessage();
+          return;
       }
     }
-/*  
-    arg_array_ = new char*[num_args];
-    for(int i = 0; i<num_args; i++) {
-      arg_array[i] = new char;
-    }
-*/
+    try{
+      int count_commands;
+      std::string load_file = argv[1];
+      std::string save_file = argv[argc - 1];
+      LoadCommand command0(editor_, load_file);
+      execution_.SetCommand(count_commands, command0);
+     }
+     catch {
+       std::cerr << "error message 3.  Load did not work, or invalid user input" << std::endl;
+       this->PrintHelpMessage();
+       return;
+     }
+     try {
+      float next_argF = 0.0;
+      int next_argI = 0;
+      for(index = 2; index < argc - 1; index++){
+        if(strcmp(argv[index], "-blur") == 0) {
+          if(next_argF = std::stof(argv[index+1], NULL)) {
+           
+          } else {
+              throw 4;
+              return;
+          }
+        } else if(strcmp(argv[index], "-sharpen") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
 
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-red") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            } 
+        } else if(strcmp(argv[index, "-green") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-blue") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-quantize") == 0) {
+            if(next_argI = std::stoi(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-saturate") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-threshold") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-motionblur-n-s") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-motionblur-e-w") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-motionblur-ne-sw") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-motionblur-nw-se") == 0) {
+            if(next_argF = std::stof(argv[index+1], NULL)) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else if(strcmp(argv[index], "-edgedetect") == 0) {
+           
+        } else if(next_argF = std::stof(argv[index], NULL) || next_argI = std::stof(argv[index], NULL) {
+            if(strcmp(argv[index-1], "-blur")) {
+
+            } else {
+                throw 5;
+                return;
+            }
+        } else {
+            throw 5;
+            return;
+        }
+      }
+    }
+    catch (int x){
+      if(x == 3) {
+        std::cerr << "Error Message 3.  Could not convert arg to float value, or incorrect user input" << std::endl;
+      }
+      this->PrintHelpMessage();
+      return;
+    }
+    try {
+      for(index = 2; index < argc - 1; index++){
+        if(next_arg = std::stof(argv[index]){
+          if() {
+            
+          } else {
+
+          }
+        }
+      }
+     }
+     catch {
+
+     }
     
   }
 

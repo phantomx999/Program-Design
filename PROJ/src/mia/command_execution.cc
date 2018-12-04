@@ -28,12 +28,32 @@ CommandExecution::NumberOfCommands(int num_commands) {
 */
 }
 
+
 CommandExecution::SetCommand(int index, ImageEditorCommand* command) {
   m_commands[index] = command;
 }
 
-CommandExecution::CommandExecuted(int index) {
-  m_commands[index]->execute():
+CommandExecution::ExecuteSingleCommand(int index){
+  m_commands_[index]->Execute;
+}
+
+CommandExecution::ExecuteAllCommands(int number_commands) {
+  for(int i=0; i<number_commands; i++){
+    m_commands_[number_commands]->Execute():
+  }
 }
 
 }  // namespace image_tools
+
+
+
+
+
+
+
+
+
+
+
+
+

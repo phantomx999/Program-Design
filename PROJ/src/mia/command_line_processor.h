@@ -19,9 +19,6 @@ class CommandLineProcessor {
     void ProcessCommandLine(int argc, char** argv);
     void PrintHelpMessage();
   private:
-   // int num_args_;
-   // char** arg_array_;
-   // std::string arg_str_;
     // bool valid_message_;
     int number_commands_;
     ImageEditor *editor_;

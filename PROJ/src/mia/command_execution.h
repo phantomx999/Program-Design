@@ -18,7 +18,8 @@ class CommandExecution {
     ~CommandExecution();
     void NumberOfCommands(int num_commands);
     void SetCommand(int index, ImageEditorCommand* command);
-    void CommandExecuted(int index);
+    void ExecuteSingleCommand(int index);
+    void ExecuteAllCommands(int number_commands);
     ImageEditorCommand GetCommands();
   private:
     ImageEditorCommand** m_commands_;
@@ -28,3 +29,18 @@ class CommandExecution {
 }  // namespace image_tools
 
 #endif  // MIA_COMMAND_EXECUTION_H_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
