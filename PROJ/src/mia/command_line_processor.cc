@@ -51,7 +51,7 @@ namespace image_tools {
     try{
       int count_commands;
       std::string load_file = argv[1];
-      std::string save_file = argv[argc - 1];
+     // std::string save_file = argv[argc - 1];
       LoadCommand command0(editor_, load_file);
       execution_.SetCommand(count_commands, command0);
      }
@@ -150,8 +150,14 @@ namespace image_tools {
             }
         } else if(strcmp(argv[index], "-edgedetect") == 0) {
            
-        } else if(next_argF = std::stof(argv[index], NULL) || next_argI = std::stof(argv[index], NULL) {
-            if(strcmp(argv[index-1], "-blur")) {
+        } else if(next_argF == std::stof(argv[index], NULL) || next_argI == std::stof(argv[index], NULL)) {
+            if(strcmp(argv[index-1], "-blur") == 0 || strcmp(argv[index-1], "-sharpen") == 0 || 
+               strcmp(argv[index-1], "-red") == 0) || strcmp(argv[index-1], "-red") == 0 || 
+               strcmp(argv[index-1], "-green") == 0 || strcmp(argv[index-1], "-blue") == 0 ||
+               strcmp(argv[index-1], "-quantize") == 0 || strcmp(argv[index-1], "-saturate") == 0
+               || strcmp(argv[index-1], "-threshold") == 0 || strcmp(argv[index-1], "-motionblur-n-s") == 0
+               || strcmp(argv[index-1], "-motionblur-e-w") == 0 || strcmp(argv[index-1], "-motionblur-ne-sw") == 0
+               || strcmp(argv[index-1], "-motionblur-nw-se") == 0) {
 
             } else {
                 throw 5;
@@ -171,19 +177,17 @@ namespace image_tools {
       return;
     }
     try {
-      for(index = 2; index < argc - 1; index++){
-        if(next_arg = std::stof(argv[index]){
-          if() {
-            
-          } else {
+      std::string save_file = argv[argc - 1];
+      SaveCommand command1(editor_, save_file);
+      execution_.SetCommand(count_commands, command1);
+      execution_.NumberOfCommand(execution_.num_commands);  
+      execution_.ExecuteAllCommands(execution_.num_commands_);
+      delete;
+      return;      
+    }
+    catch {
 
-          }
-        }
-      }
-     }
-     catch {
-
-     }
+    }
     
   }
 
