@@ -18,7 +18,7 @@ CommandExecution::CommandExecution() {
 
 CommandExecution::~CommandExecution() {}
 
-CommandExecution::NumberOfCommands(int num_commands) {
+void CommandExecution::SetNumberOfCommands(int num_commands) {
   num_commands_ = num_commands;
 /*
   m_commands_ = new ImageEditorCommands*[num_commands_];
@@ -29,18 +29,22 @@ CommandExecution::NumberOfCommands(int num_commands) {
 }
 
 
-CommandExecution::SetCommand(int index, ImageEditorCommand* command) {
-  m_commands[index] = command;
+void CommandExecution::SetCommand(int index, ImageEditorCommand* command) {
+  m_commands_[index] = command;
 }
 
-CommandExecution::ExecuteSingleCommand(int index){
-  m_commands_[index]->Execute;
+void CommandExecution::ExecuteSingleCommand(int index){
+  m_commands_[index]->Execute();
 }
 
-CommandExecution::ExecuteAllCommands(int number_commands) {
+void CommandExecution::ExecuteAllCommands(int number_commands) {
   for(int i=0; i<number_commands; i++){
-    m_commands_[number_commands]->Execute():
+    m_commands_[number_commands]->Execute();
   }
+}
+
+int CommandExecution::GetNumberOfCommands() {
+  return num_commands_;
 }
 
 }  // namespace image_tools

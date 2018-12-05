@@ -102,6 +102,20 @@ void PixelBuffer::Resize(int new_width, int new_height) {
 }
 
 void PixelBuffer::SaveToFile(const std::string &filename) { 
+  int file_length = filename.size();
+  char temp[file_length+1];
+  strcpy(temp, filename.c_str());
+  char temp2[4];
+  int i = 0;
+  for(int index = file_length - 4; index < file_length; index++){
+    temp2[i] = temp[index];
+    i++; 
+  }
+  std::string png_string(temp2);
+  if(strcmp(png_string.c_str(), ".png") != 0) {
+    std::cout << "Needs to be a png file" << std::endl;
+    return;
+  }
   imageio::Image *image = new imageio::Image(this->width_, this->height_, 4); 
   PixelBuffer *tmp = this;
   ColorData data(0.0, 0.0, 0.0, 0.0);
@@ -121,6 +135,20 @@ void PixelBuffer::SaveToFile(const std::string &filename) {
 }
 
 void PixelBuffer::LoadFromFile(const std::string &filename) {
+  int file_length = filename.size();
+  char temp[file_length+1];
+  strcpy(temp, filename.c_str());
+  char temp2[4];
+  int i = 0;
+  for(int index = file_length - 4; index < file_length; index++){
+    temp2[i] = temp[index];
+    i++; 
+  }
+  std::string png_string(temp2);
+  if(strcmp(png_string.c_str(), ".png") != 0) {
+    std::cout << "Needs to be a png file" << std::endl;
+    return;
+  }
   imageio::Image* image = imageio::ImageManager::instance().LoadFromFile(filename);
   ColorData data(0.0, 0.0, 0.0, 0.0);
   PixelBuffer tmp(image->Width(), image->Height(), background_color_);

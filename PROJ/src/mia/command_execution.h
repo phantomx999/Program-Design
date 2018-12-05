@@ -16,11 +16,12 @@ class CommandExecution {
     CommandExecution(int commands);
     CommandExecution();
     ~CommandExecution();
-    void NumberOfCommands(int num_commands);
+    void SetNumberOfCommands(int num_commands);
     void SetCommand(int index, ImageEditorCommand* command);
     void ExecuteSingleCommand(int index);
     void ExecuteAllCommands(int number_commands);
-    ImageEditorCommand GetCommands();
+    int GetNumberOfCommands();
+    //ImageEditorCommand** GetCommands();
   private:
     ImageEditorCommand** m_commands_;
     int num_commands_;

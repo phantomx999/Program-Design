@@ -18,11 +18,12 @@ class CommandLineProcessor {
     ~CommandLineProcessor();
     void ProcessCommandLine(int argc, char** argv);
     void PrintHelpMessage();
+    void ErrorMessage(int error);
   private:
     // bool valid_message_;
-    int number_commands_;
+    //int number_commands_;
     ImageEditor *editor_;
-    CommandExecution execution_;
+    CommandExecution* execution_;
 };
 
 }  // namespace image_tools
