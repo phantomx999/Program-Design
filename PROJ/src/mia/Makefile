@@ -44,7 +44,7 @@ OBJFILES = $(notdir $(patsubst %.cc,%.o,$(SRCFILES)))
 INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(SRCDIR)/.. -isystem$(MINGFX_DIR)/include -isystem$(MINGFX_DIR)/include/nanovg -isystem$(MINGFX_DIR)/include/MinGfx-1.0 -I$(PROJ_DIR)/src/imagetools -I/classes/csel-f18c3081/include
 
 # Add -Ldirname to add directories to the linker search path for finding libraries
-LIBDIRS = -L$(LIBDIR) -L$(MINGFX_DIR)/lib -L$(MINGFX_DIR)/lib/MinGfx-1.0 -L$(BINDIR) -L/classes/csel-f18c3081/lib
+LIBDIRS = -L$(LIBDIR) -L$(MINGFX_DIR)/lib -L$(MINGFX_DIR)/lib/MinGfx-1.0 -L$(BINDIR) -L$(LIBDIR) -L/classes/csel-f18c3081/lib
 
 # Add -llibname to link with external libraries
 LIBS =  -lMinGfxd -lnanogui -Wl,-rpath,$(MINGFX_DIR)/lib -limagetools -limageio

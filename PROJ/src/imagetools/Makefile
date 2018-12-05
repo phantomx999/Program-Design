@@ -70,7 +70,9 @@ make-depend-cxx=$(CXX) -MM -MF $3 -MP -MT $2 $(CXXFLAGS) $1
 $(EXEFILE): $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR)
 	@echo "==== Linking $@. ===="
 	#$(CXX) $(OMP) $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
-	ar rcs $(BINDIR)/libimagetools.a $(addprefix $(OBJDIR)/, $(OBJFILES))
+	mkdir -p $(OBJDIR)	
+	mkdir -p $(LIBDIR)
+	ar rcs $(LIBDIR)/libimagetools.a $(addprefix $(OBJDIR)/, $(OBJFILES))
 	#ar rcs libimagetools.a $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
 	mv $(addprefix $(OBJDIR)/, $(OBJFILES)) ../../build/obj #$(OBJDIR)
 	#mv libimagetools.a ../../build/bin #$(LIBDIR)
@@ -90,3 +92,4 @@ $(MINGFX_DIR):
 clean:
 	@rm -rf $(OBJDIR)
 	@rm -rf $(EXEFILE)
+	@rm -rf $(LIBDIR)/libimagetools.a
