@@ -22,7 +22,7 @@ class CommandLineProcessor {
   private:
     // bool valid_message_;
     //int number_commands_;
-    ImageEditor *editor_;
+    ImageEditor* editor_;
     CommandExecution* execution_;
 };
 

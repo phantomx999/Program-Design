@@ -12,7 +12,7 @@ namespace image_tools {
     PixelBuffer *tmp = new PixelBuffer(1280, 720, white);
     //execution_->SetNumberOfCommands(0);
     editor_ = new ImageEditor(tmp);
-    delete tmp;
+    //delete tmp;
   }
 
   CommandLineProcessor::~CommandLineProcessor() {}
@@ -37,10 +37,14 @@ namespace image_tools {
         std::string save_file = argv[2];
         LoadCommand* command0 = new LoadCommand(editor_, load_file);
         execution_->SetCommand(count_commands, command0);
-        SaveCommand* command1 = new SaveCommand(editor_, save_file);
         count_commands++;
+//  std::cerr << "count_commands = " << count_commands << std::endl;
+        SaveCommand* command1 = new SaveCommand(editor_, save_file);
+//  std::cerr << "input file is " << load_file << std::endl;
+//  std::cerr << "save file is " << save_file << std::endl;
         execution_->SetCommand(count_commands, command1);
-        execution_->SetNumberOfCommands(count_commands);  
+        execution_->SetNumberOfCommands(count_commands+1);  
+//  std::cerr << "execution_->GetNumberOfCommands() = " << execution_->GetNumberOfCommands() << std::endl;
         execution_->ExecuteAllCommands(execution_->GetNumberOfCommands());
        // delete this;
         return;
@@ -189,6 +193,7 @@ namespace image_tools {
                 return;
             }
         } else if(strcmp(argv[index], "-edgedetect") == 0) {
+std::cerr << "made it inside edgedetect" << std::endl;
             if(strcmp(argv[index+1], "-blur") != 0 
                && strcmp(argv[index+1], "-sharpen") != 0 
                && strcmp(argv[index+1], "-red") != 0 
@@ -216,6 +221,7 @@ namespace image_tools {
                && strcmp(argv[index-1], "-motionblur-nw-se") != 0  
                && strcmp(argv[index-1], "-edgedetect") != 0) {
                  if(index != (argc-2)){
+std::cerr << "INSIDE edgedetect" << std::endl;
                    throw 17;
                    return;
                  }

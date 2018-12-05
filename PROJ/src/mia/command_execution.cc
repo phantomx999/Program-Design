@@ -39,7 +39,9 @@ void CommandExecution::ExecuteSingleCommand(int index){
 
 void CommandExecution::ExecuteAllCommands(int number_commands) {
   for(int i=0; i<number_commands; i++){
-    m_commands_[number_commands]->Execute();
+    // std::cerr << "made it heresdfbadfgsgvfsdzsbf" << std::endl; 
+    m_commands_[i]->Execute();
+    // std::cerr << "did i make it here????" << std::endl; 
   }
 }
 
