@@ -1,7 +1,7 @@
 #include <math.h>
 #include <iostream>
 #include "gtest/gtest.h"
-#include "flashphoto/tool_eraser.h"
+#include "imagetools/tool_eraser.h"
 
 using image_tools::ToolEraser;
 

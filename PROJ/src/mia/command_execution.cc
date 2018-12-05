@@ -20,12 +20,6 @@ CommandExecution::~CommandExecution() {}
 
 void CommandExecution::SetNumberOfCommands(int num_commands) {
   num_commands_ = num_commands;
-/*
-  m_commands_ = new ImageEditorCommands*[num_commands_];
-  for(int i = 0; i < num_commands_; i++) {
-    m_commands_[i] = new ImageEditorCommand;
-  }
-*/
 }
 
 
@@ -39,9 +33,7 @@ void CommandExecution::ExecuteSingleCommand(int index){
 
 void CommandExecution::ExecuteAllCommands(int number_commands) {
   for(int i=0; i<number_commands; i++){
-    // std::cerr << "made it heresdfbadfgsgvfsdzsbf" << std::endl; 
     m_commands_[i]->Execute();
-    // std::cerr << "did i make it here????" << std::endl; 
   }
 }
 

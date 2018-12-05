@@ -56,8 +56,9 @@ ColorData operator-(const ColorData& a, const ColorData& b) {
 bool operator==(const ColorData& a, const ColorData& b) {
   // a thresold used to account for numerical imprecision in floating point
   // comparisons
-  // EPSILON = 1.0/256.0 to account for 8 bit values (unsigned char) that are saved to files
-  static const float EPSILON = 0.004; 
+  // EPSILON = 1.0/256.0 to account for 8 bit values 
+  // (unsigned char) that are saved to files
+  static const float EPSILON = 0.004;
 
   return (fabs(a.red_ - b.red_) < EPSILON &&
           fabs(a.green_ - b.green_) < EPSILON &&
@@ -68,7 +69,3 @@ bool operator==(const ColorData& a, const ColorData& b) {
 bool operator!=(const ColorData& a, const ColorData& b) { return !(a == b); }
 
 } /* namespace image_tools */
-
-
-
-

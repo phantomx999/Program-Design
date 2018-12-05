@@ -102,6 +102,7 @@ void PixelBuffer::Resize(int new_width, int new_height) {
 }
 
 void PixelBuffer::SaveToFile(const std::string &filename) { 
+  //  first check if filname is ".png"
   int file_length = filename.size();
   char temp[file_length+1];
   strcpy(temp, filename.c_str());
@@ -112,16 +113,18 @@ void PixelBuffer::SaveToFile(const std::string &filename) {
     i++; 
   }
   std::string png_string(temp2);
+  //  file not ".png"
   if(strcmp(png_string.c_str(), ".png") != 0) {
     std::cout << "Needs to be a png file" << std::endl;
     return;
   }
+  //  use imageio lib, take current pixel buffer
+  //  and set pixel rgba vals to image, save to file
   imageio::Image *image = new imageio::Image(this->width_, this->height_, 4); 
   PixelBuffer *tmp = this;
   ColorData data(0.0, 0.0, 0.0, 0.0);
   for(int height = 0; height < this->height_; height++) {
     for(int column = 0; column < this->width_; column++) {
-      // data = this->pixel(column, height);
       data = tmp->pixel(column, height);
       data.Clamp();
       image->SetFloatValue(column, height, 0, data.red());
@@ -135,6 +138,7 @@ void PixelBuffer::SaveToFile(const std::string &filename) {
 }
 
 void PixelBuffer::LoadFromFile(const std::string &filename) {
+  //  check if file is ".png"
   int file_length = filename.size();
   char temp[file_length+1];
   strcpy(temp, filename.c_str());
@@ -145,10 +149,12 @@ void PixelBuffer::LoadFromFile(const std::string &filename) {
     i++; 
   }
   std::string png_string(temp2);
+  //  file not ".png"
   if(strcmp(png_string.c_str(), ".png") != 0) {
     std::cout << "Needs to be a png file" << std::endl;
     return;
   }
+  //  use imageio lib, load image, set image rgba pixels to buffer
   imageio::Image* image = imageio::ImageManager::instance().LoadFromFile(filename);
   ColorData data(0.0, 0.0, 0.0, 0.0);
   PixelBuffer tmp(image->Width(), image->Height(), background_color_);
@@ -162,6 +168,7 @@ void PixelBuffer::LoadFromFile(const std::string &filename) {
         data.set_green(green);
         data.set_blue(blue);
         data.set_alpha(alpha);
+        data.Clamp();
         tmp.set_pixel(column, height, data);
     }
   }

@@ -1,7 +1,7 @@
 #include <math.h>
 #include <iostream>
 #include "gtest/gtest.h"
-#include "flashphoto/tool_calligraphy_pen.h"
+#include "imagetools/tool_calligraphy_pen.h"
 
 using image_tools::ToolCalligraphyPen;
 

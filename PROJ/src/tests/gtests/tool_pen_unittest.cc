@@ -4,7 +4,7 @@
 #include <math.h>
 #include <iostream>
 #include "gtest/gtest.h"
-#include "flashphoto/tool_pen.h"
+#include "imagetools/tool_pen.h"
 
 using image_tools::ToolPen;
 

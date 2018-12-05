@@ -10,17 +10,16 @@ namespace image_tools {
   CommandLineProcessor::CommandLineProcessor() {
     ColorData white(1, 1, 1);
     PixelBuffer *tmp = new PixelBuffer(1280, 720, white);
-    //execution_->SetNumberOfCommands(0);
     editor_ = new ImageEditor(tmp);
-    //delete tmp;
   }
 
   CommandLineProcessor::~CommandLineProcessor() {}
 
-  void CommandLineProcessor::ProcessCommandLine(int argc, char** argv) {
+  void CommandLineProcessor::ProcessCommandLine(int argc, std::vector<std::string> argv) {
     int count_commands = 0;
+    // for help message, 2 arg input, or any invalid input
     try {
-      if(strcmp(argv[0], "build/bin/mia") != 0 || argc == 2 || strcmp(argv[1], "-h") == 0) {
+      if(strcmp(argv[0].c_str(), "build/bin/mia") != 0 || argc == 2 || strcmp(argv[1].c_str(), "-h") == 0) {
         throw 1;
         return;
       }
@@ -30,23 +29,22 @@ namespace image_tools {
         this->PrintHelpMessage();
         return;
     }
+    //  load/save to file
     if(argc == 3){
       try {
         execution_ = new CommandExecution(2); 
         std::string load_file = argv[1];
         std::string save_file = argv[2];
+        //  set load command
         LoadCommand* command0 = new LoadCommand(editor_, load_file);
         execution_->SetCommand(count_commands, command0);
         count_commands++;
-//  std::cerr << "count_commands = " << count_commands << std::endl;
+        //  set save command
         SaveCommand* command1 = new SaveCommand(editor_, save_file);
-//  std::cerr << "input file is " << load_file << std::endl;
-//  std::cerr << "save file is " << save_file << std::endl;
         execution_->SetCommand(count_commands, command1);
-        execution_->SetNumberOfCommands(count_commands+1);  
-//  std::cerr << "execution_->GetNumberOfCommands() = " << execution_->GetNumberOfCommands() << std::endl;
+        execution_->SetNumberOfCommands(count_commands+1);
+        //  load file then save to other file  
         execution_->ExecuteAllCommands(execution_->GetNumberOfCommands());
-       // delete this;
         return;
       } catch (...) {
           std::cerr << "error message 2.  Load and/or save did not work, or invalid user input" << std::endl; 
@@ -55,9 +53,11 @@ namespace image_tools {
           return;
       }
     }
+    // any remaining input > 3 args
     try{
       execution_ = new CommandExecution(argc-3);
       std::string load_file = argv[1];
+      //  first command will be load file
       LoadCommand* command0 = new LoadCommand(editor_, load_file);
       execution_->SetCommand(count_commands, command0);
      }
@@ -70,10 +70,14 @@ namespace image_tools {
      try {
       float next_argF = 0.0;
       int next_argI = 0;
+      //  go through command line and check if valid input
+      //  (i.e. filter commands, values, and correct order)
       for(int index = 2; index < (argc - 1); index++) {
-        if(strcmp(argv[index], "-blur") == 0) {
+        //  compare each string with filters
+        if(strcmp(argv[index].c_str(), "-blur") == 0) {
           try {
           next_argF = std::stof(argv[index+1]);
+          //  blur command goes into execution_
           BlurFilterCommand* command1 = new BlurFilterCommand(editor_, next_argF);
           count_commands++;
           execution_->SetCommand(count_commands, command1);
@@ -81,8 +85,8 @@ namespace image_tools {
               throw 4;
               delete this;
               return;
-          }
-        } else if(strcmp(argv[index], "-sharpen") == 0) {
+          }  // repeat for each filter
+        } else if(strcmp(argv[index].c_str(), "-sharpen") == 0) {
             try {
               next_argF = std::stof(argv[index+1]);
               SharpenFilterCommand* command2 = new SharpenFilterCommand(editor_, next_argF);
@@ -92,7 +96,7 @@ namespace image_tools {
                 throw 5;
                 return;
             }
-        } else if(strcmp(argv[index], "-red") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-red") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               ChannelsFilterCommand* command3 = new ChannelsFilterCommand(editor_, next_argF, 1.0, 1.0);
@@ -102,7 +106,7 @@ namespace image_tools {
                 throw 6;
                 return;
             } 
-        } else if(strcmp(argv[index], "-green") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-green") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               ChannelsFilterCommand* command4 = new ChannelsFilterCommand(editor_, 1.0, next_argF, 1.0);
@@ -112,7 +116,7 @@ namespace image_tools {
                 throw 7;
                 return;
             }
-        } else if(strcmp(argv[index], "-blue") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-blue") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               ChannelsFilterCommand* command5 = new ChannelsFilterCommand(editor_, 1.0, 1.0, next_argF);
@@ -122,7 +126,7 @@ namespace image_tools {
                 throw 8;
                 return;
             }
-        } else if(strcmp(argv[index], "-quantize") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-quantize") == 0) {
             try { 
               next_argI = std::stoi(argv[index+1], NULL);
               QuantizeFilterCommand* command6 = new QuantizeFilterCommand(editor_, next_argI);
@@ -132,7 +136,7 @@ namespace image_tools {
                 throw 9;
                 return;
             }
-        } else if(strcmp(argv[index], "-saturate") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-saturate") == 0) {
             try {
 std::cerr << "made it to saturate" << std::endl;
               next_argF = std::stof(argv[index+1], NULL);
@@ -143,7 +147,7 @@ std::cerr << "made it to saturate" << std::endl;
                 throw 10;
                 return;
             }
-        } else if(strcmp(argv[index], "-threshold") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-threshold") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               ThresholdFilterCommand* command8 = new ThresholdFilterCommand(editor_, next_argF);
@@ -153,7 +157,7 @@ std::cerr << "made it to saturate" << std::endl;
                 throw 11;
                 return;
             }
-        } else if(strcmp(argv[index], "-motionblur-n-s") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-motionblur-n-s") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               MotionBlurFilterCommand* command9 = new MotionBlurFilterCommand(editor_, next_argF, ImageEditor::MBLUR_DIR_N_S);
@@ -163,7 +167,7 @@ std::cerr << "made it to saturate" << std::endl;
                 throw 12;
                 return;
             }
-        } else if(strcmp(argv[index], "-motionblur-e-w") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-motionblur-e-w") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               MotionBlurFilterCommand* command10 = new MotionBlurFilterCommand(editor_, next_argF, ImageEditor::MBLUR_DIR_E_W);
@@ -173,7 +177,7 @@ std::cerr << "made it to saturate" << std::endl;
                 throw 13;
                 return;
             }
-        } else if(strcmp(argv[index], "-motionblur-ne-sw") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-motionblur-ne-sw") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               MotionBlurFilterCommand* command11 = new MotionBlurFilterCommand(editor_, next_argF, ImageEditor::MBLUR_DIR_NE_SW);
@@ -183,7 +187,7 @@ std::cerr << "made it to saturate" << std::endl;
                 throw 14;
                 return;
             }
-        } else if(strcmp(argv[index], "-motionblur-nw-se") == 0) {
+        } else if(strcmp(argv[index].c_str(), "-motionblur-nw-se") == 0) {
             try {
               next_argF = std::stof(argv[index+1], NULL);
               MotionBlurFilterCommand* command12 = new MotionBlurFilterCommand(editor_, next_argF, ImageEditor::MBLUR_DIR_NW_SE);
@@ -192,81 +196,58 @@ std::cerr << "made it to saturate" << std::endl;
             } catch (...) {
                 throw 15;
                 return;
-            }
-        } else if(strcmp(argv[index], "-edgedetect") == 0) {
-std::cerr << "argc = " << argc << std::endl;
-std::cerr << "index = " << index << std::endl;
-std::cerr << "argv[index-2] = " << argv[index-2] << std::endl;
-std::cerr << "argv[index-1] = " << argv[index-1] << std::endl;
-std::cerr << "argv[index] = " << argv[index] << std::endl;
-std::cerr << "argv[index+1] = " << argv[index+1] << std::endl;
-std::cerr << "strcmp(argv[index+1], -saturate) = " << strcmp(argv[index+1], "-saturate") << std::endl;
-std::cerr << "strcmp(argv[index-2], -blur) = " << strcmp(argv[index-2], "-blur") << std::endl;
-std::cerr << "bool = " << (strcmp(argv[index-2], "-blur") != 0 
-                 && strcmp(argv[index-2], "-sharpen") != 0
-                 && strcmp(argv[index-2], "-red") != 0 
-                 && strcmp(argv[index-2], "-green") != 0 
-                 && strcmp(argv[index-2], "-blue") != 0 
-                 && strcmp(argv[index-2], "-quantize") != 0 
-                 && strcmp(argv[index-2], "-saturate") != 0
-                 && strcmp(argv[index-2], "-threshold") != 0 
-                 && strcmp(argv[index-2], "-motionblur-n-s") != 0
-                 && strcmp(argv[index-2], "-motionblur-e-w") != 0 
-                 && strcmp(argv[index-2], "-motionblur-ne-sw") != 0
-                 && strcmp(argv[index-2], "-motionblur-nw-se") != 0  
-                 && strcmp(argv[index-1], "-edgedetect") != 0) << std::endl;
+            }  //  edgedetect has no scale values, so must check strings around index
+        } else if(strcmp(argv[index].c_str(), "-edgedetect") == 0) {
             if((index != (argc-2)) && (index != 2)) {
-               if((strcmp(argv[index+1], "-blur") != 0 
-                 && strcmp(argv[index+1], "-sharpen") != 0 
-                 && strcmp(argv[index+1], "-red") != 0 
-                 && strcmp(argv[index+1], "-green") != 0 
-                 && strcmp(argv[index+1], "-blue") != 0 
-                 && strcmp(argv[index+1], "-quantize") != 0 
-                 && strcmp(argv[index+1], "-saturate") != 0 
-                 && strcmp(argv[index+1], "-threshold") != 0 
-                 && strcmp(argv[index+1], "-motionblur-n-s") != 0 
-                 && strcmp(argv[index+1], "-motionblur-e-w") != 0 
-                 && strcmp(argv[index+1], "-motionblur-ne-sw") != 0
-                 && strcmp(argv[index+1], "-motionblur-nw-se") != 0  
-                 && strcmp(argv[index+1], "-edgedetect") != 0)
+               if((strcmp(argv[index+1].c_str(), "-blur") != 0 
+                 && strcmp(argv[index+1].c_str(), "-sharpen") != 0 
+                 && strcmp(argv[index+1].c_str(), "-red") != 0 
+                 && strcmp(argv[index+1].c_str(), "-green") != 0 
+                 && strcmp(argv[index+1].c_str(), "-blue") != 0 
+                 && strcmp(argv[index+1].c_str(), "-quantize") != 0 
+                 && strcmp(argv[index+1].c_str(), "-saturate") != 0 
+                 && strcmp(argv[index+1].c_str(), "-threshold") != 0 
+                 && strcmp(argv[index+1].c_str(), "-motionblur-n-s") != 0 
+                 && strcmp(argv[index+1].c_str(), "-motionblur-e-w") != 0 
+                 && strcmp(argv[index+1].c_str(), "-motionblur-ne-sw") != 0
+                 && strcmp(argv[index+1].c_str(), "-motionblur-nw-se") != 0  
+                 && strcmp(argv[index+1].c_str(), "-edgedetect") != 0)
                  ||
-                 (strcmp(argv[index-2], "-blur") != 0 
-                 && strcmp(argv[index-2], "-sharpen") != 0
-                 && strcmp(argv[index-2], "-red") != 0 
-                 && strcmp(argv[index-2], "-green") != 0 
-                 && strcmp(argv[index-2], "-blue") != 0 
-                 && strcmp(argv[index-2], "-quantize") != 0 
-                 && strcmp(argv[index-2], "-saturate") != 0
-                 && strcmp(argv[index-2], "-threshold") != 0 
-                 && strcmp(argv[index-2], "-motionblur-n-s") != 0
-                 && strcmp(argv[index-2], "-motionblur-e-w") != 0 
-                 && strcmp(argv[index-2], "-motionblur-ne-sw") != 0
-                 && strcmp(argv[index-2], "-motionblur-nw-se") != 0  
-                 && strcmp(argv[index-1], "-edgedetect") != 0)) {
-std::cerr << "INSIDE edgedetect" << std::endl;
+                 (strcmp(argv[index-2].c_str(), "-blur") != 0 
+                 && strcmp(argv[index-2].c_str(), "-sharpen") != 0
+                 && strcmp(argv[index-2].c_str(), "-red") != 0 
+                 && strcmp(argv[index-2].c_str(), "-green") != 0 
+                 && strcmp(argv[index-2].c_str(), "-blue") != 0 
+                 && strcmp(argv[index-2].c_str(), "-quantize") != 0 
+                 && strcmp(argv[index-2].c_str(), "-saturate") != 0
+                 && strcmp(argv[index-2].c_str(), "-threshold") != 0 
+                 && strcmp(argv[index-2].c_str(), "-motionblur-n-s") != 0
+                 && strcmp(argv[index-2].c_str(), "-motionblur-e-w") != 0 
+                 && strcmp(argv[index-2].c_str(), "-motionblur-ne-sw") != 0
+                 && strcmp(argv[index-2].c_str(), "-motionblur-nw-se") != 0  
+                 && strcmp(argv[index-1].c_str(), "-edgedetect") != 0)) {
                  throw 17;
                  return;
                }  
             }
-            else {
-std::cerr << "INSIDE edgedetect2" << std::endl;
+            else {  //  -edgedect matches string, put into execution_
               EdgeFilterCommand* command13 = new EdgeFilterCommand(editor_);
               count_commands++;
               execution_->SetCommand(count_commands, command13);
             } 
-        } else {
-            if(strcmp(argv[index-1], "-blur") != 0 
-               && strcmp(argv[index-1], "-sharpen") != 0 
-               && strcmp(argv[index-1], "-red") != 0 
-               && strcmp(argv[index-1], "-green") != 0 
-               && strcmp(argv[index-1], "-blue") != 0 
-               && strcmp(argv[index-1], "-quantize") != 0 
-               && strcmp(argv[index-1], "-saturate") != 0
-               && strcmp(argv[index-1], "-threshold") != 0 
-               && strcmp(argv[index-1], "-motionblur-n-s") != 0
-               && strcmp(argv[index-1], "-motionblur-e-w") != 0 
-               && strcmp(argv[index-1], "-motionblur-ne-sw") != 0
-               && strcmp(argv[index-1], "-motionblur-nw-se") != 0) {
+        } else {  //  for numbers or invalid chars, check if filter strings next to it
+            if(strcmp(argv[index-1].c_str(), "-blur") != 0 
+               && strcmp(argv[index-1].c_str(), "-sharpen") != 0 
+               && strcmp(argv[index-1].c_str(), "-red") != 0 
+               && strcmp(argv[index-1].c_str(), "-green") != 0 
+               && strcmp(argv[index-1].c_str(), "-blue") != 0 
+               && strcmp(argv[index-1].c_str(), "-quantize") != 0 
+               && strcmp(argv[index-1].c_str(), "-saturate") != 0
+               && strcmp(argv[index-1].c_str(), "-threshold") != 0 
+               && strcmp(argv[index-1].c_str(), "-motionblur-n-s") != 0
+               && strcmp(argv[index-1].c_str(), "-motionblur-e-w") != 0 
+               && strcmp(argv[index-1].c_str(), "-motionblur-ne-sw") != 0
+               && strcmp(argv[index-1].c_str(), "-motionblur-nw-se") != 0) {
                  throw 18;
                  return;
             }
@@ -280,16 +261,14 @@ std::cerr << "INSIDE edgedetect2" << std::endl;
       return;
     }
     try {
-std::cerr << "done with for loop" << std::endl;
       std::string save_file = argv[argc - 1];
       SaveCommand* command14 = new SaveCommand(editor_, save_file);
       count_commands++;
-std::cerr << "count_commands" << count_commands << std::endl;
+      //  last arg for arg>3 is always save to file command
       execution_->SetCommand(count_commands, command14);
       execution_->SetNumberOfCommands(count_commands+1);  
+      //  parsing successful, execute all commands
       execution_->ExecuteAllCommands(execution_->GetNumberOfCommands());
-std::cerr << "sdgshbsbs" << std::endl;
-   //   delete this;
       return;      
     }
     catch (...) {
@@ -300,6 +279,7 @@ std::cerr << "sdgshbsbs" << std::endl;
     }   
   }
 
+  //  default error message
   void CommandLineProcessor::PrintHelpMessage() {
     std::cerr << "\nusage: mia infile.png [image processing commands ...] outfile.png" << std::endl << std::endl;
     std::cerr << "infile.png:\t\tinput image file in png format" << std::endl;
@@ -320,6 +300,7 @@ std::cerr << "sdgshbsbs" << std::endl;
     std::cerr << "-motionblur-nw-se r:\t\t nw-se motion blur with kernel radius r" << std::endl << std::endl;
   }
 
+  //  more specific error message for certain errors
   void CommandLineProcessor::ErrorMessage(int error) {
     switch (error) {
         case 4:

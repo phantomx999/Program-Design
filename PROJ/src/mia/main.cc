@@ -20,8 +20,11 @@ Author(s) of Significant Updates/Modifications to the File:
 int main(int argc, char* argv[]) {
   if (argc > 1) {
     // command line mode
+    //  store char** in array as strings
+    std::vector<std::string> arg_array(argv, argv+argc);
     image_tools::CommandLineProcessor cmd_processor;
-    cmd_processor.ProcessCommandLine(argc, argv);
+    //  parse command line, execute, or print error message
+    cmd_processor.ProcessCommandLine(argc, arg_array);
   } else {
     // gui mode
     image_tools::MiaApp gui(1280, 720, image_tools::ColorData(1, 1, 1));

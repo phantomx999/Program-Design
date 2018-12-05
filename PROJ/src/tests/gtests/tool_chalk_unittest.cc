@@ -1,7 +1,7 @@
 #include <math.h>
 #include <iostream>
 #include "gtest/gtest.h"
-#include "flashphoto/tool_chalk.h"
+#include "imagetools/tool_chalk.h"
 
 using image_tools::ToolChalk;
 
