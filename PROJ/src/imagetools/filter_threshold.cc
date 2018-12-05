@@ -46,10 +46,12 @@ namespace image_tools {
     float temp = threshold_;
     if (average_intensity > temp) {    // average RGB val > user input val
       ColorData white(1.0, 1.0, 1.0);  // set to white
+      white.Clamp();
       buffer->set_pixel(x, y, white);
       return white;
     } else {                             // average RGV < user input
         ColorData black(0.0, 0.0, 0.0);  // set to black
+        black.Clamp();
         buffer->set_pixel(x, y, black);
         return black;
     }

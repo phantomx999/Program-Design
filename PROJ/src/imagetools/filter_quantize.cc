@@ -45,6 +45,7 @@ namespace image_tools {
     float green = (round(data.green() * num_steps)/num_steps);  //  green ...
     float blue = (round(data.blue() * num_steps)/num_steps);    //  blue ...
     ColorData final_value(red, green, blue);  // create final binned color
+    final_value.Clamp();
     buffer->set_pixel(x, y, final_value);     // set pixel color to binned color
     return final_value;
   }

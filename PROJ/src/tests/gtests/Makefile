@@ -27,6 +27,7 @@ LIBDIR = $(BUILDDIR)/lib
 EXTERNAL_DIR = $(PROJ_DIR)/src/external
 MINGFX_DIR = $(EXTERNAL_DIR)/MinGfx/build/install
 FLASHPHOTO_DIR = $(PROJ_DIR)/src/flashphoto
+MIA_DIR = $(PROJ_DIR)/src/mia
 GTEST_DIR = $(BUILDDIR)
 GTEST_HEADER = $(BUILDDIR)/include/gtest/gtest.h
 
@@ -36,8 +37,9 @@ EXEFILE = $(BINDIR)/$(PROJECT_NAME)
 # The list of files to compile for this project.  Defaults to all
 # of the .cpp and .cc files in the source directory.  (We use both .cpp
 # and .cc in order to support two different popular naming conventions.)
-SRCFILES = $(wildcard $(SRCDIR)/*.cc) $(wildcard $(FLASHPHOTO_DIR)/*.cc)
+SRCFILES = $(wildcard $(SRCDIR)/*.cc) $(wildcard $(FLASHPHOTO_DIR)/*.cc) $(wildcard $(MIA_DIR)/*.cc)
 SRCFILES := $(filter-out $(FLASHPHOTO_DIR)/main.cc, $(SRCFILES))
+SRCFILES := $(filter-out $(MIA_DIR)/main.cc, $(SRCFILES))
 
 # For each of the source files found above, replace .cpp (or .cc) with
 # .o in order to generate the list of .o files make should create.
@@ -45,13 +47,13 @@ OBJFILES = $(notdir $(patsubst %.cc,%.o,$(SRCFILES)))
 
 
 # Add -Idirname to add directories to the compiler search path for finding .h files
-INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(PROJ_DIR)/src -isystem$(MINGFX_DIR)/include -isystem$(MINGFX_DIR)/include/nanovg -isystem$(MINGFX_DIR)/include/MinGfx-1.0 -isystem $(GTEST_DIR)/include
+INCLUDEDIRS = -I.. -I$(SRCDIR) -I$(PROJ_DIR)/src -isystem$(MINGFX_DIR)/include -isystem$(MINGFX_DIR)/include/nanovg -isystem$(MINGFX_DIR)/include/MinGfx-1.0 -isystem $(GTEST_DIR)/include -I$(PROJ_DIR)/src/imagetools -I$(PROJ_DIR)/src/flashphoto -I$(PROJ_DIR)/src/mia -I/classes/csel-f18c3081/include
 
 # Add -Ldirname to add directories to the linker search path for finding libraries
-LIBDIRS = -L$(LIBDIR) -L$(MINGFX_DIR)/lib -L$(MINGFX_DIR)/lib/MinGfx-1.0 
+LIBDIRS = -L$(LIBDIR) -L$(MINGFX_DIR)/lib -L$(MINGFX_DIR)/lib/MinGfx-1.0 -L$(BINDIR) -L$(LIBDIR) -L$(BUILDDIR)/bin -L/classes/csel-f18c3081/lib
 
 # Add -llibname to link with external libraries
-LIBS =  -lMinGfxd -lnanogui -lgtest -lgtest_main -Wl,-rpath,$(MINGFX_DIR)/lib 
+LIBS =  -lMinGfxd -lnanogui -lgtest -lgtest_main -Wl,-rpath,$(MINGFX_DIR)/lib -limagetools -limageio
 #-lGL -lGLU
 
 UNAME = $(shell uname)
@@ -162,6 +164,7 @@ make-depend-cxx=$(CXX) -MM -MF $3 -MP -MT $2 $(CXXFLAGS) $1
 $(EXEFILE): $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR) 
 	@echo "==== Linking $@. ===="
 	$(CXX) $(OMP)  $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
+        $(addprefix $(BINDIR)/,gtests)
 
 check-style:
 	@echo "==== Checking style is correct ===="

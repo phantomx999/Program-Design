@@ -43,6 +43,7 @@ namespace image_tools {
     ColorData gray_scale(sat, sat, sat);   // create grayscale obj
     // linearly interpolate from grayscale vs. color
     ColorData final_value = ImageToolsMath::Lerp(gray_scale, data, saturate_);
+    final_value.Clamp();
     buffer->set_pixel(x, y, final_value);  // change pixel color
     return final_value;
   }

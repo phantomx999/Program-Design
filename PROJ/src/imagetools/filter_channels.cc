@@ -61,6 +61,7 @@ namespace image_tools {
     // multiply color by RGB scale factors
     ColorData final_value(data.red()*red_,
                           data.green()*green_, data.blue()*blue_);
+    final_value.Clamp();
     buffer->set_pixel(x, y, final_value);  // change pix color
     return final_value;
   }
