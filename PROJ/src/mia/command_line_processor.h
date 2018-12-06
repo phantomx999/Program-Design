@@ -23,6 +23,7 @@ class CommandLineProcessor {
     void PrintHelpMessage();
     //  used only for non gtest purposes, otherwise default to PrintHelpMessage()
     void ErrorMessage(int error);
+    inline CommandExecution* GetExecutor() {return execution_;};
   private:
     //  passed for each specific image editor command
     ImageEditor* editor_;

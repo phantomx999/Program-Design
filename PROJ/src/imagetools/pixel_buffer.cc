@@ -173,7 +173,7 @@ void PixelBuffer::LoadFromFile(const std::string &filename) {
     }
   }
   *this = tmp;
-  delete image;
+   delete image;
 }
 
 bool operator==(const PixelBuffer &a, const PixelBuffer &b) {

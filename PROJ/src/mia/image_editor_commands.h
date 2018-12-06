@@ -46,7 +46,7 @@ class ImageEditorCommand {
  public:
   explicit ImageEditorCommand(ImageEditor *image_editor);
   virtual ~ImageEditorCommand();
-
+  virtual std::string GetName() = 0;
   virtual void Execute() = 0;
 
  protected:
@@ -60,7 +60,8 @@ class BlurFilterCommand : public ImageEditorCommand {
   virtual ~BlurFilterCommand();
 
   void Execute() override;
-
+  inline float GetValue() {return radius_;}
+  inline std::string GetName() override {return "-blur";}
  private:
   float radius_;
 };
@@ -72,6 +73,7 @@ class EdgeFilterCommand : public ImageEditorCommand {
   virtual ~EdgeFilterCommand();
 
   void Execute() override;
+  inline std::string GetName() override { return "-edgedetect";}
 };
 
 /** Specific command for executing a sharpen filter. */
@@ -81,7 +83,8 @@ class SharpenFilterCommand : public ImageEditorCommand {
   virtual ~SharpenFilterCommand();
 
   void Execute() override;
-
+  inline float GetValue() { return radius_;}
+  inline std::string GetName() override { return "-sharpen";}
  private:
   float radius_;
 };
@@ -94,7 +97,13 @@ class ChannelsFilterCommand : public ImageEditorCommand {
   virtual ~ChannelsFilterCommand();
 
   void Execute() override;
-
+  inline float red() { return r_; }
+  inline float green() { return g_; }
+  inline float blue() { return b_; }
+  inline std::string GetRed() { return "-red";}
+  inline std::string GetGreen() { return "-green";}
+  inline std::string GetBlue() { return "-blue";}
+  inline std::string GetName() override { return "-channel";}
  private:
   float r_, g_, b_;
 };
@@ -106,7 +115,8 @@ class QuantizeFilterCommand : public ImageEditorCommand {
   virtual ~QuantizeFilterCommand();
 
   void Execute() override;
-
+  inline int GetValue() {return bins_;}
+  inline std::string GetName() override { return "-quantize";}
  private:
   int bins_;
 };
@@ -118,7 +128,8 @@ class SaturateFilterCommand : public ImageEditorCommand {
   virtual ~SaturateFilterCommand();
 
   void Execute() override;
-
+  inline float GetValue() {return scale_;}
+  inline std::string GetName() override {return "-saturate";}
  private:
   float scale_;
 };
@@ -130,7 +141,8 @@ class ThresholdFilterCommand : public ImageEditorCommand {
   virtual ~ThresholdFilterCommand();
 
   void Execute() override;
-
+  inline float GetValue() {return cutoff_;}
+  inline std::string GetName() override {return "-threshold";}
  private:
   float cutoff_;
 };
@@ -141,9 +153,10 @@ class MotionBlurFilterCommand : public ImageEditorCommand {
   MotionBlurFilterCommand(ImageEditor *image_editor, float radius,
                           ImageEditor::MBlurDir dir);
   virtual ~MotionBlurFilterCommand();
+  inline std::string GetName() override {return "-motionblur";}
 
   void Execute() override;
-
+  inline float GetValue() {return radius_;}
  private:
   float radius_;
   ImageEditor::MBlurDir dir_;
@@ -214,7 +227,8 @@ class LoadCommand : public ImageEditorCommand {
   virtual ~LoadCommand();
 
   void Execute() override;
-
+  inline std::string GetName() override {return "load";}
+  inline std::string GetFile() {return filename_;}
  private:
   std::string filename_;
 };
@@ -226,7 +240,8 @@ class SaveCommand : public ImageEditorCommand {
   virtual ~SaveCommand();
 
   void Execute() override;
-
+  inline std::string GetName() override {return "load";}
+  inline std::string GetFile() {return filename_;}
  private:
   std::string filename_;
 };

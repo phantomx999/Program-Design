@@ -26,6 +26,7 @@ class CommandExecution {
     //  executes all image editor command line commands 
     void ExecuteAllCommands(int number_commands);
     int GetNumberOfCommands();
+    inline ImageEditorCommand** GetMCommands() const {return m_commands_;} 
   private:
     //  stores commands from user input
     ImageEditorCommand** m_commands_;
