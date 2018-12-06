@@ -38,7 +38,7 @@ class FilterQuantizeTest : public ::testing::Test {
     ImageEditor* edit_;
     ImageEditor* expect_;
 };
-/*
+
 TEST_F(FilterQuantizeTest, FilterQuantize) {
   edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
   expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_quantize6.png");
@@ -46,4 +46,4 @@ TEST_F(FilterQuantizeTest, FilterQuantize) {
   edit_->ApplyQuantizeFilter(6);
   edit_->pixel_buffer()->Resize(877, 910);
   EXPECT_EQ(*(expect_->pixel_buffer()), *(edit_->pixel_buffer()));
-} */
+} 

@@ -35,8 +35,8 @@ class FilterChannelsTest : public ::testing::Test {
 };
 
 TEST_F(FilterChannelsTest, FilterChannels) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_r576g462b205.png");
+  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu3.png");
+  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu3.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplyChannelsFilter(5.76, 4.62, 2.05);
   edit_->pixel_buffer()->Resize(877, 910);
