@@ -1,8 +1,8 @@
 ### Assessment for Project Iteration 01 - Combined (Graded By: 3081 TAs)
 
-#### Total score: _71_ / _100_
+#### Total score: _86_ / _100_
 
-Run on November 26, 05:57:52 AM.
+Run on December 05, 22:58:21 PM.
 
 
 ### Combined Scores
@@ -25,7 +25,7 @@ Run on November 26, 05:57:52 AM.
 
 #### Design
 
-+  _0_ / _15_ : Pass: [UML](PROJ_01_UML_Assessment.md) - (Graded By: Kiran Ravindra)
++  _15_ / _15_ : Pass: [UML](PROJ_01_UML_Assessment.md) - (Graded By: Kiran Ravindra)
 
 
 
@@ -37,5 +37,5 @@ Run on November 26, 05:57:52 AM.
 
 
 
-#### Total score: _71_ / _100_
+#### Total score: _86_ / _100_
 
