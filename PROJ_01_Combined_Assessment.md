@@ -1,8 +1,8 @@
 ### Assessment for Project Iteration 01 - Combined (Graded By: 3081 TAs)
 
-#### Total score: _71_ / _100_
+#### Total score: _87_ / _100_
 
-Run on November 26, 05:57:52 AM.
+Run on December 14, 08:07:13 AM.
 
 
 ### Combined Scores
@@ -18,14 +18,14 @@ Run on November 26, 05:57:52 AM.
 
 
 
-+  _11_ / _15_ : Pass: [Convolution Filters](PROJ_01_ConvFilters_Assessment.md) - (Graded By: Nikki Kyllonen)
++  _12_ / _15_ : Pass: [Convolution Filters](PROJ_01_ConvFilters_Assessment.md) - (Graded By: Nikki Kyllonen)
 
 
 
 
 #### Design
 
-+  _0_ / _15_ : Pass: [UML](PROJ_01_UML_Assessment.md) - (Graded By: Kiran Ravindra)
++  _15_ / _15_ : Pass: [UML](PROJ_01_UML_Assessment.md) - (Graded By: Kiran Ravindra)
 
 
 
@@ -37,5 +37,5 @@ Run on November 26, 05:57:52 AM.
 
 
 
-#### Total score: _71_ / _100_
+#### Total score: _87_ / _100_
 
