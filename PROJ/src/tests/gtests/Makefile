@@ -170,7 +170,7 @@ make-depend-cxx=$(CXX) -MM -MF $3 -MP -MT $2 $(CXXFLAGS) $1
 $(EXEFILE): $(addprefix $(OBJDIR)/, $(OBJFILES)) | $(BINDIR) 
 	@echo "==== Linking $@. ===="
 	$(CXX) $(OMP)  $(LDFLAGS) $(addprefix $(OBJDIR)/, $(OBJFILES)) -o $@ $(LDLIBS)
-	$(addprefix $(BINDIR)/,gtests)
+	#$(addprefix $(BINDIR)/,gtests)
 
 check-style:
 	@echo "==== Checking style is correct ===="

@@ -35,8 +35,8 @@ class FilterSharpenTest : public ::testing::Test {
 };
 
 TEST_F(FilterSharpenTest, FilterSharpen) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_sharpen5.png");
+  edit_->LoadFromFile("./resources/pikachu2.png");
+  expect_->LoadFromFile("./resources/pikachu2_sharpen5.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplySharpenFilter(5);
   edit_->pixel_buffer()->Resize(877, 910);

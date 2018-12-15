@@ -35,8 +35,8 @@ class FilterEdgeTest : public ::testing::Test {
 };
 
 TEST_F(FilterEdgeTest, FilterEdge) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_edgedetect.png");
+  edit_->LoadFromFile("./resources/pikachu2.png");
+  expect_->LoadFromFile("./resources/pikachu2_edgedetect.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplyEdgeDetectFilter();
   edit_->pixel_buffer()->Resize(877, 910);

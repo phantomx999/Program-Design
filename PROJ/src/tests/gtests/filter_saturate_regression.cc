@@ -35,8 +35,8 @@ class FilterSaturateTest : public ::testing::Test {
 };
 
 TEST_F(FilterSaturateTest, FilterSaturate) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_saturate136.png");
+  edit_->LoadFromFile("./resources/pikachu2.png");
+  expect_->LoadFromFile("./resources/pikachu2_saturate136.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplySaturateFilter(1.36);
   edit_->pixel_buffer()->Resize(877, 910);

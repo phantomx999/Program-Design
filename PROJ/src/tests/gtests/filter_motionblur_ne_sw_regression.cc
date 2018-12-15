@@ -35,8 +35,8 @@ class FilterMotionBlurNESWTest : public ::testing::Test {
 };
 
 TEST_F(FilterMotionBlurNESWTest, FilterMotionBlurNESW) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_motionblur3NESW.png");
+  edit_->LoadFromFile("./resources/pikachu2.png");
+  expect_->LoadFromFile("./resources/pikachu2_motionblur3NESW.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplyMotionBlurFilter(3, ImageEditor::MBLUR_DIR_NE_SW);
   edit_->pixel_buffer()->Resize(877, 910);

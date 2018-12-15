@@ -35,8 +35,8 @@ class FilterThresholdTest : public ::testing::Test {
 };
 
 TEST_F(FilterThresholdTest, FilterThreshold) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_threshold05.png");
+  edit_->LoadFromFile("./resources/pikachu2.png");
+  expect_->LoadFromFile("./resources/pikachu2_threshold05.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplyThresholdFilter(0.5);
   edit_->pixel_buffer()->Resize(877, 910);

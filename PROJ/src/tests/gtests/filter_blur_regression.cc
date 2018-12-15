@@ -35,8 +35,8 @@ class FilterBlurTest : public ::testing::Test {
 };
 
 TEST_F(FilterBlurTest, FilterBlur) {
-  edit_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2.png");
-  expect_->LoadFromFile("~/3081_F18/repo-stein936/PROJ/resources/pikachu2_blur3.png");
+  edit_->LoadFromFile("./resources/pikachu2.png");
+  expect_->LoadFromFile("./resources/pikachu2_blur3.png");
   expect_->pixel_buffer()->Resize(877, 910);
   edit_->ApplyBlurFilter(3);
   edit_->pixel_buffer()->Resize(877, 910);
