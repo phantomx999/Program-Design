@@ -2,7 +2,7 @@
 
 #### Total score: _69.05_ / _85_
 
-Run on December 15, 18:47:43 PM.
+Run on December 16, 01:00:06 AM.
 
 
 #### System Files and PROJ Directory Structure
@@ -175,41 +175,20 @@ make: *** [check-style] Error 2
 
 
 +  _0_ / _2_ : Fail: Check that a GoogleTest test passes.
-    fails the test: Iteration2Test.MiaCommandLineCorrect.
-<pre>
+    fails to run the test executable: Iteration2Test.MiaCommandLineCorrect.
+<pre>Running main() from gtest_main.cc
+Note: Google Test filter = Iteration2Test.MiaCommandLineCorrect
+[==========] Running 1 test from 1 test case.
+[----------] Global test environment set-up.
+[----------] 1 test from Iteration2Test
 [ RUN      ] Iteration2Test.MiaCommandLineCorrect
 iter2_test.cc:53: Failure
 Value of: mingfx::Platform::FileExists("output.png")
   Actual: false
 Expected: true
 Output File not saved.
-iter2_test.cc:54: Failure
-      Expected: PixelBuffer(input_file_)
-      Which is: 56-byte object <D0-6C 6E-00 00-00 00-00 80-00 00-00 80-00 00-00 20-F9 9B-01 00-00 00-00 20-F9 9F-01 00-00 00-00 20-F9 9F-01 00-00 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
-To be equal to: PixelBuffer("output.png")
-      Which is: 56-byte object <D0-6C 6E-00 00-00 00-00 FC-7F 00-00 00-5A BE-81 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
-Command: ./build/bin/mia src/tests/inst_tests/input.png output.png - Incorrect output.
-iter2_test.cc:58: Failure
-Value of: mingfx::Platform::FileExists("edgedetect.png")
-  Actual: false
-Expected: true
-Output File not saved.
-iter2_test.cc:63: Failure
-Value of: mingfx::Platform::FileExists("blur.png")
-  Actual: false
-Expected: true
-Output File not saved.
-iter2_test.cc:68: Failure
-Value of: mingfx::Platform::FileExists("output.png")
-  Actual: false
-Expected: true
-Output File not saved.
-iter2_test.cc:69: Failure
-Expected: (PixelBuffer("edgedetect.png")) != (PixelBuffer("output.png")), actual: 56-byte object <D0-6C 6E-00 00-00 00-00 FB-7F 00-00 7F-B6 18-8F 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F> vs 56-byte object <D0-6C 6E-00 00-00 00-00 FB-7F 00-00 7F-B6 18-8F 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
-Command: mia input.png -edgedetect -blur 5 output.png - Incorrect output.
-iter2_test.cc:70: Failure
-Expected: (PixelBuffer("blur.png")) != (PixelBuffer("output.png")), actual: 56-byte object <D0-6C 6E-00 00-00 00-00 FB-7F 00-00 7F-B6 18-8F 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F> vs 56-byte object <D0-6C 6E-00 00-00 00-00 FB-7F 00-00 7F-B6 18-8F 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
-Command: mia input.png -edgedetect -blur 5 output.png - Incorrect output.</pre>
+</pre>
+return code: -11
 
 
 
@@ -231,20 +210,25 @@ Command: mia input.png -edgedetect -blur 5 output.png - Incorrect output.</pre>
 
 #### Results
 
++ Pass: Check that a GoogleTest test passes.
+    passes the test: FilterQuantizeTest.FilterQuantize.
+
+
+
++ Pass: Check that a GoogleTest test passes.
+    passes the test: FlashPhotoAppTest.CanApplyFilters.
+
+
+
 + Fail: Check that a GoogleTest test passes.
     fails the test: FilterChannelsTest.FilterChannels.
 <pre>
 [ RUN      ] FilterChannelsTest.FilterChannels
 filter_channels_regression.cc:43: Failure
       Expected: *(expect_->pixel_buffer())
-      Which is: 56-byte object <48-DE 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-50 D4-22 08-7F 00-00 70-27 97-23 08-7F 00-00 10-50 D4-23 08-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
+      Which is: 56-byte object <E8-DD 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-D0 4A-43 79-7F 00-00 70-A7 0D-44 79-7F 00-00 10-D0 4A-44 79-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
 To be equal to: *(edit_->pixel_buffer())
-      Which is: 56-byte object <48-DE 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-60 D4-23 08-7F 00-00 70-37 97-24 08-7F 00-00 10-60 D4-24 08-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F></pre>
-
-
-
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: FlashPhotoAppTest.CanApplyFilters.
+      Which is: 56-byte object <E8-DD 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-E0 4A-44 79-7F 00-00 70-B7 0D-45 79-7F 00-00 10-E0 4A-45 79-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F></pre>
 
 
 
@@ -274,9 +258,9 @@ To be equal to: *(edit_->pixel_buffer())
 [ RUN      ] FilterBlurTest.FilterBlur
 filter_blur_regression.cc:43: Failure
       Expected: *(expect_->pixel_buffer())
-      Which is: 56-byte object <48-DE 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-E0 CE-92 C8-7F 00-00 70-B7 91-93 C8-7F 00-00 10-E0 CE-93 C8-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
+      Which is: 56-byte object <E8-DD 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-B0 11-27 F0-7F 00-00 70-87 D4-27 F0-7F 00-00 10-B0 11-28 F0-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
 To be equal to: *(edit_->pixel_buffer())
-      Which is: 56-byte object <48-DE 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-F0 CE-93 C8-7F 00-00 70-C7 91-94 C8-7F 00-00 10-F0 CE-94 C8-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F></pre>
+      Which is: 56-byte object <E8-DD 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-C0 11-28 F0-7F 00-00 70-97 D4-28 F0-7F 00-00 10-C0 11-29 F0-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F></pre>
 
 
 
@@ -288,6 +272,10 @@ Note: Google Test filter = CommandLineTest.UserLoadSaveInput
 [----------] Global test environment set-up.
 [----------] 1 test from CommandLineTest
 [ RUN      ] CommandLineTest.UserLoadSaveInput
+command_line_processor_unittest.cc:42: Failure
+      Expected: 2
+To be equal to: line_->GetExecutor()->GetNumberOfCommands()
+      Which is: 28683264
 </pre>
 return code: -11
 
@@ -306,6 +294,10 @@ Note: Google Test filter = CommandLineTest.UserInputOneFilter
 [----------] Global test environment set-up.
 [----------] 1 test from CommandLineTest
 [ RUN      ] CommandLineTest.UserInputOneFilter
+command_line_processor_unittest.cc:66: Failure
+      Expected: 3
+To be equal to: line_->GetExecutor()->GetNumberOfCommands()
+      Which is: 15137920
 </pre>
 return code: -11
 
@@ -322,7 +314,7 @@ Note: Google Test filter = CommandLineTest.CorrectUserInputCommands
 command_line_processor_unittest.cc:76: Failure
       Expected: 4
 To be equal to: line_->GetExecutor()->GetNumberOfCommands()
-      Which is: 24874608
+      Which is: 28462912
 </pre>
 return code: -11
 
@@ -336,10 +328,6 @@ Note: Google Test filter = CommandLineTest.CorrectUserLotsOfCommands
 [----------] Global test environment set-up.
 [----------] 1 test from CommandLineTest
 [ RUN      ] CommandLineTest.CorrectUserLotsOfCommands
-command_line_processor_unittest.cc:88: Failure
-      Expected: 6
-To be equal to: line_->GetExecutor()->GetNumberOfCommands()
-      Which is: 18079504
 </pre>
 return code: -11
 
@@ -371,14 +359,9 @@ return code: -11
 [ RUN      ] FilterSaturateTest.FilterSaturate
 filter_saturate_regression.cc:43: Failure
       Expected: *(expect_->pixel_buffer())
-      Which is: 56-byte object <48-DE 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-60 C5-67 DC-7F 00-00 70-37 88-68 DC-7F 00-00 10-60 C5-68 DC-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
+      Which is: 56-byte object <E8-DD 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-50 6D-03 6C-7F 00-00 70-27 30-04 6C-7F 00-00 10-50 6D-04 6C-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F>
 To be equal to: *(edit_->pixel_buffer())
-      Which is: 56-byte object <48-DE 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-70 C5-68 DC-7F 00-00 70-47 88-69 DC-7F 00-00 10-70 C5-69 DC-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F></pre>
-
-
-
-+ Pass: Check that a GoogleTest test passes.
-    passes the test: FilterQuantizeTest.FilterQuantize.
+      Which is: 56-byte object <E8-DD 70-00 00-00 00-00 6D-03 00-00 8E-03 00-00 10-60 6D-04 6C-7F 00-00 70-37 30-05 6C-7F 00-00 10-60 6D-05 6C-7F 00-00 00-00 80-3F 00-00 80-3F 00-00 80-3F 00-00 80-3F></pre>
 
 
 
