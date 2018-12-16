@@ -11,21 +11,27 @@
 
 namespace image_tools {
 
-// stores all commands from user input and executes
-// all commands once command line has been fully parsed
-// and there is no bad user input
+/** @brief stores all commands from user input and executes
+ all commands once command line has been fully parsed
+ and there is no bad user input */
 class CommandExecution {
   public:
     CommandExecution(int commands);
     CommandExecution();
     ~CommandExecution();
     void SetNumberOfCommands(int num_commands);
-    //  put commands in execution_ array to execute once parsed
+
+    /** @brief  put commands in execution_ array to execute once parsed */
     void SetCommand(int index, ImageEditorCommand* command);
+
     void ExecuteSingleCommand(int index);
-    //  executes all image editor command line commands 
+
+    /** @brief  executes all image editor command line commands inputted by user */ 
     void ExecuteAllCommands(int number_commands);
+
+    /** @brief finds the total amount of commands to run from command line */
     int GetNumberOfCommands();
+
     inline ImageEditorCommand** GetMCommands() const {return m_commands_;} 
   private:
     //  stores commands from user input

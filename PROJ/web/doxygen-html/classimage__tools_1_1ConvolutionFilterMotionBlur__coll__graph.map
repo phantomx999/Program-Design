@@ -1,0 +1,6 @@
+<map id="image_tools::ConvolutionFilterMotionBlur" name="image_tools::ConvolutionFilterMotionBlur">
+<area shape="rect" id="node2" href="$classimage__tools_1_1ConvolutionFilter.html" title="image_tools::Convolution\lFilter" alt="" coords="88,184,257,225"/>
+<area shape="rect" id="node3" href="$classimage__tools_1_1Filter.html" title="Base filter class, specific filters inherit from this class. " alt="" coords="23,95,152,121"/>
+<area shape="rect" id="node4" href="$classimage__tools_1_1PixelBuffer.html" title="Stores an array of ColorData, such as an image that can be drawn to the screen. " alt="" coords="5,5,169,32"/>
+<area shape="rect" id="node5" href="$classimage__tools_1_1FloatMatrix.html" title="image_tools::FloatMatrix" alt="" coords="177,95,342,121"/>
+</map>

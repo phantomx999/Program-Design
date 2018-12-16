@@ -1,0 +1,7 @@
+<map id="image_tools::ConvolutionFilter" name="image_tools::ConvolutionFilter">
+<area shape="rect" id="node3" href="$classimage__tools_1_1ConvolutionFilterBlur.html" title="Filter makes the entire image blurry. " alt="" coords="400,5,569,47"/>
+<area shape="rect" id="node4" href="$classimage__tools_1_1ConvolutionFilterEdge.html" title="filter edits image to only show edge shapes, border pixels on shapes are bright while non border pixe..." alt="" coords="400,71,569,112"/>
+<area shape="rect" id="node5" href="$classimage__tools_1_1ConvolutionFilterMotionBlur.html" title="Blurs entire image in specified movement direction, where directions choices are North&#45;South, East&#45;West, NorthEast&#45;SouthWest, and NorthWest&#45;SouthEast. " alt="" coords="400,136,569,177"/>
+<area shape="rect" id="node6" href="$classimage__tools_1_1ConvolutionFilterSharpen.html" title="Filter accentuates edges of shapes in image using kernel. " alt="" coords="400,201,569,243"/>
+<area shape="rect" id="node2" href="$classimage__tools_1_1Filter.html" title="Base filter class, specific filters inherit from this class. " alt="" coords="5,111,135,138"/>
+</map>

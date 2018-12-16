@@ -21,6 +21,7 @@
 
 namespace image_tools {
 
+/** @brief Specific filters adjusts Red, Green, Blue color hues for each pixel */
 class FilterChannels : public Filter {
  public:
     FilterChannels();
@@ -32,6 +33,8 @@ class FilterChannels : public Filter {
     float getRed();
     float getBlue();
     float getGreen();
+    
+    /** @brief Apply Red, Green, Blue colors to each pixel in current pixel buffer */
     ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                      int x, int y) override;
  private:

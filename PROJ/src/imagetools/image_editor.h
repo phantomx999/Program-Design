@@ -64,6 +64,7 @@ class ImageEditor {
   /** Deletes the current pixel buffer if not null. */
   virtual ~ImageEditor();
 
+  /** User specified direction for motion blur filter */
   enum MBlurDir {
     MBLUR_DIR_N_S,
     MBLUR_DIR_E_W,

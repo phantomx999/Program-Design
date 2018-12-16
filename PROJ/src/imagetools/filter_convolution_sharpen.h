@@ -21,6 +21,7 @@
 
 namespace image_tools {
 
+/** @brief Filter accentuates edges of shapes in image using kernel */
 class ConvolutionFilterSharpen : public ConvolutionFilter {
  public:
     ConvolutionFilterSharpen();
@@ -28,7 +29,11 @@ class ConvolutionFilterSharpen : public ConvolutionFilter {
     virtual ~ConvolutionFilterSharpen();
     float getRadius();
     void setRadius(float rad);
+
+    /** @brief kernel matrix has all -1 vals
+    except for center val which is n*n (n is matrix length) */
     void CreateKernel() override;
+
  protected:
     // rad size matrix
     float radius_;

@@ -36,6 +36,8 @@ class ToolBlur : public Tool {
 
   FloatMatrix* CreateMask(float radius) override;
 
+  /** @brief uses kernel and convolution blur filter to blur selected pixels
+     in image */
   ColorData LookupPaintColor(int x, int y) override;
 
  private:

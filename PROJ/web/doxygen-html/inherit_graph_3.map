@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classimage__tools_1_1Filter.html" title="Base filter class, specific filters inherit from this class. " alt="" coords="5,221,135,247"/>
+<area shape="rect" id="node2" href="$classimage__tools_1_1ConvolutionFilter.html" title="image_tools::Convolution\lFilter" alt="" coords="191,104,361,145"/>
+<area shape="rect" id="node7" href="$classimage__tools_1_1FilterChannels.html" title="Specific filters adjusts Red, Green, Blue color hues for each pixel. " alt="" coords="184,170,368,197"/>
+<area shape="rect" id="node8" href="$classimage__tools_1_1FilterQuantize.html" title="Puts Red, Green, Blue color channels into bins of intensity values, reduces overall number of colors..." alt="" coords="185,221,367,247"/>
+<area shape="rect" id="node9" href="$classimage__tools_1_1FilterSaturate.html" title="adjusts colorfulness of image " alt="" coords="187,271,365,298"/>
+<area shape="rect" id="node10" href="$classimage__tools_1_1FilterThreshold.html" title="Rounds Red, Green, Blue color channels to 1.0 or 0.0 based on pixel&#39;s value relative to user GLUI inp..." alt="" coords="183,322,369,349"/>
+<area shape="rect" id="node3" href="$classimage__tools_1_1ConvolutionFilterBlur.html" title="Filter makes the entire image blurry. " alt="" coords="417,5,587,47"/>
+<area shape="rect" id="node4" href="$classimage__tools_1_1ConvolutionFilterEdge.html" title="filter edits image to only show edge shapes, border pixels on shapes are bright while non border pixe..." alt="" coords="417,71,587,112"/>
+<area shape="rect" id="node5" href="$classimage__tools_1_1ConvolutionFilterMotionBlur.html" title="Blurs entire image in specified movement direction, where directions choices are North&#45;South, East&#45;West, NorthEast&#45;SouthWest, and NorthWest&#45;SouthEast. " alt="" coords="417,136,587,177"/>
+<area shape="rect" id="node6" href="$classimage__tools_1_1ConvolutionFilterSharpen.html" title="Filter accentuates edges of shapes in image using kernel. " alt="" coords="417,201,587,243"/>
+</map>

@@ -19,23 +19,25 @@
 
 namespace image_tools {
 
+/** @brief Base filter class, specific filters inherit from this class */
 class Filter {   //  filter base class
  public:
     Filter();
     virtual ~Filter();
 
-    //  take current buffer and apply to buffer
+    /**  @brief apply selected filter to current buffer */ 
     void ApplyToBuffer(PixelBuffer* buffer);
 
     //  virtual void SetupFilter() =0;
 
-    //  abstract method, calculates filter on pixels
+    /** use @brief selected filter on current pixel buffer pixels */
     virtual ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                             int x, int y) = 0;
 
+    /** @brief Delete and remove memory for filters */
     void CleanupFilter();
 
-    // checks if current buffer can be copied
+    /** @brief checks if current buffer can be copied */
     virtual bool can_copy_in_place();
  protected:
     // stores current buffer for convolution filters

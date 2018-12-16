@@ -21,6 +21,7 @@
 
 namespace image_tools {
 
+/** @brief Filter makes the entire image blurry */
 class ConvolutionFilterBlur : public ConvolutionFilter {
  public:
     ConvolutionFilterBlur();
@@ -28,7 +29,13 @@ class ConvolutionFilterBlur : public ConvolutionFilter {
     virtual ~ConvolutionFilterBlur();
     float getRadius();
     void setRadius(float rad);
+
+    /**@brief uses distance formula from kernel values to center
+    of kernel matrix, applies Gaussian function with these values
+    and radius and updates new values into kernel */
     void CreateKernel() override;
+
+    /** @brief setter values for copied buffer used in kernel */
     void setCopyBuffer(PixelBuffer* buffer);  // used for blur tool
  protected:
     // size of matrix

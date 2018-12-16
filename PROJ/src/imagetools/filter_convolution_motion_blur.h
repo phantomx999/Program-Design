@@ -23,6 +23,9 @@
 
 namespace image_tools {
 
+/** @brief Blurs entire image in specified movement direction, 
+     where directions choices are North-South, East-West, 
+     NorthEast-SouthWest, and NorthWest-SouthEast */
 class ConvolutionFilterMotionBlur : public ConvolutionFilter {
  public:
     ConvolutionFilterMotionBlur();
@@ -32,6 +35,10 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
     void setRadius(float rad);
     std::string getDirection();
     void setDirection(std::string direction);
+
+    /** @brief kernel sets all matrix values as 0,
+    except vals in user inputted direction, where 
+    vals = 1/n (n is length of matrix) */
     void CreateKernel() override;
 /*
   enum BlurDir {
@@ -48,10 +55,8 @@ class ConvolutionFilterMotionBlur : public ConvolutionFilter {
  protected:
     float radius_;  // radius of matrix user input
     std::string direction_;  // direction of blur user input
-////////////////////////////////
     //BlurDir mblur_dir_;
     //static const std::map<BlurDir, std::string> mblur_dir_names_;
-////////////////////////////////
 };
 
 }  // namespace image_tools

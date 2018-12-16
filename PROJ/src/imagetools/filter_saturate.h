@@ -21,6 +21,7 @@
 
 namespace image_tools {
 
+/** @brief adjusts colorfulness of image */
 class FilterSaturate : public Filter {
  public:
     FilterSaturate();
@@ -29,6 +30,8 @@ class FilterSaturate : public Filter {
     float getSaturate();
     void setSaturate(float saturate);
 
+    /** @brief uses class ColorData Luminance, Clamp, and gray_scale functions
+     and ImageToolsMath::Lerp function to calculate pixel saturation in buffer   */
     ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                      int x, int y) override;
  private:

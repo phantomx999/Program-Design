@@ -1,0 +1,4 @@
+<map id="image_tools::FilterChannels" name="image_tools::FilterChannels">
+<area shape="rect" id="node2" href="$classimage__tools_1_1Filter.html" title="Base filter class, specific filters inherit from this class. " alt="" coords="33,95,162,121"/>
+<area shape="rect" id="node3" href="$classimage__tools_1_1PixelBuffer.html" title="Stores an array of ColorData, such as an image that can be drawn to the screen. " alt="" coords="15,5,179,32"/>
+</map>

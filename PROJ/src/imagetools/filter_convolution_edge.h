@@ -21,10 +21,17 @@
 
 namespace image_tools {
 
+/** @brief filter edits image to only show edge shapes,
+ border pixels on shapes are bright while non border 
+ pixels are dark  */
 class ConvolutionFilterEdge : public ConvolutionFilter {
  public:
     ConvolutionFilterEdge();
     virtual ~ConvolutionFilterEdge();
+
+    /** @brief sets all kernel matrix vals
+     to -1, center matrix val becomes (n*n-1)
+     where n is matrix length */
     void CreateKernel() override;
 };
 

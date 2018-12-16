@@ -21,6 +21,9 @@
 
 namespace image_tools {
 
+/** @brief Puts Red, Green, Blue color channels 
+  into bins of intensity values, reduces overall number
+  of colors */
 class FilterQuantize : public Filter {
  public:
     FilterQuantize();
@@ -28,6 +31,9 @@ class FilterQuantize : public Filter {
     virtual ~FilterQuantize();
     void setBinCount(int bin_count);
     int getBinCount();
+
+    /** @brief sets pixel buffer pixel color value to binned value
+      of R, G, B channels */
     ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                      int x, int y) override;
  private:

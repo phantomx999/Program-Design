@@ -21,6 +21,9 @@
 
 namespace image_tools {
 
+/** @brief Rounds Red, Green, Blue color channels to 
+  1.0 or 0.0 based on pixel's value relative to user GLUI input,
+  make image appear black and white */
 class FilterThreshold : public Filter {
  public:
     explicit FilterThreshold(float threshold);
@@ -29,6 +32,8 @@ class FilterThreshold : public Filter {
     float getThreshold();
     void setThreshold(float threshold);
 
+    /** @brief finds average intensity of pixel, compares with user
+      input threshold, rounds pixel to white or black color accordingly */
     ColorData CalculateFilteredPixel(PixelBuffer* buffer,
                                      int x, int y) override;
  protected:

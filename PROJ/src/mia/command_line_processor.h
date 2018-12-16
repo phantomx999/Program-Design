@@ -12,22 +12,28 @@
 
 namespace image_tools {
 
-//  parses Command Line, prints error message
-//  or stores commands in execution_ and then
-//  executes all commands if successful
+/** @brief  Parses Command Line, prints error message
+  or stores commands in execution_ and then
+  executes all commands if successful */
 class CommandLineProcessor {
   public:
     CommandLineProcessor();
     ~CommandLineProcessor();
+
+    /** @brief passes number of arguments and argument strings
+      from command line to be processed */
     void ProcessCommandLine(int argc, std::vector<std::string> argv);
+
+    /** @brief Used for invalid command line user input */
     void PrintHelpMessage();
+
     //  used only for non gtest purposes, otherwise default to PrintHelpMessage()
     void ErrorMessage(int error);
     inline CommandExecution* GetExecutor() {return execution_;};
   private:
-    //  passed for each specific image editor command
+    /** @brief  passed for each specific image editor command */
     ImageEditor* editor_;
-    //  stores commands and executes commans if successful input
+    /** @brief  stores commands and executes commans if successful input */
     CommandExecution* execution_;
 };
 
