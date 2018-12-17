@@ -26,6 +26,68 @@ However, the best part of the Flashphoto application
 is the filters component, which allows you to add in a creative, artistic, unique edge
 to all your photos that will surely impress your friends, coworkers, clients, and family members.
 
+Let's start out with the layout, which is very simple and visually intuitive.  The tool
+section is circled in red, while the filter section is in blue below:
+
+
+There are a total of 7 tools and 8 filters for Flashphoto.  We'll cover them in more 
+detail below.
+
+Tools: 
+-pen
+-calligraphy pen
+-chalk 
+-highlighter
+-spray can
+-eraser
+-blur tool
+
+Filters:
+-blur 
+-motion blur
+-sharpen
+-edge detect
+-threshold
+-saturate
+-Adjust R,G,B (Channels)
+-Quantize
+
+Tool 1: Pen
+This is the most basic tool, which just simply makes a basic pen stroke on the canvas.
+It's good for annotation or for simple writing.  Notice that you can increase the size
+of the pen stroke, as well as the color of the pen.  In fact, most tools in Flashphoto 
+have this ability
+
+Tool 2: Calligraphy Pen
+This pen is exactly as it sounds - a pen good for calligraphy.  If you are interested 
+in making calligraphy symbols, or cursive types of writing and drawing, then this
+pen is for you!
+
+Tool 3: Chalk 
+The chalk tool gives a chalky, bumpy effect on the canvas.  If you loved to draw with chalk
+as a kid, then you'll certainly enjoy this tool.  
+
+Tool 4: Highlighter 
+No surprise, but this tool makes a highlighting, stroke motion over the canvas.
+Good for highlighting and drawing thick lines.
+
+Tool 5: Spray Can
+The spray can tool looks like a spray can effect on the canvas.  You can move the tool
+around to give more of a diffuse spray can effect, you can focus the tool on area of
+the canvas to paint more saturation.   
+
+Tool 6: Eraser
+Of course, you need an eraser just in case you make a mistake.  The eraser is very
+basic and easy to use
+
+Tool 7: Blur Tool
+This tool is great if you want to blur our just a very small section of your image.
+Instead of relying on an entire filter to blur our the entire image (see below), you
+can use the blur tool to blur out a specific section of the image.  
+
+
+Filters:
+
 The filters allows you to enhance your images in a whole number of different ways!  For example, 
 each filter can alter the shades and colors of the pixels in your image to really make it look special.
   
@@ -113,6 +175,9 @@ more color intensity contrast of red, green, and blue hues in adjacent pixels.
 
 (Once again, click "Quantize", select the number of bins, and click "Apply")
 
+
+As you can see, Flashphoto is very easy to use and has all the tools and filters you 
+need to really make many different unique images!
 
 
 
