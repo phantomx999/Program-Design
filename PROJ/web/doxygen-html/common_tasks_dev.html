@@ -62,7 +62,55 @@ $(function() {
 <div class="title">Common Tasks </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"></div></div><!-- contents -->
+<div class="textblock"><p>A common task for a programmer intending to use this project might be to add in their own new filter. This tutorial will teach a programmer how to implement a new filter class into the project.</p>
+<ol type="1">
+<li>Decide what type of filter to be added (Convolution vs. Non-Convolution)<ul>
+<li>If it's a Convolution filter, it will inherit from <a class="el" href="filter__convolution_8h_source.html">filter_convolution.h</a></li>
+<li>If is not a convolution filter, it will inherit from <a class="el" href="filter_8h_source.html">filter.h</a></li>
+</ul>
+</li>
+<li>Place filter in imagetools directory</li>
+<li>Include directory header guard for this new filter header file.</li>
+<li>Include base class ".h" header include directives, as well as any other necessary header files.</li>
+<li>Use <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a> as a namespace for everything</li>
+<li><p class="startli">Below is an example of convolution filter class template:</p>
+<p class="startli">// filter_convolution_tutorial.h</p>
+<p class="startli">#ifndef IMAGETOOLS_FILTER_CONVOLUTION_TUTORIAL_H_ #define IMAGETOOLS_FILTER_CONVOLUTION_TUTORIAL_H_</p>
+<p class="startli">#include <a class="el" href="filter__convolution_8h_source.html">imagetools/filter_convolution.h</a></p>
+<p class="startli">namespace <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a> {</p>
+<p class="startli">class ConvolutionFilterTutorial : public ConvolutionFilter { public: ConvolutionFilterTutorial(); explicit ConvolutionFilterTutorial(float rad); virtual ~ConvolutionFilterTutorial();</p>
+<p class="startli">float getRadius(); void setRadius(float rad);</p>
+<p class="startli">void CreateKernel() override; void setCopyBuffer(PixelBuffer* buffer); protected: float radius_; };</p>
+<p class="startli">} // namespace <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a></p>
+</li>
+</ol>
+<p>#endif // IMAGETOOLS_FILTER_CONVOLUTION_TUTORIAL_H_</p>
+<p>Below is an example of a non convolution filter template:</p>
+<p>// filter_tutorial.h</p>
+<p>#ifndef IMAGETOOLS_FILTER_TUTORIAL_H_ #define IMAGETOOLS_FILTER_TUTORIAL_H_</p>
+<p>#include <a class="el" href="filter_8h_source.html">imagetools/filter.h</a></p>
+<p>namespace <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a> {</p>
+<p>class FilterTutorial : public Filter { public: FilterTutorial(); explicit FilterTutorial(int num); virtual ~FilterTutorial(); void setNum(int num); int getNum(); ColorData CalculateFilteredPixel(PixelBuffer* buffer, int x, int y) override; private: int num_; };</p>
+<p>} // namespace <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a></p>
+<p>#endif // IMAGETOOLS_FILTER_TUTORIAL_H_</p>
+<ol type="1">
+<li>Next step is to implement the filter into the UI for both Flashphoto and Mia. This will require adding the correct data member FilterTutorial tutorial into the <a class="el" href="image__editor_8h_source.html">image_editor.h</a>, as well as the correct data members for that particular FilterTutorial class in the Flashphoto and Mia apps (i.e. if necessary add data members into <a class="el" href="flashphoto__app_8h_source.html">flashphoto_app.h</a> constructor, same with <a class="el" href="mia__app_8h_source.html">mia_app.h</a>)</li>
+<li>Set up command line to use FilterTutorial as a command in command line mode. Below is an example:</li>
+</ol>
+<p>// <a class="el" href="image__editor__commands_8h_source.html">image_editor_commands.h</a></p>
+<p>#ifndef MIA_IMAGE_EDITOR_COMMANDS_H_ #define MIA_IMAGE_EDITOR_COMMANDS_H_</p>
+<p>#include &lt;string&gt; #include "imagetools/color_data.h" #include "imagetools/filter_convolution_motion_blur.h" #include "imagetools/image_editor.h"</p>
+<p>namespace <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a> {</p>
+<p>class TutorialFilterCommand : public ImageEditorCommand { public: TutorialFilterCommand(ImageEditor *image_editor, float radius); virtual ~TutorialFilterCommand();</p>
+<p>void Execute() override; inline float GetValue() {return radius_;} inline std::string GetName() override {return "-tutorial";} private: float radius_; };</p>
+<p>} // namespace <a class="el" href="namespaceimage__tools.html" title="Base class for all Convolution Filters, inherits from Filter.h. ">image_tools</a></p>
+<p>#endif // MIA_IMAGE_EDITOR_COMMANDS_H_</p>
+<ol type="1">
+<li><p class="startli">Lastly, the CommandLineProcesser needs to be able to read in the "tutorial" command. Add in the correct code into command_line_processor.cc (depending on your filter's data and constructor, examples might vary). Here is a simple example below:</p>
+<p class="startli">// ......code above TutorialFilterCommand* command1 = new BlurFilterCommand(editor_, next_arg); count_commands++; execution_-&gt;SetCommand(count_commands, command1); // ......more code below </p>
+</li>
+</ol>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
