@@ -1,4 +1,4 @@
-all: imagetools flashphoto mia tests
+all: imagetools flashphoto mia tests doxy
 
 check-style:
 	cd src/imagetools; make check-style
@@ -21,6 +21,9 @@ mia:
 
 tests:
 	cd src/tests; make -j
+
+doxy:
+	doxygen docs/Doxyfile
 
 clean:
 	rm -rf build

@@ -69,8 +69,10 @@ $(function() {
 <li>Flashphoto Application</li>
 <li>Mia Application</li>
 </ol>
-<p>ImageTools: Imagetools is a library that includes all of the major aspects of features and functionality that both Flashphoto and Mia applications use. Imagetools creates and implements 8 different tools and 8 different filters.</p>
-<p>Tools:</p><ul>
+<h2>ImageTools:</h2>
+<p>Imagetools is a library that includes all of the major aspects of features and functionality that both Flashphoto and Mia applications use. Imagetools creates and implements 8 different tools and 8 different filters.</p>
+<h3>Tools:</h3>
+<ul>
 <li>Pen</li>
 <li>Calligraphy Pen</li>
 <li>Chalk</li>
@@ -80,7 +82,8 @@ $(function() {
 <li>Blur Tool</li>
 <li>Stamp</li>
 </ul>
-<p>Filters:</p><ul>
+<h3>Filters:</h3>
+<ul>
 <li>Blur</li>
 <li>Motion Blur</li>
 <li>Sharpen</li>
@@ -90,17 +93,42 @@ $(function() {
 <li>Adjust R, G, B (Channels)</li>
 <li>Quantize</li>
 </ul>
+<div class="image">
+<img src="../../screenshots/hld_imagetools.png" alt="hld_imagetools" height="700" width="900"/>
+</div>
 <p>Imagetools also includes other classes such as ColorData, PixelBuffer, and MaskFactory in order to create pixel buffers and masks for implementation of the tools, and filters which both Flasphoto and Mia use. Lastly, Imagetools has a base GUI class that Flasphoto and Mia also use for user interface image processing.</p>
-<p>Flashphoto: Flasphoto is an imaging processing app used for Paint applications, Drawing, Artwork, and other general purposes. Flashphoto uses the methods of all the ImageTools filters listed above, as well as all the tools except for Stamp. Flashphoto application also includes GUI methods setup as well.</p>
-<p>Mia: Mia is a medical application used for imaging processing and annotation. It uses the tool classes Pen and Stamp, as well as the filter classes Blur, Sharpening, Edge Detect, Threshold, and Quantize. Mia, like Flasphoto, includes a GUI setup. However, Mia also can use a command line processing feature to process images as well.</p>
-<p>Features:</p>
-<ol type="1">
-<li>Tools All specific Tool classes in ImageTools inherit from a base Tool class in ImageTools(<a class="el" href="tool_8h_source.html">tool.h</a>). All tools also have a mask method (CreateMask()) which gets inherited and overwritten for each specific tool.</li>
-<li>Filters All filter classes in ImageTools inherit from a base Filter class (<a class="el" href="filter_8h_source.html">filter.h</a>). Each filter class overrides CalculateFilteredPixel() method for specific class uses.</li>
-</ol>
-<p>Also, 4 of the filters (Blur, MotionBlur, Edge Detect, and Sharpen) are convolution filters and inherit from a Convolution base class (<a class="el" href="filter__convolution_8h_source.html">filter_convolution.h</a>), which inherits from the base Filter class (<a class="el" href="filter_8h_source.html">filter.h</a>). All Convolution filter classes override CreateKernel() (to create a kernel) and SetCopyBuffer() methods in order to create correct Convolution type filters (please see diagram below).</p>
-<p>Mia Command Line Processing </p>
-</div></div><!-- contents -->
+<h2>Flashphoto:</h2>
+<p>Flasphoto is an imaging processing app used for Paint applications, Drawing, Artwork, and other general purposes. Flashphoto uses the methods of all the ImageTools filters listed above, as well as all the tools except for Stamp. Flashphoto application also includes GUI methods setup as well.</p>
+<h2>Mia:</h2>
+<p>Mia is a medical application used for imaging processing and annotation. It uses the tool classes Pen and Stamp, as well as the filter classes Blur, Sharpening, Edge Detect, Threshold, and Quantize. Mia, like Flasphoto, includes a GUI setup. However, Mia also can use a command line processing feature to process images as well.</p>
+<h3>Features:</h3>
+<h3>1. Tools</h3>
+<p>All specific Tool classes in ImageTools inherit from a base Tool class in ImageTools(<a class="el" href="tool_8h_source.html">tool.h</a>). All tools also have a mask method (CreateMask()) which gets inherited and overwritten for each specific tool.</p>
+<div class="image">
+<img src="../../screenshots/hld_tool.png" alt="hld_tool" height="700" width="900"/>
+</div>
+<p>The tools used the factory design for the creating the masks with the CreateMask() method. See diagram below for an example of factory design:</p>
+<div class="image">
+<img src="../../screenshots/hld_factory.png" alt="hld_factory" height="700" width="900"/>
+</div>
+<p>(credit to canvas lecture slides Prof. Keefe for above image)</p>
+<h3>2. Filters</h3>
+<p>All filter classes in ImageTools inherit from a base Filter class (<a class="el" href="filter_8h_source.html">filter.h</a>). Each filter class overrides CalculateFilteredPixel() method for specific class uses.</p>
+<div class="image">
+<img src="../../screenshots/hld_filter.png" alt="hld_filter" height="700" width="900"/>
+</div>
+<p>Also, 4 of the filters (Blur, MotionBlur, Edge Detect, and Sharpen) are convolution filters and inherit from a Convolution base class (<a class="el" href="filter__convolution_8h_source.html">filter_convolution.h</a>), which inherits from the base Filter class (<a class="el" href="filter_8h_source.html">filter.h</a>). All Convolution filter classes override CreateKernel() (to create a kernel) and SetCopyBuffer() methods in order to create correct Convolution type filters (please see diagram above).</p>
+<p>The filters used the template design procsess for the ApplyToBuffer(). See diagram below for an example of template design:</p>
+<div class="image">
+<img src="../../screenshots/hld_template.png" alt="hld_template" height="700" width="900"/>
+</div>
+<p>(credit to canvas lecture slides Prof. Keefe for above image)</p>
+<h3>Mia Command Line Processing</h3>
+<p>Command line processing used the command pattern.</p>
+<div class="image">
+<img src="../../screenshots/hld_imagecommands.png" alt="hld_imagecommands" height="700" width="900"/>
+</div>
+ </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">
