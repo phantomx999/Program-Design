@@ -1,8 +1,8 @@
 ### Assessment for Project Iteration 02 - Combined (Graded By: 3081 TAs)
 
-#### Total score: _69.05_ / _100_
+#### Total score: _80.05_ / _100_
 
-Run on December 17, 10:05:06 AM.
+Run on December 20, 03:52:43 AM.
 
 
 ### Combined Scores
@@ -11,12 +11,9 @@ Run on December 17, 10:05:06 AM.
 
 
 
-+  _0_ / _15_ : Fail: [Manual Design Inspection](PROJ_02_OverallDesign_Assessment.md) - (Graded By: Libby Ferland)
-
-<pre>Not Graded
-</pre>
++  _11.0_ / _15_ : Pass: [Manual Design Inspection](PROJ_02_OverallDesign_Assessment.md) - (Graded By: Libby Ferland)
 
 
 
-#### Total score: _69.05_ / _100_
+#### Total score: _80.05_ / _100_
 
